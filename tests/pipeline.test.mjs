@@ -1,0 +1,32 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {readFileSync,existsSync,writeFileSync} from 'node:fs';
+import {freshOutput,json} from '../.agents/skills/reanimate/scripts/lib.mjs';
+const id=Date.now(),base=`.reanimate/e2e-${id}`;
+function cli(script,flags,ok=true){const r=spawnSync(process.execPath,[`scripts/${script}.mjs`,...flags],{encoding:'utf8',timeout:240000});assert.equal(r.status===0,ok,r.stderr);return r;}
+test('authored animation -> MP4 -> reusable reference -> diagnostic comparison',()=>{
+ cli('render',['--in','animations/demo/index.html','--out',base]);
+ const probe=spawnSync(process.env.MOTIONLAB_FFPROBE||'ffprobe',['-v','error','-count_frames','-show_entries','stream=width,height,nb_read_frames,codec_name,r_frame_rate','-show_entries','format=duration','-of','json',`${base}/video.mp4`],{encoding:'utf8'});
+ assert.equal(probe.status,0,probe.stderr);const info=JSON.parse(probe.stdout);assert.equal(info.streams[0].codec_name,'h264');assert.equal(info.streams[0].width,640);assert.equal(info.streams[0].height,360);assert.equal(Number(info.streams[0].nb_read_frames),48);assert.equal(Number(info.format.duration),2);
+ const saved=readFileSync(`${base}/video.mp4`);
+ cli('render',['--in','animations/demo/index.html','--out',base],false);assert.deepEqual(readFileSync(`${base}/video.mp4`),saved);
+ const name=`e2e-ref-${id}`;
+ cli('reference',['--in',`${base}/video.mp4`,'--name',name,'--end','2','--fps','24','--width','640','--brief','Сохранить движение для будущего ролика']);
+ const ref=JSON.parse(readFileSync(`.reanimate/${name}-reference/reference.json`));assert.equal(ref.sampling.count,48);assert.equal(ref.sha256.length,64);assert.ok(existsSync(`.reanimate/${name}-sheets/sheet-02.png`));
+ cli('compare',['--ref',`${base}`,'--clone',`${base}`,'--out',`${base}-compare`]);
+ const report=JSON.parse(readFileSync(`${base}-compare/report.json`));assert.equal(report.deltaSeconds.firstMotion,0);assert.equal(report.deltaSeconds.lastMotion,0);assert.ok(report.ref.peak>0.002);assert.equal(report.verdict,'visual-review-required');
+ const still=freshOutput(`${base}-static`),png=readFileSync(`${base}/0025.png`);
+ for(let i=1;i<=48;i++)writeFileSync(`${still}/${String(i).padStart(4,'0')}.png`,png,{flag:'wx'});
+ json(`${still}/frames.json`,{fps:24,count:48,start:0});
+ cli('compare',['--ref',base,'--clone',still,'--out',`${base}-static-compare`]);
+ const staticReport=JSON.parse(readFileSync(`${base}-static-compare/report.json`));assert.equal(staticReport.clone.firstMotion,null);assert.equal(staticReport.clone.peak,0);
+ const audio=`${base}/sound.wav`;
+ const sound=spawnSync(process.env.REANIMATE_FFMPEG||'ffmpeg',['-v','error','-n','-f','lavfi','-i','sine=frequency=440:duration=0.2',audio],{encoding:'utf8'});assert.equal(sound.status,0,sound.stderr);
+ cli('render',['--in','animations/demo/index.html','--out',`${base}-audio`,'--audio',audio]);
+ const av=spawnSync(process.env.MOTIONLAB_FFPROBE||'ffprobe',['-v','error','-show_entries','stream=codec_type,duration','-of','json',`${base}-audio/video.mp4`],{encoding:'utf8'});assert.equal(av.status,0,av.stderr);
+ const audioStream=JSON.parse(av.stdout).streams.find(s=>s.codec_type==='audio');assert.ok(audioStream);assert.ok(Math.abs(Number(audioStream.duration)-2)<0.1);
+ cli('render',['--in','animations/demo/index.html','--out','animations/demo'],false);
+ cli('reference',['--in',`${base}/video.mp4`,'--name','../escape'],false);
+ console.log(`MP4 preview: ${base}/video.mp4`);
+});

@@ -1,0 +1,14 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>MotionLab demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101522;color:#fff;font-family:Arial,sans-serif}#stage{width:640px;height:360px;padding:46px;overflow:hidden;background:radial-gradient(ellipse at 85% 10%,#304c70,transparent 65%)}h1{margin:0 0 14px;font-size:42px;letter-spacing:-2px}.sub{color:#b6c9df;font-size:17px}.cards{display:flex;gap:12px;margin-top:26px}.card{padding:18px;background:#23364c;border:1px solid #56728d;border-radius:14px;font-size:17px;width:166px}.tag{color:#88dfcc;font-size:12px;margin-bottom:12px}
+</style><main id="stage"><div class="tag" data-motion>MOTIONLAB / ВАШ ДИЗАЙН</div><h1 data-motion>Идея в движении</h1><div class="sub" data-motion>Ваш текст. Ваш стиль. Новый ролик.</div><div class="cards"><div class="card" data-motion>Референс</div><div class="card" data-motion>Движение</div><div class="card" data-motion>Результат</div></div></main>
+<script>
+// Same time-based seek contract as reanimate's demo. No wall-clock animation or randomness.
+window.__video={duration:2,fps:24,size:[640,360],async seek(t){
+ document.querySelectorAll('[data-motion]').forEach((el,i)=>{
+  const p=Math.min(1,Math.max(0,(t-i*0.12)/0.65)),e=1-(1-p)**3;
+  el.style.opacity=p;el.style.transform=`translateY(${(1-e)*30}px)`;
+ });
+}};
+window.__video.seek(0);
+</script></html>
