@@ -1,4 +1,4 @@
-// Local contact sheets, based on reanimate sheet.ts; ffmpeg replaces Chromium.
+// Local contact sheets rendered with ffmpeg. See ../NOTICE.md for provenance.
 import {join} from 'node:path';
 import {readFileSync,readdirSync,realpathSync} from 'node:fs';
 import {args,number,run,freshOutput,json} from './lib.mjs';

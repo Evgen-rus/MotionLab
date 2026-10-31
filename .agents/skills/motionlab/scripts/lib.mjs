@@ -7,18 +7,18 @@ export function args() {
 }
 export function number(v, fallback, min, max, integer=false) {const n=Number(v ?? fallback); if(!Number.isFinite(n)||n<min||n>max||(integer&&!Number.isInteger(n))) throw Error(`Invalid number: ${v}`); return n;}
 export function run(argv) {
- const r=spawnSync(process.env.REANIMATE_FFMPEG || 'ffmpeg', ['-hide_banner','-nostdin','-loglevel','error','-protocol_whitelist','file,pipe',...argv], {encoding:'utf8',maxBuffer:16<<20,timeout:120000,windowsHide:true});
+ const r=spawnSync(process.env.MOTIONLAB_FFMPEG || 'ffmpeg', ['-hide_banner','-nostdin','-loglevel','error','-protocol_whitelist','file,pipe',...argv], {encoding:'utf8',maxBuffer:16<<20,timeout:120000,windowsHide:true});
  if(r.error || r.status!==0) throw Error(r.error?.message || r.stderr || `ffmpeg exited ${r.status}`); return r;
 }
 export function localFile(p){if(!p)throw Error('Missing --in'); const f=realpathSync(resolve(p)); if(!statSync(f).isFile())throw Error('Input must be a local file');return f;}
 export function freshOutput(p){
  if(!p)throw Error('Missing --out');
- const root=resolve('.reanimate'); mkdirSync(root,{recursive:true});
+ const root=resolve('.motionlab'); mkdirSync(root,{recursive:true});
  if(realpathSync(root).toLowerCase()!==root.toLowerCase())throw Error('Output root cannot be a link');
  const out=resolve(p); const rel=relative(root,out);
- if(!rel || rel.startsWith('..') || rel.includes(sep))throw Error('Use a NEW direct child of .reanimate');
+ if(!rel || rel.startsWith('..') || rel.includes(sep))throw Error('Use a NEW direct child of .motionlab');
  mkdirSync(out); // Exclusive creation: existing directories, files and links are refused.
- writeFileSync(join(out,'.reanimate-owned'),'MotionLab local video output\n',{flag:'wx'});
+ writeFileSync(join(out,'.motionlab-owned'),'MotionLab local video output\n',{flag:'wx'});
  return out;
 }
 export function json(p,data){writeFileSync(p,JSON.stringify(data,null,2)+'\n',{flag:'wx'});}

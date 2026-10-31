@@ -10,7 +10,7 @@ h1{margin:0 0 14px;font-size:40px;font-weight:800;letter-spacing:-1.5px;line-hei
 .tag{background:linear-gradient(100deg,#b38aff,#5cd1ff);background-clip:text;-webkit-background-clip:text;color:transparent;width:max-content;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:12px}
 </style><main id="stage"><div class="tag" data-motion>MOTIONLAB / ВАШ ДИЗАЙН</div><h1 data-motion>Идея в движении</h1><div class="sub" data-motion>Ваш текст. Ваш стиль. Новый ролик.</div><div class="cards"><div class="card" data-motion>Референс</div><div class="card" data-motion>Движение</div><div class="card" data-motion>Результат</div></div></main>
 <script>
-// Same time-based seek contract as reanimate's demo. No wall-clock animation or randomness.
+// Deterministic seek contract: no wall-clock animation or randomness.
 const fontsReady=Promise.all([document.fonts.load('800 40px Manrope'),document.fonts.load('500 16px Manrope')]).then(results=>{if(results.some(faces=>faces.length===0))throw Error('Manrope failed to load');});
 window.__video={duration:2,fps:24,size:[640,360],async seek(t){
  await fontsReady;

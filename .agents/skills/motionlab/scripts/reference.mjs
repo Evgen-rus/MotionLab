@@ -7,7 +7,7 @@ import {args,localFile,freshOutput,json} from './lib.mjs';
 const a=args();
 for(const key of Object.keys(a))if(!['in','name','start','end','fps','width','brief'].includes(key))throw Error(`Unknown option: ${key}`);
 if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,60}$/.test(a.name||''))throw Error('--name must be a short letters/digits/dashes identifier');
-const input=localFile(a.in),base=`.reanimate/${a.name}`;
+const input=localFile(a.in),base=`.motionlab/${a.name}`;
 const out=freshOutput(base+'-reference');
 function child(script,argv){const r=spawnSync(process.execPath,[fileURLToPath(new URL(`${script}.mjs`,import.meta.url)),...argv],{stdio:'inherit'});if(r.error||r.status!==0)throw Error(`${script} failed; partial artifacts retained`);}
 const flags=['--in',input,'--out',base+'-frames'];

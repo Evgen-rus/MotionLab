@@ -1,4 +1,4 @@
-// Adapted from reanimate frames.ts (MIT), local files only.
+// Local reference frame extraction. See ../NOTICE.md for provenance.
 import {join} from 'node:path';
 import {readdirSync} from 'node:fs';
 import {args,number,run,localFile,freshOutput,json} from './lib.mjs';

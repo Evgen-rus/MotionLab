@@ -8,7 +8,7 @@ for(const key of Object.keys(a))if(!['ref','clone','out'].includes(key))throw Er
 function activity(dir){
  dir=realpathSync(dir);const meta=JSON.parse(readFileSync(join(dir,'frames.json')));
  const fps=number(meta.fps,undefined,0.1,60),count=number(meta.count,undefined,2,3600,true);
- const r=spawnSync(process.env.REANIMATE_FFMPEG||'ffmpeg',['-v','error','-nostdin','-protocol_whitelist','file,pipe','-framerate',String(fps),'-i',join(dir,'%04d.png'),'-frames:v',String(count),'-vf','scale=64:36,format=gray','-f','rawvideo','pipe:1'],{maxBuffer:16<<20,timeout:120000,windowsHide:true});
+ const r=spawnSync(process.env.MOTIONLAB_FFMPEG||'ffmpeg',['-v','error','-nostdin','-protocol_whitelist','file,pipe','-framerate',String(fps),'-i',join(dir,'%04d.png'),'-frames:v',String(count),'-vf','scale=64:36,format=gray','-f','rawvideo','pipe:1'],{maxBuffer:16<<20,timeout:120000,windowsHide:true});
  if(r.error||r.status!==0||r.stdout.length!==count*2304)throw Error('Unable to decode complete frame sequence');
  const curve=[];
  for(let i=1;i<count;i++){let sum=0;for(let p=0;p<2304;p++)sum+=Math.abs(r.stdout[i*2304+p]-r.stdout[(i-1)*2304+p]);curve.push(sum/(2304*255));}

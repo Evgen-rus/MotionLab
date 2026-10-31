@@ -1,0 +1,7 @@
+interface:
+  display_name: "MotionLab"
+  short_description: "Разбор видео, дизайн анимации и создание MP4"
+  default_prompt: "Используй $motionlab: разбери приложенное видео и создай мой ролик с надписями."
+
+policy:
+  allow_implicit_invocation: true

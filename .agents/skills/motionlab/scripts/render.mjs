@@ -1,4 +1,4 @@
-// Adapted from reanimate site/video/scripts/render.ts (MIT): seek -> screenshot -> ffmpeg.
+// Time-based seek -> screenshot -> ffmpeg. See ../NOTICE.md for provenance.
 import { chromium } from 'playwright-core';
 import { createServer } from 'node:http';
 import { readFileSync, realpathSync, existsSync, writeFileSync, statSync } from 'node:fs';

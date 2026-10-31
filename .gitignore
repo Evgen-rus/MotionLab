@@ -1,5 +1,7 @@
 # Local recordings, extracted frames and contact sheets
+.motionlab/
 .reanimate/
+/animations/
 /videos/
 /input/
 *.mp4
