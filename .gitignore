@@ -1,0 +1,26 @@
+# Local recordings, extracted frames and contact sheets
+.reanimate/
+/videos/
+/input/
+*.mp4
+*.mov
+*.webm
+*.avi
+*.mkv
+*.gif
+
+# Dependencies and local configuration
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Temporary and editor files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
