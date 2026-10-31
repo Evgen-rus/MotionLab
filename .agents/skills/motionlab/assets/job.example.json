@@ -8,7 +8,13 @@
     "durationSeconds": null,
     "font": "Manrope 800/500",
     "palette": "propose for task",
-    "audio": "silent unless requested"
+    "audio": "silent unless requested",
+    "goal": "",
+    "audience": "",
+    "platform": "",
+    "placement": "",
+    "fps": 30,
+    "resolution": null
   },
   "reference": null,
   "optionsPreview": null,
@@ -18,5 +24,18 @@
   "approval": null,
   "deliverables": null,
   "versions": [],
-  "sources": []
+  "sources": [],
+  "references": [],
+  "typography": {
+    "source": null,
+    "families": [],
+    "licenses": [],
+    "cyrillicChecked": false
+  },
+  "audio": {
+    "music": null,
+    "effects": [],
+    "mix": null
+  },
+  "mode": "smart"
 }

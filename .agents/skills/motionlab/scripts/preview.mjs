@@ -2,7 +2,7 @@ import {spawnSync} from 'node:child_process';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {args,localFile,freshOutput,json} from './lib.mjs';
+import {args,localFile,freshOutput,json,run} from './lib.mjs';
 const a=args();
 for(const key of Object.keys(a))if(!['in','out'].includes(key))throw Error(`Unknown option: ${key}`);
 const manifest=localFile(a.in),views=JSON.parse(readFileSync(manifest,'utf8'));
@@ -18,4 +18,10 @@ for(let i=0;i<views.length;i++){
  cards.push(`<section><h2>${escape(v.name)}</h2><p>${escape(v.description||'')}</p><div class="frames">${times.map((t,k)=>`<figure><img src="${encodeURIComponent(`вариант-${i+1}`)}/${String(k+1).padStart(4,'0')}.png"><figcaption>${escape(t)} s</figcaption></figure>`).join('')}</div></section>`);
 }
 writeFileSync(join(out,'index.html'),`<!doctype html><html lang="ru"><meta charset="utf-8"><title>Дизайн до анимации</title><style>body{margin:24px;background:#101522;color:#eef3fa;font:16px/1.5 system-ui,sans-serif}main{max-width:1500px;margin:auto}section{padding:20px;margin-bottom:20px;border:1px solid #43526b;border-radius:16px}h1,h2{margin:0 0 12px}.frames{display:flex;flex-wrap:wrap;gap:16px}figure{margin:0;flex:1;min-width:240px}img{width:100%;max-height:65vh;object-fit:contain;background:#080b12}figcaption,p{color:#bbc8df}</style><main><h1>Дизайн до анимации</h1><p>Статичные кадры будущих сцен. Выберите вариант или опишите, что нравится и что изменить. MP4 будет создан после одобрения.</p>${cards.join('')}</main></html>`,{flag:'wx'});
+// Pad thumbnails to preserve each video's aspect ratio.
+const inputs=views.flatMap((v,i)=>['-i',join(out,`вариант-${i+1}`,'0001.png')]);
+const filters=views.map((v,i)=>`[${i}:v]scale=480:360:force_original_aspect_ratio=decrease,pad=480:416:(ow-iw)/2:40:color=0x101522,setsar=1,drawtext=font=Arial:text='${String.fromCharCode(65+i)}':x=16:y=8:fontsize=26:fontcolor=white[v${i}]`);
+filters.push(views.length===1?'[v0]null[out]':views.map((v,i)=>`[v${i}]`).join('')+`hstack=inputs=${views.length}[out]`);
+run(['-n',...inputs,'-filter_complex',filters.join(';'),'-map','[out]','-frames:v','1',join(out,'contact-sheet.png')]);
+console.log(join(out,'contact-sheet.png'));
 json(join(out,'preview.json'),{manifest,views,approval:'pending'});console.log(join(out,'index.html'));

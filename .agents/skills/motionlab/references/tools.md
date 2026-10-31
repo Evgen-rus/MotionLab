@@ -9,7 +9,7 @@ Read [projects.md](projects.md) first. Examples below use `projects/Пролёт
 Reference:
 `node "<skill>/scripts/reference.mjs" --in <local-video> --out "projects/Пролёт по коридору/референс-01" --start 0 --end 5 --fps 10 --brief <requirements>`
 
-Creates reference.json, analysis.md and child кадры/ and листы/ inside the requested output directory. Fill actual analysis after viewing PNGs. The script saves a hash and extracted evidence, not an archival copy: the agent first copies required originals into the video project. At 10 fps time resolution is around 100 ms. Use 25–30 fps for short fast movement. For custom frame limits run frames.mjs directly and then sheet.mjs.
+Accepts video or local PNG/JPEG/WebP/BMP/TIFF; optional --roles typography,palette records reference roles. Run once per source for mixed sets. Images decode one frame; video flags remain unchanged. Creates reference.json, analysis.md and child кадры/ and листы/ inside the requested output directory. Fill actual analysis after viewing PNGs. The script saves a hash and extracted evidence, not an archival copy: the agent first copies required originals into the video project. At 10 fps time resolution is around 100 ms. Use 25–30 fps for short fast movement. For custom frame limits run frames.mjs directly and then sheet.mjs.
 
 Preview manifest JSON (scene paths relative to manifest file; absolute paths accepted):
 ```json
@@ -22,7 +22,7 @@ Preview manifest JSON (scene paths relative to manifest file; absolute paths acc
 
 `node "<skill>/scripts/preview.mjs" --in <manifest.json> --out "projects/Пролёт по коридору/версии/01/превью-01"`
 
-Renders 1–3 actual stills per view, 1–3 views. Creates index.html gallery, preview.json and child вариант-1/ etc. with PNGs. Open gallery locally and embed PNGs in chat; inspect them first. No MP4 is rendered. For storyboard use a single selected source with times covering 2–3 meaningful phases. A time must be >=0 and less than scene duration. Preview approval metadata starts pending; the agent records the actual user's decision in job.json.
+Renders 1–3 actual stills per view, 1–3 views. Creates contact-sheet.png (A/B/C, preserving proportions), index.html gallery, preview.json and child вариант-1/ etc. with PNGs. Open gallery locally and embed PNGs in chat; inspect them first. No MP4 is rendered. For storyboard use a single selected source with times covering 2–3 meaningful phases. A time must be >=0 and less than scene duration. Preview approval metadata starts pending; the agent records the actual user's decision in job.json.
 
 Single-scene stills are also available: `node "<skill>/scripts/render.mjs" --in <scene.html> --out "projects/Пролёт по коридору/версии/01/кадры-01" --stills 0.3,0.8,1.8`.
 
