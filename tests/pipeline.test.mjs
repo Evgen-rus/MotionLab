@@ -1,9 +1,10 @@
-import {test} from 'node:test';
+import {test,after} from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {readFileSync,existsSync,writeFileSync} from 'node:fs';
+import {readFileSync,existsSync,writeFileSync,rmSync} from 'node:fs';
 import {freshOutput,json} from '../.agents/skills/motionlab/scripts/lib.mjs';
-const id=Date.now(),base=`.motionlab/e2e-${id}`;
+const id=Date.now(),workspace=freshOutput(`projects/Проверка рендера ${id}`),base=`${workspace}/версии/01/рендер-01`;
+after(()=>rmSync(workspace,{recursive:true,force:true}));
 function cli(script,flags,ok=true){const r=spawnSync(process.execPath,[`.agents/skills/motionlab/scripts/${script}.mjs`,...flags],{encoding:'utf8',timeout:240000});assert.equal(r.status===0,ok,r.stderr);return r;}
 test('authored animation -> MP4 -> reusable reference -> diagnostic comparison',()=>{
  cli('render',['--in','.agents/skills/motionlab/assets/scene.html','--out',base]);
@@ -12,8 +13,8 @@ test('authored animation -> MP4 -> reusable reference -> diagnostic comparison',
  const saved=readFileSync(`${base}/video.mp4`);
  cli('render',['--in','.agents/skills/motionlab/assets/scene.html','--out',base],false);assert.deepEqual(readFileSync(`${base}/video.mp4`),saved);
  const name=`e2e-ref-${id}`;
- cli('reference',['--in',`${base}/video.mp4`,'--name',name,'--end','2','--fps','24','--width','640','--brief','Сохранить движение для будущего ролика']);
- const ref=JSON.parse(readFileSync(`.motionlab/${name}-reference/reference.json`));assert.equal(ref.sampling.count,48);assert.equal(ref.sha256.length,64);assert.ok(existsSync(`.motionlab/${name}-sheets/sheet-02.png`));
+ cli('reference',['--in',`${base}/video.mp4`,'--out',`${workspace}/${name}`,'--end','2','--fps','24','--width','640','--brief','Сохранить движение для будущего ролика']);
+ const ref=JSON.parse(readFileSync(`${workspace}/${name}/reference.json`));assert.equal(ref.sampling.count,48);assert.equal(ref.sha256.length,64);assert.ok(existsSync(`${workspace}/${name}/листы/sheet-02.png`));
  cli('compare',['--ref',`${base}`,'--clone',`${base}`,'--out',`${base}-compare`]);
  const report=JSON.parse(readFileSync(`${base}-compare/report.json`));assert.equal(report.deltaSeconds.firstMotion,0);assert.equal(report.deltaSeconds.lastMotion,0);assert.ok(report.ref.peak>0.002);assert.equal(report.verdict,'visual-review-required');
  const still=freshOutput(`${base}-static`),png=readFileSync(`${base}/0025.png`);
@@ -27,6 +28,6 @@ test('authored animation -> MP4 -> reusable reference -> diagnostic comparison',
  const av=spawnSync(process.env.MOTIONLAB_FFPROBE||'ffprobe',['-v','error','-show_entries','stream=codec_type,duration','-of','json',`${base}-audio/video.mp4`],{encoding:'utf8'});assert.equal(av.status,0,av.stderr);
  const audioStream=JSON.parse(av.stdout).streams.find(s=>s.codec_type==='audio');assert.ok(audioStream);assert.ok(Math.abs(Number(audioStream.duration)-2)<0.1);
  cli('render',['--in','.agents/skills/motionlab/assets/scene.html','--out','.agents/skills/motionlab/assets'],false);
- cli('reference',['--in',`${base}/video.mp4`,'--name','../escape'],false);
+ cli('reference',['--in',`${base}/video.mp4`,'--out','../escape'],false);
  console.log(`MP4 preview: ${base}/video.mp4`);
 });

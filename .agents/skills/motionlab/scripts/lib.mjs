@@ -1,5 +1,5 @@
-import {mkdirSync, realpathSync, statSync, writeFileSync} from 'node:fs';
-import {resolve, relative, join, sep} from 'node:path';
+import {mkdirSync, realpathSync, statSync, writeFileSync, existsSync, lstatSync} from 'node:fs';
+import {resolve, relative, join, sep, isAbsolute} from 'node:path';
 import {spawnSync} from 'node:child_process';
 export function args() {
  const out={}; const argv=process.argv.slice(2);
@@ -13,10 +13,18 @@ export function run(argv) {
 export function localFile(p){if(!p)throw Error('Missing --in'); const f=realpathSync(resolve(p)); if(!statSync(f).isFile())throw Error('Input must be a local file');return f;}
 export function freshOutput(p){
  if(!p)throw Error('Missing --out');
- const root=resolve('.motionlab'); mkdirSync(root,{recursive:true});
- if(realpathSync(root).toLowerCase()!==root.toLowerCase())throw Error('Output root cannot be a link');
- const out=resolve(p); const rel=relative(root,out);
- if(!rel || rel.startsWith('..') || rel.includes(sep))throw Error('Use a NEW direct child of .motionlab');
+ const root=resolve('projects'),out=resolve(p),rel=relative(root,out);
+ if(!rel || rel==='..' || rel.startsWith('..'+sep) || isAbsolute(rel))throw Error('Use a NEW directory inside projects/<working title>');
+ const parts=rel.split(sep);
+ if(parts.some(part=>/[<>:"|?*\x00-\x1f]/.test(part)||/[. ]$/.test(part)||/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part)))throw Error('Invalid output folder name');
+ mkdirSync(root,{recursive:true});
+ if(realpathSync(root).toLowerCase()!==root.toLowerCase()||lstatSync(root).isSymbolicLink())throw Error('Output root cannot be a link');
+ let parent=root;
+ for(const part of parts.slice(0,-1)){
+  parent=join(parent,part);
+  if(!existsSync(parent))mkdirSync(parent);
+  if(lstatSync(parent).isSymbolicLink()||realpathSync(parent).toLowerCase()!==parent.toLowerCase())throw Error('Output parents cannot be links');
+ }
  mkdirSync(out); // Exclusive creation: existing directories, files and links are refused.
  writeFileSync(join(out,'.motionlab-owned'),'MotionLab local video output\n',{flag:'wx'});
  return out;

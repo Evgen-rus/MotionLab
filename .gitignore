@@ -1,4 +1,5 @@
 # Local recordings, extracted frames and contact sheets
+/projects/
 .motionlab/
 .reanimate/
 /animations/

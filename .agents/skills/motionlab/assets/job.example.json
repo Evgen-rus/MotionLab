@@ -1,12 +1,22 @@
 {
+  "title": "",
   "stage": "intake",
   "revision": 1,
-  "brief": { "content": "", "format": null, "durationSeconds": null, "font": "Manrope 800/500", "palette": "propose for task", "audio": "silent unless requested" },
+  "brief": {
+    "content": "",
+    "format": null,
+    "durationSeconds": null,
+    "font": "Manrope 800/500",
+    "palette": "propose for task",
+    "audio": "silent unless requested"
+  },
   "reference": null,
   "optionsPreview": null,
   "selectedOption": null,
   "storyboardPreview": null,
   "decisions": [],
   "approval": null,
-  "deliverables": null
+  "deliverables": null,
+  "versions": [],
+  "sources": []
 }

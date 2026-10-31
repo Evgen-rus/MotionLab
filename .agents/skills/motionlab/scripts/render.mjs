@@ -19,8 +19,8 @@ if(!executablePath) throw Error('Install Edge/Chrome or set MOTIONLAB_BROWSER to
 const stills=a.stills===undefined ? null : a.stills.split(',').map(t=>number(t,undefined,0,120));
 if(stills && (stills.length<1||stills.length>6))throw Error('Use 1-6 still times');
 if(a.job && !stills){
- const job=JSON.parse(readFileSync(localFile(a.job),'utf8'));
- if(job.stage!=='approved'||!job.approval?.message||realpathSync(job.approval.source)!==source)throw Error('Job needs explicit user approval for this scene before MP4 rendering');
+ const jobPath=localFile(a.job),job=JSON.parse(readFileSync(jobPath,'utf8'));
+ if(job.stage!=='approved'||!job.approval?.message||realpathSync(resolve(dirname(jobPath),job.approval.source))!==source)throw Error('Job needs explicit user approval for this scene before MP4 rendering');
 }
 const out=freshOutput(a.out);
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf','.json':'application/json'};

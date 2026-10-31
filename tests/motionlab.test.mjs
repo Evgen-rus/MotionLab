@@ -1,11 +1,12 @@
-import {test} from 'node:test';
+import {test,after} from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdirSync,writeFileSync,readFileSync,existsSync,realpathSync} from 'node:fs';
+import {mkdirSync,writeFileSync,readFileSync,existsSync,realpathSync,symlinkSync,rmSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {freshOutput,number} from '../.agents/skills/motionlab/scripts/lib.mjs';
 const id=Date.now().toString();
-const base=resolve('.motionlab');mkdirSync(base,{recursive:true});
+const base=freshOutput(`projects/Проверка извлечения ${id}`);
+after(()=>rmSync(base,{recursive:true,force:true}));
 function cli(script,argv,ok=true){const r=spawnSync(process.execPath,[`.agents/skills/motionlab/scripts/${script}.mjs`,...argv],{encoding:'utf8'});assert.equal(r.status===0,ok,r.stderr);return r;}
 test('local video extraction, sheets, no overwrite and bounded output',()=>{
  const input=join(base,`тест видео ${id}.mp4`);
@@ -19,7 +20,10 @@ test('local video extraction, sheets, no overwrite and bounded output',()=>{
  writeFileSync(join(ref,'foreign.png'),'keep me');
  cli('frames',['--in',input,'--out',ref],false);assert.equal(readFileSync(join(ref,'foreign.png'),'utf8'),'keep me');assert.deepEqual(readFileSync(join(ref,'0001.png')),first);
  cli('sheet',['--frames',ref,'--out',sheets],false);assert.deepEqual(readFileSync(join(sheets,'sheet-01.png')),sheet);
- assert.throws(()=>freshOutput('.'));assert.throws(()=>freshOutput('.motionlab'));assert.throws(()=>freshOutput('.motionlab/a/b'));assert.throws(()=>number('0',1,1,60));
+ assert.throws(()=>freshOutput('.'));assert.throws(()=>freshOutput('projects'));assert.throws(()=>freshOutput('projects/../outside'));assert.throws(()=>freshOutput(join(base,'NUL')));
+ const nested=freshOutput(join(base,'версии','01','превью'));assert.ok(existsSync(nested));assert.throws(()=>freshOutput(nested));
+ const linked=join(base,'ссылка');symlinkSync(base,linked,process.platform==='win32'?'junction':'dir');assert.throws(()=>freshOutput(join(linked,'escape')));assert.ok(!existsSync(join(base,'escape')));rmSync(linked);
+ assert.throws(()=>number('0',1,1,60));
  cli('frames',['--in',input,'--out',join(base,`bad-${id}`),'--fps','NaN'],false);
  cli('frames',['--in','https://example.com/a.mp4','--out',join(base,`url-${id}`)],false);
  console.log(`Preview: ${sheets}`);
