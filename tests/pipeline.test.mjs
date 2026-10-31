@@ -4,7 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {readFileSync,existsSync,writeFileSync} from 'node:fs';
 import {freshOutput,json} from '../.agents/skills/reanimate/scripts/lib.mjs';
 const id=Date.now(),base=`.reanimate/e2e-${id}`;
-function cli(script,flags,ok=true){const r=spawnSync(process.execPath,[`scripts/${script}.mjs`,...flags],{encoding:'utf8',timeout:240000});assert.equal(r.status===0,ok,r.stderr);return r;}
+function cli(script,flags,ok=true){const r=spawnSync(process.execPath,[`.agents/skills/reanimate/scripts/${script}.mjs`,...flags],{encoding:'utf8',timeout:240000});assert.equal(r.status===0,ok,r.stderr);return r;}
 test('authored animation -> MP4 -> reusable reference -> diagnostic comparison',()=>{
  cli('render',['--in','.agents/skills/reanimate/assets/scene.html','--out',base]);
  const probe=spawnSync(process.env.MOTIONLAB_FFPROBE||'ffprobe',['-v','error','-count_frames','-show_entries','stream=width,height,nb_read_frames,codec_name,r_frame_rate','-show_entries','format=duration','-of','json',`${base}/video.mp4`],{encoding:'utf8'});
