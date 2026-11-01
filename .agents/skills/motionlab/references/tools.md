@@ -1,5 +1,21 @@
 # Portable tools
 
+## Optional local sound synthesis
+
+Python 3 with NumPy is optional: check `python -c "import numpy; print(numpy.__version__)"`. If missing, use a project-local venv (`python -m venv .venv`, then `.venv/Scripts/python -m pip install numpy` on Windows; `.venv/bin/python -m pip install numpy` on Linux). No SciPy or external API is needed. The supplied demo uses SciPy filters; this implementation uses simple NumPy noise differentiation, oscillators and envelopes instead. Synthetic timbres are approximations.
+
+`python "<skill>/scripts/synth_audio.py" --out "projects/Проверка звука/audio-A" --duration 6 --tempo 108 --mood warm --instruments kick,snare,hat,bass,chords --seed 42`
+
+Use an initialized named project. Output directory must be new and inside projects. Options: duration 0.1–120 seconds, tempo 30–240 BPM; mood warm/bright/dark changes harmony; instruments is a comma-separated subset of kick/snare/hat/bass/chords. For three previews run into audio-A/B/C, e.g. warm/108/full ensemble, bright/128/kick,hat,bass, dark/72/bass,chords. Adapt these choices to the brief, not a fixed style. `--effects cues.json` accepts an array of `{ "time": 0.5, "kind": "tap", "gain": 0.12, "pan": 0, "enabled": true }`; kinds tap/drop/swoosh; `[]` means no effects. Default cues are a demonstration, replace with scene timings.
+
+Outputs: music.wav, sfx.wav, mix.wav (stereo 44.1 kHz PCM16), individual mono effect-NN.wav and recipe.json. Effect-file gain is baked in; recipe gain=1 with pan/time retained. Record command/settings and component paths in job.audio. Music has an attack and up to 1.35-second fade; boundary effects get a short fade. Regenerate a mix when adjusting components using the existing ffmpeg workflow; preserve prior exports. Pass mix.wav to the unchanged render.mjs --audio. Music and foley use independent random streams. Shared peak attenuation protects the mix; retain stems from the same run when recombining.
+
+## Bundled typography
+
+Paper Cutout includes the optional pairing Manrope 800 + DejaVu Serif Bold Italic 700. Copy both TTFs and both licenses from assets/fonts into each scene's fonts directory. DejaVuSerif-BoldItalic.ttf is the unmodified file from matplotlib v3.10.0, lib/matplotlib/mpl-data/fonts/ttf; its upstream license is DejaVu version_2_37 LICENSE (Bitstream Vera terms, DejaVu additions public domain). Manrope retains OFL.txt. These local font files work without system-font installation on Windows/Linux. Verify Cyrillic including Ё/ё/Й/й when previewing; do not infer coverage from a successful load alone.
+
+Keep reference-based/user font choices available. Unless the user supplies their own font, choose only openly licensed fonts with Cyrillic coverage, bundle files/licenses and explicitly load every used face. Never depend on system fonts for scene typography.
+
 Run from the destination project root. `<skill>` means the folder containing SKILL.md; absolute paths work even if the folder name/location differs.
 
 Install the pinned dependency locally: `npm ci --ignore-scripts --prefix "<skill>/scripts"`, then `& "<skill>/scripts/setup.ps1"`. No browser download or global installation. MOTIONLAB_FFMPEG may point to ffmpeg.exe, MOTIONLAB_BROWSER to Edge/Chrome. Node.js 22+ required. If OS execution permissions prevent temporary browser startup, use execution approval; do not disable browser protection.

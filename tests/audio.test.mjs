@@ -1,0 +1,20 @@
+import {test,after} from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {readFileSync,rmSync} from 'node:fs';
+const base=`projects/Проверка синтеза ${Date.now()}`;
+after(()=>rmSync(base,{recursive:true,force:true}));
+test('synthesis: separate stems, exact length, mix, smooth ending and validation',()=>{
+ const run=(out,flags=[])=>spawnSync('python',['.agents/skills/motionlab/scripts/synth_audio.py','--out',out,'--duration','2',...flags],{encoding:'utf8'});
+ const r=run(`${base}/audio`);assert.equal(r.status,0,r.stderr);
+ const samples=name=>{const b=readFileSync(`${base}/audio/${name}.wav`);return Array.from({length:(b.length-44)/2},(_,i)=>b.readInt16LE(44+i*2));};
+ const music=samples('music'),sfx=samples('sfx'),mix=samples('mix');
+ assert.equal(music.length,44100*2*2);assert.ok(sfx.some(v=>v!==0));assert.ok(music.some(v=>v!==0));
+ for(let i=0;i<mix.length;i++)assert.ok(Math.abs(mix[i]-music[i]-sfx[i])<=2);
+ assert.equal(music.at(-1),0);assert.equal(music.at(-2),0);
+ const rms=v=>Math.sqrt(v.reduce((sum,x)=>sum+x*x,0)/v.length);
+ assert.ok(rms(music.slice(-882))<rms(music.slice(-22050,-17640))*.15);
+ assert.notEqual(run(`${base}/audio`).status,0);
+ assert.notEqual(run(`${base}/bad`,['--tempo','NaN']).status,0);
+ assert.notEqual(run(`${base}/bad`,['--instruments','unknown']).status,0);
+});
