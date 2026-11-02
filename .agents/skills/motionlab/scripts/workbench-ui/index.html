@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#111310">
+ <title>MotionLab · Workbench</title>
+ <link rel="stylesheet" href="/style.css">
+ <script type="module" src="/app.js"></script>
+</head>
+<body>
+ <div class="shell">
+  <header class="topbar">
+   <div class="brand"><div class="mark">M<span>·</span></div><div><strong>MotionLab</strong><small>WORKBENCH <span class="version">01</span></small></div></div>
+   <div class="project-name"><span class="live-dot"></span><span id="project-title">Проект</span><span class="project-subtitle">/ монтаж</span></div>
+   <div class="top-actions"><span class="saved" id="saved">Локальный проект</span><button class="primary" id="export-top">Экспорт MP4 <span>↗</span></button></div>
+  </header>
+
+  <main class="main-grid">
+   <aside class="panel media-panel">
+    <div class="panel-heading"><div><span class="eyebrow">01 / БИБЛИОТЕКА</span><h2>Исходники</h2></div><span class="count" id="media-count">0</span></div>
+    <label class="upload-area" for="file-input"><span class="upload-symbol">＋</span><strong>Добавить видео</strong><small>MP4, WebM, MOV, MKV · до 1 ГБ</small></label>
+    <input id="file-input" type="file" accept="video/mp4,video/webm,video/quicktime,video/x-matroska,.mp4,.m4v,.webm,.mov,.mkv" multiple hidden>
+    <div id="media-list" class="media-list"></div>
+    <div class="panel-foot">Файлы сохраняются в папке проекта. Оригиналы не изменяются.</div>
+   </aside>
+
+   <section class="preview-panel">
+    <div class="preview-header"><div><span class="eyebrow">02 / МОНИТОР</span><h2>Предпросмотр <span class="preview-label">PROGRAM</span></h2></div><div class="pill" id="preview-resolution">1280 × 720 / 30 FPS</div></div>
+    <div class="monitor"><div id="empty-preview" class="preview-empty"><div class="empty-art"><span class="empty-play">▶</span><span class="empty-line one"></span><span class="empty-line two"></span></div><strong>Здесь появится ваше видео</strong><p>Загрузите клипы, чтобы начать монтаж.</p></div><video id="video" playsinline preload="metadata"></video></div>
+    <div class="transport"><button id="back" title="К началу" aria-label="К началу">|◀</button><button id="play" class="play" title="Воспроизвести" aria-label="Воспроизвести">▶</button><button id="forward" title="К концу" aria-label="К концу">▶|</button><span class="timecode" id="timecode">00:00.00 <i>/</i> 00:00.00</span><div class="transport-spacer"></div><span class="kbd-note">Пробел — воспроизведение</span></div>
+   </section>
+
+   <aside class="panel inspector-panel">
+    <div class="panel-heading"><div><span class="eyebrow">03 / ПАРАМЕТРЫ</span><h2>Инспектор</h2></div></div>
+    <div class="inspector-group"><label for="format">Формат кадра</label><select id="format"><option value="16:9">16:9 · Горизонтальный</option><option value="9:16">9:16 · Вертикальный</option><option value="1:1">1:1 · Квадратный</option><option value="1080p">1080p · Full HD</option></select></div>
+    <div class="inspector-divider"></div>
+    <div id="inspector-empty" class="inspector-empty"><div class="inspector-empty-icon">⌁</div><p>Выберите фрагмент на таймлайне для точной настройки.</p></div>
+    <div id="inspector-edit" hidden><div class="selected-label">ВЫБРАННЫЙ ФРАГМЕНТ</div><strong class="selected-name" id="selected-name"></strong><div class="clip-id" id="selected-index"></div>
+     <div class="input-pair"><label>Начало, сек<input id="trim-start" type="number" min="0" step="0.01"></label><label>Конец, сек<input id="trim-end" type="number" min="0" step="0.01"></label></div>
+     <button class="wide subtle" id="apply-trim">Применить границы</button>
+     <label class="mute-check"><input id="mute" type="checkbox"> Без звука</label>
+     <div class="inspector-divider"></div>
+     <div class="inspector-row"><button id="move-left">← Раньше</button><button id="move-right">Позже →</button></div>
+     <button class="wide dangerous" id="remove">Удалить фрагмент</button>
+    </div>
+    <div class="inspector-bottom"><span class="eyebrow">ВЫВОД</span><div id="exports" class="exports">Пока нет экспортов</div></div>
+   </aside>
+
+   <section class="timeline-panel">
+    <div class="timeline-heading"><div><span class="eyebrow">04 / СБОРКА</span><h2>Таймлайн <span class="count" id="clip-count">0 фрагментов</span></h2></div><div class="timeline-tools"><button id="split" title="Разделить выделенный клип по курсору">✂ Разделить</button><label class="zoom-label">Масштаб <input type="range" min="12" max="90" value="34" id="zoom"></label></div></div>
+    <div class="timeline-scroll" id="timeline-scroll"><div id="timeline-content"><div class="ruler" id="ruler"></div><div class="track" id="track"><div class="track-empty">Перетащите сюда клипы из библиотеки или нажмите + на исходнике</div></div><div class="timeline-playhead" id="playhead"></div></div></div>
+    <div class="timeline-footer"><span>VIDEO 01</span><span id="duration-info">00:00 · 0 клипов</span><span>Перетаскивайте фрагменты для изменения порядка</span></div>
+   </section>
+  </main>
+
+  <section class="commandbar"><div class="assistant-symbol">✳</div><div class="command-context"><strong>Монтаж через текст</strong><span>Например: «Обрежь клип 1 с 2 до 5» или «Перемести клип 3 на позицию 1»</span></div><form id="command-form"><input id="command" autocomplete="off" placeholder="Что изменить в монтаже?" aria-label="Команда для монтажа"><button type="submit">Применить ↗</button></form></section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <input id="download-target" hidden>
+ </div>
+</body>
+</html>

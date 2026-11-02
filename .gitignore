@@ -27,3 +27,13 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local design references, previews and Impeccable runtime state
+/MotionLab-*.zip
+/.impeccable/*
+!/.impeccable/config.json
+!/.impeccable/design.json
+!/.impeccable/surfaces/
+/.impeccable/config.local.json
+/.agents/skills/impeccable/scripts/bin/
+/.agents/skills/impeccable/scripts/**/*.exe

@@ -1,5 +1,19 @@
 # Portable tools
 
+## Local editing Workbench
+
+Open a named project's dark video-editing UI (runs on `127.0.0.1` only):
+
+`node "<skill>/scripts/workbench.mjs" --project "Название ролика"`
+
+Import files through the browser or through the agent conversation:
+
+`node "<skill>/scripts/workbench.mjs" --project "Название ролика" --import "<local video path>"`
+
+Apply a limited natural-language command: `--command "Раздели клип 1 на 3"`. Other examples: `Обрежь клип 1 с 2 до 5`, `Перемести клип 2 на позицию 1`, `Убери звук у клипа 1`, `Формат 9:16`. For any other phrasing, the agent maps the request to an operation such as `--action '{"type":"trim","index":1,"start":2,"end":5}'`. Supported action types: `append` with mediaId, `trim` with index/start/end, `split` with index/at (source-relative seconds), `move` with index/to, `remove` with index, `mute` with index/muted, `format` with format. Use IDs from `projects/<title>/edit.json`; index is 1-based. The UI refreshes external changes automatically.
+
+When the user explicitly asks for a final MP4, use `--export yes` or the UI Export button. The FFmpeg montage uses cuts, aspect-preserving letterboxing/padding, 30 fps, H.264/AAC, and silence when a source has no audio. Exports are unique directories under `projects/<title>/монтаж/`. It is an editing tool for existing footage, not a substitute for the authored-scene `render.mjs` approval workflow. Only local video files are accepted, and the browser may be unable to preview some MOV/MKV codecs; the export processor can still handle them if FFmpeg supports them. The UI needs Node.js 22+, FFmpeg and ffprobe; it does not require Edge/Chrome for server startup, although a browser is needed to view it.
+
 ## Optional local sound synthesis
 
 Python 3 with NumPy is optional: check `python -c "import numpy; print(numpy.__version__)"`. If missing, use a project-local venv (`python -m venv .venv`, then `.venv/Scripts/python -m pip install numpy` on Windows; `.venv/bin/python -m pip install numpy` on Linux). No SciPy or external API is needed. The supplied demo uses SciPy filters; this implementation uses simple NumPy noise differentiation, oscillators and envelopes instead. Synthetic timbres are approximations.
