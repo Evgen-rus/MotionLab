@@ -68,7 +68,9 @@ export function applyEdit(current, action) {
    clips.splice(index,1);clips.splice(to,0,clip);break;
   }
   case 'mute': {
-   if (!clip) throw Error('Клип не найден');clip.muted=Boolean(action.muted);break;
+   if (!clip) throw Error('Клип не найден');
+   if (typeof action.muted !== 'boolean') throw Error('Нужно логическое значение muted');
+   clip.muted=action.muted;break;
   }
   case 'format': {
    const formats = {'16:9':[1280,720],'9:16':[720,1280],'1:1':[1080,1080],'1080p':[1920,1080]};
@@ -86,8 +88,8 @@ export function naturalCommand(command) {
  const s=String(command||'').trim().toLowerCase().replace(/,/g,'.');
  let m;
  if ((m=s.match(/^(?:удали|убери|remove|delete)\s+(?:клип|фрагмент|clip)?\s*(\d+)$/))) return {type:'remove',index:Number(m[1])};
- if ((m=s.match(/^(?:обрежь|trim)\s+(?:клип|фрагмент|clip)?\s*(\d+)\s+(?:с|from)\s+(\d+(?:\.\d+)?)\s+(?:до|to)\s+(\d+(?:\.\d+)?)/))) return {type:'trim',index:Number(m[1]),start:Number(m[2]),end:Number(m[3])};
- if ((m=s.match(/^(?:раздели|разрежь|split)\s+(?:клип|фрагмент|clip)?\s*(\d+)\s+(?:на|at)\s+(\d+(?:\.\d+)?)/))) return {type:'split',index:Number(m[1]),at:Number(m[2])};
+ if ((m=s.match(/^(?:обрежь|trim)\s+(?:клип|фрагмент|clip)?\s*(\d+)\s+(?:с|from)\s+(\d+(?:\.\d+)?)\s+(?:до|to)\s+(\d+(?:\.\d+)?)$/))) return {type:'trim',index:Number(m[1]),start:Number(m[2]),end:Number(m[3])};
+ if ((m=s.match(/^(?:раздели|разрежь|split)\s+(?:клип|фрагмент|clip)?\s*(\d+)\s+(?:на|at)\s+(\d+(?:\.\d+)?)$/))) return {type:'split',index:Number(m[1]),at:Number(m[2])};
  if ((m=s.match(/^(?:перемести|move)\s+(?:клип|clip)?\s*(\d+)\s+(?:на|to)\s+(?:позицию|position)?\s*(\d+)$/))) return {type:'move',index:Number(m[1]),to:Number(m[2])};
  if ((m=s.match(/^(?:выключи звук|убери звук|mute)\s+(?:у\s+)?(?:клипа|клип|clip)?\s*(\d+)$/))) return {type:'mute',index:Number(m[1]),muted:true};
  if ((m=s.match(/^(?:включи звук|unmute)\s+(?:у\s+)?(?:клипа|клип|clip)?\s*(\d+)$/))) return {type:'mute',index:Number(m[1]),muted:false};

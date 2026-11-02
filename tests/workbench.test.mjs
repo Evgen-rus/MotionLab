@@ -25,6 +25,8 @@ test('timeline edits validate boundaries and interpret basic Russian commands',(
  assert.equal(state.clips[0].muted,true);
  assert.throws(()=>applyEdit(state,{type:'trim',index:1,start:10,end:11}),/границы/);
  assert.throws(()=>naturalCommand('Сделай эффектный переход'),/Codex/);
+ assert.throws(()=>naturalCommand('Обрежь клип 1 с 1 до 2 и удали клип 2'),/Codex/);
+ assert.throws(()=>applyEdit(state,{type:'mute',index:1,muted:'false'}),/muted/);
  assert.throws(()=>validateEdit({...state,output:{width:1279,height:720,fps:30}}),/формат/);
 });
 
@@ -61,7 +63,7 @@ test('workbench imports two real videos and exports a playable joined MP4', {tim
  }finally{rmSync(root,{recursive:true,force:true});}
 });
 
-test('local workbench serves UI, rejects cross-site commands and accepts approved actions', {timeout:20000},async()=>{
+test('local workbench serves UI, rejects cross-site commands and accepts approved actions', {timeout:60000},async()=>{
  const root=mkdtempSync(join(tmpdir(),'motionlab-web-'));
  const child=spawn(process.execPath,[script,'--project','Проверка браузера'],{cwd:root,stdio:['ignore','pipe','pipe']});
  try{
@@ -79,7 +81,7 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
   assert.equal(allowed.status,200);
   const changed=await allowed.json();assert.equal(changed.output.height,1280);
   const sample=join(root,'sample.mp4');
-  const made=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-nostdin','-f','lavfi','-i','color=c=yellow:s=160x90:r=25:d=0.5','-c:v','libx264','-pix_fmt','yuv420p',sample],{encoding:'utf8'});
+  const made=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-nostdin','-f','lavfi','-i','color=c=yellow:s=160x90:r=25:d=3','-c:v','libx264','-pix_fmt','yuv420p',sample],{encoding:'utf8'});
   assert.equal(made.status,0,made.stderr);
   const uploaded=await fetch(url+'api/import',{method:'POST',headers:{Origin:url.slice(0,-1),'X-File-Name':encodeURIComponent('исходник.mp4'),'Content-Type':'application/octet-stream'},body:readFileSync(sample)});
   assert.equal(uploaded.status,200,await uploaded.clone().text());
@@ -90,7 +92,7 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
   const executablePath=process.env.MOTIONLAB_BROWSER || ['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
   const browser=await chromium.launch({executablePath,headless:true});
   try {
-   const page=await browser.newPage();
+   const page=await browser.newPage({viewport:{width:1440,height:900}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.goto(url);
    await page.waitForFunction(()=>document.querySelector('#video').readyState>=1);
@@ -102,6 +104,50 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
    await page.waitForFunction(()=>!document.querySelector('#video').muted);
    await page.locator('#move-left').click();
    await page.waitForFunction(()=>document.querySelector('#selected-index').textContent.startsWith('Клип 1'));
+   // Test the actual editor controls, not only API state.
+   await page.locator('#back').click();
+   await page.locator('#timeline-scroll').focus();
+   await page.keyboard.press('ArrowRight');
+   await page.waitForFunction(()=>Math.abs(document.querySelector('#video').currentTime-1/30)<.01);
+   await page.locator('#play').click();
+   await page.waitForFunction(()=>!document.querySelector('#video').paused);
+   await page.locator('.clip').nth(1).click();
+   assert.equal(await page.locator('#video').evaluate(el=>el.paused),true,'Selecting a clip must pause playback');
+   await page.locator('#trim-start').fill('0.2');await page.locator('#trim-end').fill('2.2');
+   await page.locator('#apply-trim').click();
+   await page.waitForFunction(()=>document.querySelector('#trim-start').value==='0.20');
+   await page.locator('#command').fill('Раздели клип 2 на 1');
+   await page.locator('#command-submit').click();
+   await page.waitForFunction(()=>document.querySelectorAll('.clip').length===3);
+   await page.locator('#format').selectOption('9:16');
+   await page.waitForFunction(()=>document.querySelector('#preview-resolution').textContent.startsWith('720'));
+   const ratio=await page.locator('#output-frame').evaluate(el=>el.clientWidth/el.clientHeight);
+   assert.ok(Math.abs(ratio-9/16)<.02,'Preview frame must match export aspect ratio');
+   const frame=await page.locator('#timeline-scroll').boundingBox(),command=await page.locator('.commandbar').boundingBox();
+   assert.ok(command.y>=frame.y+frame.height,'Command bar must not cover clips');
+   await page.locator('#export-top').click();
+   await page.locator('#exports a').first().waitFor({timeout:30000});
+   const download=await fetch(url+(await page.locator('#exports a').first().getAttribute('href')).slice(1));
+   assert.equal(download.status,200);assert.ok((await download.arrayBuffer()).byteLength>1000);
+   await page.reload();await page.waitForFunction(()=>document.querySelectorAll('.clip').length===3);
+   // External CLI writes and UI continue from one persisted edit.json.
+   const cliChange=spawnSync(process.execPath,[script,'--project','Проверка браузера','--command','Формат 1:1'],{cwd:root,encoding:'utf8'});
+   assert.equal(cliChange.status,0,cliChange.stderr);
+   await page.waitForFunction(()=>document.querySelector('#preview-resolution').textContent.startsWith('1080 × 1080'));
+   // A second source catches stale video URLs after reordering at the same index.
+   await page.locator('#file-input').setInputFiles(sample);
+   await page.waitForFunction(()=>document.querySelectorAll('.media-item').length===2);
+   await page.locator('.clip').last().click();
+   const sourceBefore=await page.locator('#video').getAttribute('src');
+   await page.locator('#move-left').click();
+   await page.waitForFunction(()=>document.querySelector('#selected-index').textContent.startsWith('Клип 3'));
+   await page.locator('.clip').last().click();
+   await page.waitForFunction(old=>document.querySelector('#video').getAttribute('src')!==old,sourceBefore);
+   for(const width of [1280,960,390]){
+    await page.setViewportSize({width,height:900});
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`No page overflow at ${width}px`);
+    assert.equal(await page.locator('#command-submit').isVisible(),true);
+   }
    assert.deepEqual(errors,[]);
   } finally {await browser.close();}
  }finally{

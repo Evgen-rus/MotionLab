@@ -168,6 +168,7 @@ function startServer(){
    if(req.headers.host!==host) return error(res,Error('Недопустимый адрес'),403);
    if(!['GET','HEAD'].includes(req.method) && req.headers.origin!==`http://${host}`) return error(res,Error('Недопустимый источник запроса'),403);
    const path=new URL(req.url,`http://${host}`).pathname;
+   if(req.method==='GET' && path==='/font.ttf') return streamFile(req,res,join(scriptRoot,'../assets/fonts/Manrope-Variable.ttf'),'font/ttf');
    if(req.method==='GET' && ['/','/app.js','/style.css'].includes(path)){
     const file=join(siteRoot,path==='/'?'index.html':path.slice(1));
     const content=readFileSync(file);
