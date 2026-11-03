@@ -16,6 +16,20 @@ When the user explicitly asks for a final MP4, use `--export yes` or the UI Expo
 
 ## Optional local sound synthesis
 
+## OpenRouter narration
+
+Use environment variables from the destination project root's `.env` (see `.env.example`); Node's `--env-file-if-exists=.env` loads them without a dependency and preserves existing environment overrides. Never print the key. Enable with `OWNER_VOICE_ENABLED=true`, set `OPENROUTER_API_KEY` and the model-specific `OPENROUTER_TTS_VOICE`. Default model: `fish-audio/s2.1-pro-free:free`; timeout: 120 seconds; cost cap: 0 USD. Voice example: `cb92b10e1a5946b9b6bd7391aefe31fe`.
+
+Save the approved narration in a UTF-8 file in the named project, deliver its text to the user first, then run:
+
+`node --env-file-if-exists=.env "<skill>/scripts/speech.mjs" --in "projects/Название ролика/диктор.txt" --out "projects/Название ролика/озвучка-01"`
+
+The new output directory contains cleaned `text.txt` even if audio fails, and `voice.mp3` on success; stdout emits the text before the audio path, stderr emits fixed secret-free errors and exit code is 1 on audio failure. Deliver the separate MP3 link in chat. Cleaned input is capped at 12,000 characters, audio at 10 MiB. Price catalog is cached in the provider instance for 15 minutes, never reused after expiry. Only speech models with explicitly zero prompt/completion and all other reported prices zero are currently supported. Paid pricing shapes remain unknown and blocked even with a positive cap, because output duration/token costs cannot be bounded reliably. No fallback model is used.
+
+Pass `voice.mp3` to `render.mjs --audio` for the approved scene. The renderer pads/trims sound to the video length: check spoken duration before rendering to avoid cutting narration. When music is requested, mix the separate narration/music/effect stems with FFmpeg first. Workbench currently has no independent audio track; use the authored-scene renderer for narrated animation.
+
+### Local synthesis
+
 Python 3 with NumPy is optional: check `python -c "import numpy; print(numpy.__version__)"`. If missing, use a project-local venv (`python -m venv .venv`, then `.venv/Scripts/python -m pip install numpy` on Windows; `.venv/bin/python -m pip install numpy` on Linux). No SciPy or external API is needed. The supplied demo uses SciPy filters; this implementation uses simple NumPy noise differentiation, oscillators and envelopes instead. Synthetic timbres are approximations.
 
 `python "<skill>/scripts/synth_audio.py" --out "projects/Проверка звука/audio-A" --duration 6 --tempo 108 --mood warm --instruments kick,snare,hat,bass,chords --seed 42`
