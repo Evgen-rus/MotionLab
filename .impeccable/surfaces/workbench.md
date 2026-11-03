@@ -10,9 +10,9 @@ Chosen comp: `.impeccable/mocks/workbench-b.png` (B). Choice delegated by user; 
 
 FIRST VIEWPORT: 58px application header, left library (roughly 22% upper workspace), flexible large central monitor, right inspector (roughly 22%), lower single-track timeline and separate bottom agent command strip. At standard desktop widths all five task regions remain visible. Blue indicates selection/transport/export; green indicates command application/local state. Neutral near-black panels, restrained borders, 12–14px body, distinct 15–18px section titles. Smaller screens reflow without horizontal page overflow.
 
-Signature interaction: choose a timeline fragment, preview its start, edit source-relative trim boundaries and apply; the selected clip and inspector agree. Use keyboard focus, Space play/pause, arrow frame stepping and a direct command bar. Changes from Codex CLI appear through revision refresh.
+Signature interaction: selection leaves the playhead in place; scrub the ruler to seek, drag selected clip edges to trim, or enter source-relative boundaries in the inspector. Video stays a sequential track; detached audio moves independently, with overlapping audio on separate visual rows. Undo/redo spans the last 30 edits, including CLI changes and imports. Changes from Codex CLI appear through revision refresh.
 
-Do not literalize the generated image's invented 4K/FPS, volume slider, fake file counts or synthetic architectural footage. All metadata comes from actual state. Existing mute is the audio operation. Use the user's own video thumbnails in the library, not static generated pictures. No independent multitrack editing, cloud claims, unimplemented mode tabs, macOS traffic lights or externally loaded scripts/fonts.
+Do not literalize the generated image's invented 4K/FPS, fake file counts or synthetic architectural footage. All metadata comes from actual state. The approved 2026-11-03 prototype adds detached audio, gain, tempo, trim handles, undo/redo and safe library removal. Use the user's own video thumbnails in the library. No cloud claims, unimplemented mode tabs, macOS traffic lights or externally loaded scripts/fonts. Removing a material keeps the file and is blocked while any video/audio fragment uses it.
 
 ## Scope
 

@@ -8,6 +8,36 @@ import {once} from 'node:events';
 import {emptyEdit,applyEdit,naturalCommand,validateEdit} from '../.agents/skills/motionlab/scripts/workbench-core.mjs';
 
 const script=resolve('.agents/skills/motionlab/scripts/workbench.mjs');
+const testMedia={id:'11111111-1111-4111-8111-111111111111',name:'Файл.mp4',file:'11111111-1111-4111-8111-111111111111.mp4',duration:9,width:320,height:180,hasAudio:true};
+
+test('legacy projects, detached audio, persistent history and safe source removal',()=>{
+ const legacy={version:1,revision:0,media:[testMedia],clips:[],output:{width:1280,height:720,fps:30},exports:[]};
+ let state=validateEdit(legacy);assert.equal(state.version,2);assert.equal(legacy.version,1);
+ state=applyEdit(state,{type:'append',mediaId:testMedia.id});
+ state=applyEdit(state,{type:'detach',index:1});
+ assert.equal(state.clips[0].muted,true);assert.equal(state.audio[0].at,0);
+ assert.throws(()=>applyEdit(state,{type:'detach',index:1}),/уже/);
+ assert.throws(()=>applyEdit(state,{type:'mute',index:1,muted:false}),/отдельной/);
+ const id=state.audio[0].id;
+ state=applyEdit(state,{type:'audio',id,at:2,start:1,end:7,rate:1.5,gain:.5});
+ assert.throws(()=>applyEdit(state,{type:'audio',id,rate:0}),/звук/);
+ assert.throws(()=>applyEdit(state,{type:'audio',id,at:-1}),/звук/);
+ assert.throws(()=>applyEdit(state,{type:'audio',id,gain:3}),/звук/);
+ assert.throws(()=>applyEdit(state,{type:'removeMedia',mediaId:testMedia.id}),/используется/);
+ state=applyEdit(state,{type:'splitAudio',id,at:4});
+ assert.equal(state.audio[1].at,4);assert.equal(state.audio[0].end,4);
+ state=applyEdit(JSON.parse(JSON.stringify(state)),{type:'undo'});assert.equal(state.audio.length,1);
+ state=applyEdit(state,{type:'redo'});assert.equal(state.audio.length,2);
+ state=applyEdit(state,{type:'remove',index:1});
+ for(const c of [...state.audio])state=applyEdit(state,{type:'removeAudio',id:c.id});
+ state=applyEdit(state,{type:'removeMedia',mediaId:testMedia.id});assert.equal(state.media.length,0);
+ state=applyEdit(state,{type:'undo'});assert.equal(state.media.length,1);
+ state=applyEdit(state,{type:'append',mediaId:testMedia.id});assert.equal(state.history.future.length,0);
+ for(let i=0;i<35;i++)state=applyEdit(state,{type:'mute',index:1,muted:Boolean(i%2)});
+ assert.equal(state.history.past.length,30);
+ const silent=emptyEdit();silent.media.push({...testMedia,hasAudio:false});const s=applyEdit(silent,{type:'append',mediaId:testMedia.id});
+ assert.throws(()=>applyEdit(s,{type:'detach',index:1}),/нет звука/);
+});
 
 test('timeline edits validate boundaries and interpret basic Russian commands',()=>{
  let state=emptyEdit();
@@ -59,6 +89,22 @@ test('workbench imports two real videos and exports a playable joined MP4', {tim
   assert.equal(audio.status,0,audio.stderr);
   const volume=Number(audio.stderr.match(/max_volume:\s*(-?[\d.]+) dB/)?.[1]);
   assert.ok(Number.isFinite(volume)&&volume>-50,'Original audible audio must survive montage');
+  // Detached audio: leading silence, source trim, tempo and gain must reach the actual MP4.
+  cli(['--action',JSON.stringify({type:'detach',index:1})]);
+  state=JSON.parse(readFileSync(path,'utf8'));const detached=state.audio[0];
+  cli(['--action',JSON.stringify({type:'audio',id:detached.id,at:.6,rate:1.5,gain:.5,start:.2,end:1.1})]);
+  const mixed=cli(['--export','yes']).trim().split('\n').at(-1);
+  function maxVolume(start){const r=spawnSync('ffmpeg',['-hide_banner','-ss',String(start),'-i',mixed,'-t','0.15','-vn','-af','volumedetect','-f','null','-'],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);return Number(r.stderr.match(/max_volume:\s*(-?[\d.]+) dB/)?.[1]);}
+  assert.ok(maxVolume(.1)<-60,'Detached original must not sound at its old position');
+  assert.ok(maxVolume(.7)>-50,'Detached audio must sound at its new position');
+  assert.ok(maxVolume(1.4)<-60,'Tempo must shorten the audio to 0.6 seconds');
+  const detachedFile=join(root,'projects/Монтаж тест/исходники',state.media[0].file);
+  cli(['--action',JSON.stringify({type:'remove',index:1})]);
+  cli(['--action',JSON.stringify({type:'removeAudio',id:detached.id})]);
+  cli(['--action',JSON.stringify({type:'removeMedia',mediaId:state.media[0].id})]);
+  assert.ok(existsSync(detachedFile),'Removing a source from project must keep its local file');
+  cli(['--action',JSON.stringify({type:'undo'})]);
+  assert.equal(JSON.parse(readFileSync(path,'utf8')).media.length,2);
   assert.ok(existsSync(first),'Source file must remain untouched');
  }finally{rmSync(root,{recursive:true,force:true});}
 });
@@ -81,7 +127,7 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
   assert.equal(allowed.status,200);
   const changed=await allowed.json();assert.equal(changed.output.height,1280);
   const sample=join(root,'sample.mp4');
-  const made=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-nostdin','-f','lavfi','-i','color=c=yellow:s=160x90:r=25:d=3','-c:v','libx264','-pix_fmt','yuv420p',sample],{encoding:'utf8'});
+  const made=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-nostdin','-f','lavfi','-i','color=c=yellow:s=160x90:r=25:d=3','-f','lavfi','-i','sine=frequency=440:duration=3','-c:a','aac','-c:v','libx264','-pix_fmt','yuv420p','-shortest',sample],{encoding:'utf8'});
   assert.equal(made.status,0,made.stderr);
   const uploaded=await fetch(url+'api/import',{method:'POST',headers:{Origin:url.slice(0,-1),'X-File-Name':encodeURIComponent('исходник.mp4'),'Content-Type':'application/octet-stream'},body:readFileSync(sample)});
   assert.equal(uploaded.status,200,await uploaded.clone().text());
@@ -90,17 +136,19 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
   assert.equal(partial.status,206);assert.equal((await partial.arrayBuffer()).byteLength,16);
   const {chromium}=await import('../.agents/skills/motionlab/scripts/node_modules/playwright-core/index.mjs');
   const executablePath=process.env.MOTIONLAB_BROWSER || ['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
-  const browser=await chromium.launch({executablePath,headless:true});
+  const browser=await chromium.launch({executablePath,headless:true,chromiumSandbox:true});
   try {
    const page=await browser.newPage({viewport:{width:1440,height:900}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.goto(url);
+   async function seekClip(index){const clip=page.locator('#track .clip').nth(index);await clip.scrollIntoViewIfNeeded();const b=await clip.boundingBox(),r=await page.locator('#ruler').boundingBox();await page.mouse.click(b.x+10,r.y+10);}
    await page.waitForFunction(()=>document.querySelector('#video').readyState>=1);
    await page.locator('#mute').check();
    await page.waitForFunction(()=>document.querySelector('#video').muted);
    await page.locator('.media-add').click();
    await page.waitForFunction(()=>document.querySelectorAll('.clip').length===2);
    await page.locator('.clip').nth(1).click();
+   await seekClip(1);
    await page.waitForFunction(()=>!document.querySelector('#video').muted);
    await page.locator('#move-left').click();
    await page.waitForFunction(()=>document.querySelector('#selected-index').textContent.startsWith('Клип 1'));
@@ -138,11 +186,33 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
    await page.locator('#file-input').setInputFiles(sample);
    await page.waitForFunction(()=>document.querySelectorAll('.media-item').length===2);
    await page.locator('.clip').last().click();
+   await seekClip(3);
    const sourceBefore=await page.locator('#video').getAttribute('src');
    await page.locator('#move-left').click();
    await page.waitForFunction(()=>document.querySelector('#selected-index').textContent.startsWith('Клип 3'));
    await page.locator('.clip').last().click();
+   await seekClip(3);
    await page.waitForFunction(old=>document.querySelector('#video').getAttribute('src')!==old,sourceBefore);
+   await page.locator('#track .clip').first().click();
+   await page.locator('#detach').click();
+   await page.locator('.audio-clip').waitFor();
+   await page.locator('#audio-rate').selectOption('1.5');await page.locator('#audio-at').fill('0.5');await page.locator('#audio-gain').fill('50');await page.locator('#apply-audio').click();
+   await page.waitForFunction(()=>document.querySelector('#audio-at').value==='0.50');
+   const audioState=await (await fetch(url+'api/state')).json();assert.equal(audioState.audio[0].rate,1.5);assert.equal(audioState.audio[0].gain,.5);
+   await page.locator('#undo').click();await page.waitForFunction(()=>document.querySelector('#audio-rate').value==='1');
+   await page.locator('#redo').click();await page.waitForFunction(()=>document.querySelector('#audio-rate').value==='1.5');
+   await page.locator('#back').click();
+   const rulerBox=await page.locator('#ruler').boundingBox();await page.mouse.click(rulerBox.x+20+34,rulerBox.y+10);
+   await page.locator('#play').click();
+   await page.waitForFunction(()=>{const p=document.querySelector('audio[data-audio-id]');return p&&!p.paused&&p.currentTime>0&&p.volume===.5&&p.playbackRate===1.5;});
+   await page.locator('#play').click();assert.equal(await page.locator('audio[data-audio-id]').first().evaluate(el=>el.paused),true);
+   const audioClip=page.locator('.audio-clip').first();await audioClip.scrollIntoViewIfNeeded();let box=await audioClip.boundingBox();
+   await page.mouse.move(box.x+box.width/2,box.y+25);await page.mouse.down();await page.mouse.move(box.x+box.width/2+34,box.y+25,{steps:8});await page.mouse.up();
+   await page.waitForFunction(()=>document.querySelector('#audio-at').value==='1.50');
+   const endBefore=Number(await page.locator('#trim-end').inputValue());
+   box=await audioClip.boundingBox();await page.mouse.move(box.x+box.width-4,box.y+25);await page.mouse.down();await page.mouse.move(box.x+box.width-21,box.y+25,{steps:8});await page.mouse.up();
+   await page.waitForFunction(end=>Math.abs(Number(document.querySelector('#trim-end').value)-(end-.75))<.03,endBefore);
+   await page.locator('.media-remove').first().click();await page.waitForFunction(()=>document.querySelector('#toast').textContent.includes('используется'));
    for(const width of [1280,960,390]){
     await page.setViewportSize({width,height:900});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`No page overflow at ${width}px`);

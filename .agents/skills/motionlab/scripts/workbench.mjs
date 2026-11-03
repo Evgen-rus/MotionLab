@@ -7,7 +7,7 @@ import {spawn,spawnSync} from 'node:child_process';
 import {pipeline} from 'node:stream/promises';
 import {Transform} from 'node:stream';
 import {args,freshOutput} from './lib.mjs';
-import {emptyEdit,validateEdit,applyEdit,naturalCommand} from './workbench-core.mjs';
+import {emptyEdit,validateEdit,applyEdit,naturalCommand,rememberEdit} from './workbench-core.mjs';
 
 const options=args();
 for(const key of Object.keys(options)) if(!['project','import','action','command','export','port'].includes(key)) throw Error(`Неизвестная опция: ${key}`);
@@ -56,7 +56,7 @@ function inspectVideo(path){
 }
 function registerMedia(name,file,id){
  const info=inspectVideo(join(folder,'исходники',file));
- const state=readState();
+ const state=readState(),previous=structuredClone(state);
  if(state.media.length>=200 || state.clips.length>=60) throw Error('Достигнут лимит исходников или фрагментов');
  state.media.push({id,name:name.slice(0,255),file,...info});
  state.clips.push({id:randomUUID(),mediaId:id,start:0,end:info.duration,muted:false});
@@ -64,7 +64,7 @@ function registerMedia(name,file,id){
   const portrait=info.height>info.width;
   state.output={width:portrait?720:1280,height:portrait?1280:720,fps:30};
  }
- state.revision++;
+ rememberEdit(previous,state);
  saveState(state);return state;
 }
 async function importFile(inputName,readable){
@@ -107,6 +107,7 @@ async function exportVideo(){
   const media=snapshot.media.find(m=>m.id===clip.mediaId);
   argv.push('-protocol_whitelist','file,pipe','-i',sourcePath(media));
  }
+ for(const clip of snapshot.audio)argv.push('-protocol_whitelist','file,pipe','-i',sourcePath(snapshot.media.find(m=>m.id===clip.mediaId)));
  const filters=[],streams=[];
  snapshot.clips.forEach((clip,i)=>{
   const duration=clip.end-clip.start,media=snapshot.media.find(m=>m.id===clip.mediaId);
@@ -115,7 +116,14 @@ async function exportVideo(){
   else filters.push(`anullsrc=channel_layout=stereo:sample_rate=48000,atrim=duration=${duration},asetpts=PTS-STARTPTS[a${i}]`);
   streams.push(`[v${i}][a${i}]`);
  });
- filters.push(`${streams.join('')}concat=n=${snapshot.clips.length}:v=1:a=1[outv][outa]`);
+ filters.push(`${streams.join('')}concat=n=${snapshot.clips.length}:v=1:a=1[outv][baseaudio]`);
+ const audioStreams=['[baseaudio]'];
+ snapshot.audio.forEach((clip,i)=>{
+  const delay=Math.round(clip.at*48000);
+  filters.push(`[${snapshot.clips.length+i}:a:0]atrim=start=${clip.start}:end=${clip.end},asetpts=PTS-STARTPTS,atempo=${clip.rate},aresample=48000,aformat=sample_fmts=fltp:sample_rates=48000:channel_layouts=stereo,volume=${clip.muted?0:clip.gain},adelay=${delay}S:all=1[detached${i}]`);
+  audioStreams.push(`[detached${i}]`);
+ });
+ filters.push(`${audioStreams.join('')}amix=inputs=${audioStreams.length}:duration=first:normalize=0,alimiter=limit=0.95:level=0:latency=1,atrim=duration=${total}[outa]`);
  argv.push('-filter_complex',filters.join(';'),'-map','[outv]','-map','[outa]','-c:v','libx264','-preset','veryfast','-crf','20','-c:a','aac','-b:a','160k','-movflags','+faststart','-pix_fmt','yuv420p',output);
  exportStatus={running:true,percent:0,error:null,output:null};
  try {
