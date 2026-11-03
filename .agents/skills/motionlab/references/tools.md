@@ -2,6 +2,20 @@
 
 ## Local editing Workbench
 
+Workbench has two modes: “Монтаж” retains footage/audio editing and MP4 export; “Структура сцены” inspects authored HTML without editing it or bypassing render approvals. It discovers the project's explicit `versions[].scene` and `approval.source` HTML paths from `job.json`. The viewer is sandboxed, only serves resources within that scene directory, blocks external resources/API access, mutes scene media, and drives the real `window.__video.seek` contract. Copy context includes the relative and absolute source path, SHA-256 of that HTML revision, scene and element identity, content, appearance, motion description and current time. A changed HTML source must be refreshed before copying. Clipboard denial offers selectable output for Ctrl+C, never an input for a change request. Updating only an external asset requires manual “Обновить сцену”. No metadata is inferred from rendered MP4 pixels.
+
+Mark new scenes explicitly (the bundled `assets/scene.html` is a working example):
+
+```html
+<section data-scene-id="intro" data-scene-name="Вступление" data-start="0" data-end="6">
+  <h1 data-element-id="headline" data-element-name="Заголовок"
+      data-element-type="Текст" data-start="0.4" data-end="6"
+      data-motion="Появление снизу · 0,6 с">Текст ролика</h1>
+</section>
+```
+
+Element IDs must be unique across the HTML, begin with a Latin letter, and use only Latin letters, digits, `_` and `-`. Omitted element times inherit their scene's interval; omitted scene times cover the full video. Describe motion accurately; do not change an existing `[data-motion]` selector's membership accidentally. Elements outside scene groups appear in every scene. Unmarked scenes can be previewed but show a clear no-elements message. Maintain IDs across revisions so copied requests still identify the intended element. This mode is a view and selection tool; it does not introduce a new scene renderer or replace `edit.json`.
+
 Open a named project's dark video-editing UI (runs on `127.0.0.1` only):
 
 `node "<skill>/scripts/workbench.mjs" --project "Название ролика"`

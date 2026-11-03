@@ -1,3 +1,4 @@
+import {initSceneEditor} from './scene-editor.js';
 const $=selector=>document.querySelector(selector);
 let state=null,selected=null,playhead=0,activeIndex=-1,playing=false,pendingSeek=null,busy=false,toastTimer=null;
 let pixelsPerSecond=34,exporting=false;
@@ -293,6 +294,7 @@ $('#move-left').onclick=()=>{const index=state.clips.findIndex(c=>c.id===selecte
 $('#move-right').onclick=()=>{const index=state.clips.findIndex(c=>c.id===selected);if(index>=0&&index<state.clips.length-1)action({type:'move',index:index+1,to:index+2});};
 $('#format').onchange=e=>action({type:'format',format:e.target.value});
 document.addEventListener('keydown',e=>{
+ if(!$('#scene-view').hidden)return;
  const tag=document.activeElement.tagName;
  if(!e.isComposing&&!['INPUT','TEXTAREA','SELECT'].includes(tag)&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();if(!busy&&!dragging)action({type:e.shiftKey?'redo':'undo'});return;}
  if(e.isComposing||['INPUT','TEXTAREA','SELECT','BUTTON','A'].includes(tag)||busy)return;
@@ -300,6 +302,7 @@ document.addEventListener('keydown',e=>{
  if(e.key==='Delete'&&selected){e.preventDefault();$('#remove').click();}
  if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();pause();seek(playhead+(e.key==='ArrowRight'?1:-1)/state.output.fps,false);}
 });
+initSceneEditor({pause,toast});
 setInterval(()=>{if(document.visibilityState==='visible'&&!busy)refresh(true).catch(()=>{});},3500);
 try{await refresh(true);await checkExport();}catch(error){$('#connection').hidden=false;toast(error.message,true);}
 

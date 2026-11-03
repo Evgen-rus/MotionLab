@@ -16,4 +16,6 @@ Do not literalize the generated image's invented 4K/FPS, fake file counts or syn
 
 ## Scope
 
+2026-11-04 approved addition: keep both modes inside Workbench. “Монтаж” retains all footage/audio tools; “Структура сцены” shows the actual authored HTML, named scenes/elements, a scaled interactive frame, real seek playback, appearance/motion context and element timing rows. A single “Скопировать элемент” action copies source/revision/element identity for the chat; there is no request input. Preserve the incumbent visual grammar. The scene viewer is read-only and sandboxed; selecting or playing it never updates edit.json, job approvals or original files. New authored scenes use explicit stable data-element-id/data-scene-id metadata; no migration of old test scenes is required. Imported MP4s remain footage and never acquire invented layers.
+
 Retain server and CLI contracts, existing projects, approval rules for authored HTML scenes, source files and exports. Improve existing UI and correct defects found in required checks. Do not introduce a framework, dependency or automatic media cleanup. All reference media, comps, screenshots and engine state stay local and ignored by Git.

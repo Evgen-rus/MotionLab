@@ -81,6 +81,8 @@ components:
 
 ## Overview
 
+Workbench also has a “Структура сцены” mode within the same shell. Keep the header's two mode buttons visible, with the active mode marked in blue. This view reuses the left navigation / central monitor / right inspector / lower timeline layout: sources and semantic elements at left, sandboxed authored HTML in the monitor, selected element context and one “Скопировать элемент” action at right, and real appearance intervals below. It has no change-request input. Scene media is muted here; editing, audio tools and MP4 export remain in “Монтаж”.
+
 **Creative North Star: "Compact NLE workspace"**
 
 MotionLab uses the restrained material language of a local editing desk: dark neutral work surfaces, direct controls and precise time data. The visual hierarchy gives user footage the largest quiet surface and keeps editing decisions close to their context.

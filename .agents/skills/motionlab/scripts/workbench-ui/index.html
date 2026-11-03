@@ -20,10 +20,11 @@
 <header class="topbar">
 <a class="brand" href="/" aria-label="MotionLab Workbench"><span class="mark">M</span><strong>MotionLab</strong><span class="workbench-label">WORKBENCH</span></a>
 <div class="project-name"><span id="project-title">Проект</span><span class="project-subtitle">Монтаж</span></div>
+<nav class="editor-modes" aria-label="Режим редактора"><button id="mode-montage" aria-pressed="true">Монтаж</button><button id="mode-scene" aria-pressed="false">Структура сцены</button></nav>
 <div class="top-actions"><button id="undo" disabled title="Отменить (Ctrl+Z)">Отменить</button><button id="redo" disabled title="Повторить (Ctrl+Shift+Z)">Повторить</button><span class="saved" id="saved" role="status">Подключение…</span><button class="primary" id="export-top" disabled><svg class="icon"><use href="#i-export"/></svg>Экспорт MP4</button></div>
 </header>
 <div class="connection" id="connection" role="status" hidden>Нет связи с редактором. Проверьте, что локальный сервер запущен. Подключение восстановится автоматически.</div>
-<main class="main-grid">
+<main class="main-grid" id="montage-view">
 <aside class="panel media-panel" aria-labelledby="media-heading">
 <div class="panel-heading"><h2 id="media-heading">Исходники <span class="count" id="media-count">0</span></h2><button class="icon-button" id="import-top" title="Импортировать видео" aria-label="Импортировать видео"><svg class="icon"><use href="#i-plus"/></svg></button></div>
 <button class="upload-area" id="import-library"><span class="upload-symbol"><svg class="icon"><use href="#i-plus"/></svg></span><strong>Добавить видео</strong><small>MP4, WebM, MOV, MKV · до 1 ГБ</small></button>
@@ -50,6 +51,12 @@
 <div class="timeline-footer"><span>V1 · Видео · A1 · Отделённый звук</span><span id="duration-info">00:00 · 0 клипов</span><span>Края — обрезка · аудио — свободное перемещение</span></div>
 </section>
 </main>
+<section class="scene-editor" id="scene-view" hidden aria-label="Структура сцены">
+<aside class="panel scene-library"><h2>HTML-сцены</h2><label class="scene-source-label" for="scene-source">Исходник ролика</label><select id="scene-source"></select><button class="wide" id="scene-reload">Обновить сцену</button><div id="scene-sections" class="scene-list"></div><h3>Элементы сцены</h3><div id="scene-elements" class="scene-list"></div><p class="field-note">Выберите элемент здесь, в кадре или на дорожке снизу.</p></aside>
+<section class="scene-preview"><div class="preview-header"><h2 id="scene-heading">Структура сцены</h2><span class="pill" id="scene-size">—</span></div><p id="scene-message" class="scene-message" role="status">Загрузка сцен…</p><div id="scene-viewport" class="scene-viewport" hidden><iframe id="scene-frame" title="HTML-сцена: выбор элемента" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe></div><div class="scene-transport"><button id="scene-play" disabled>Воспроизвести</button><input id="scene-time" aria-label="Время HTML-сцены" type="range" min="0" max="1" step="0.01" value="0" disabled><output id="scene-clock">0.00 / 0.00 с</output></div><p class="field-note">Выделение видно только в редакторе. Звук этой сцены в режиме структуры отключён.</p></section>
+<aside class="panel scene-inspector"><h2>Выбранный элемент</h2><p class="field-note" id="scene-selection-empty">Нажмите на элемент в кадре или в списке.</p><div id="scene-selection" hidden><h3 id="scene-element-name"></h3><p class="field-note" id="scene-element-type"></p><div class="scene-content" id="scene-element-content"></div><dl id="scene-properties"></dl><button class="primary wide" id="scene-copy" disabled>Скопировать элемент</button><p class="field-note">Вставьте в чат и объясните правку голосом или текстом.</p><p class="scene-copy-status" id="scene-copy-status" role="status"></p><details><summary>Контекст элемента</summary><pre id="scene-context" tabindex="0"></pre></details></div></aside>
+<section class="scene-timeline"><div class="timeline-heading"><h2>Элементы и время появления</h2><span class="muted" id="scene-duration"></span></div><div class="scene-track-scroll"><div id="scene-tracks"></div></div></section>
+</section>
 <div class="last-edit" id="last-edit" role="status">Изменения сохраняются локально. Отменить можно последние 30 действий.</div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 </div>
 </body>

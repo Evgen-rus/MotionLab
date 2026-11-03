@@ -8,6 +8,7 @@ import {pipeline} from 'node:stream/promises';
 import {Transform} from 'node:stream';
 import {args,freshOutput} from './lib.mjs';
 import {emptyEdit,validateEdit,applyEdit,naturalCommand,rememberEdit} from './workbench-core.mjs';
+import {listScenes,sceneAsset} from './workbench-scenes.mjs';
 
 const options=args();
 for(const key of Object.keys(options)) if(!['project','import','action','command','export','port'].includes(key)) throw Error(`Неизвестная опция: ${key}`);
@@ -170,14 +171,32 @@ function streamFile(req,res,path,mime){
  res.writeHead(status,headers);createReadStream(path,{start,end}).pipe(res);
 }
 function startServer(){
+ const sceneSession=randomUUID(); // Opaque-origin font/module requests need CORS; keep scene URLs unguessable.
  const server=createServer(async(req,res)=>{
   try{
    const host=`127.0.0.1:${server.address().port}`;
    if(req.headers.host!==host) return error(res,Error('Недопустимый адрес'),403);
    if(!['GET','HEAD'].includes(req.method) && req.headers.origin!==`http://${host}`) return error(res,Error('Недопустимый источник запроса'),403);
    const path=new URL(req.url,`http://${host}`).pathname;
+   if(req.method==='GET' && path==='/api/scenes')return send(res,200,{title,scenes:listScenes(folder).map(s=>({...s,previewBase:`/scene/${sceneSession}/${s.id}/`}))});
+   if(req.method==='GET' && path==='/scene-bridge.js'){
+    res.writeHead(200,{'Content-Type':'text/javascript; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Access-Control-Allow-Origin':'*'});res.end(readFileSync(join(siteRoot,'scene-bridge.js')));return;
+   }
+   const sceneMatch=/^\/scene\/([a-f\d-]{36})\/([a-f\d]{24})\/(.+)$/.exec(path);
+   if(req.method==='GET' && sceneMatch && sceneMatch[1]===sceneSession){
+    const asset=sceneAsset(folder,sceneMatch[2],decodeURIComponent(sceneMatch[3]));
+    const scope=`http://${host}/scene/${sceneSession}/${sceneMatch[2]}/`;
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Referrer-Policy','no-referrer');
+    res.setHeader('Content-Security-Policy',`default-src 'none'; script-src ${scope} http://${host}/scene-bridge.js 'unsafe-inline'; style-src ${scope} 'unsafe-inline'; img-src ${scope} data: blob:; font-src ${scope} data:; media-src ${scope} blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'; sandbox allow-scripts`);
+    if(asset.entry){
+     res.writeHead(200,{'Content-Type':asset.type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':`default-src 'none'; script-src ${scope} http://${host}/scene-bridge.js 'unsafe-inline'; style-src ${scope} 'unsafe-inline'; img-src ${scope} data: blob:; font-src ${scope} data:; media-src ${scope} blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'; sandbox allow-scripts`});
+     res.end(readFileSync(asset.file,'utf8')+'\n<script src="/scene-bridge.js"></script>');return;
+    }
+    return streamFile(req,res,asset.file,asset.type);
+   }
    if(req.method==='GET' && path==='/font.ttf') return streamFile(req,res,join(scriptRoot,'../assets/fonts/Manrope-Variable.ttf'),'font/ttf');
-   if(req.method==='GET' && ['/','/app.js','/style.css'].includes(path)){
+   if(req.method==='GET' && ['/','/app.js','/scene-editor.js','/style.css'].includes(path)){
     const file=join(siteRoot,path==='/'?'index.html':path.slice(1));
     const content=readFileSync(file);
     res.writeHead(200,{'Content-Type':path==='/'?'text/html; charset=utf-8':path.endsWith('.js')?'text/javascript; charset=utf-8':'text/css; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; media-src 'self' blob:; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'"});res.end(content);return;
