@@ -10,7 +10,7 @@ const thumbnails=new Map();
 const icon=name=>{const el=document.createElementNS('http://www.w3.org/2000/svg','svg');el.classList.add('icon');el.setAttribute('aria-hidden','true');const use=document.createElementNS(el.namespaceURI,'use');use.setAttribute('href','#i-'+name);el.append(use);return el;};
 const thumbnailObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){const node=entry.target;node.src=node.dataset.src;thumbnailObserver.unobserve(node);}}, {root:$('#media-list')});
 function updateControls(){
- for(const id of ['import-top','import-library','import-preview','command-submit','format','apply-trim','mute','remove','apply-audio'])$('#'+id).disabled=busy||dragging;
+ for(const id of ['import-top','import-library','import-preview','format','apply-trim','mute','remove','apply-audio'])$('#'+id).disabled=busy||dragging;
  for(const id of ['play','back','forward','split'])$('#'+id).disabled=busy||!state?.clips.length;
  $('#export-top').disabled=busy||exporting||!state?.clips.length;
  document.querySelectorAll('.media-add').forEach(el=>el.disabled=busy);
@@ -292,13 +292,6 @@ $('#remove').onclick=()=>{const audio=selectedAudio(),index=selectedVideoIndex()
 $('#move-left').onclick=()=>{const index=state.clips.findIndex(c=>c.id===selected);if(index>0)action({type:'move',index:index+1,to:index});};
 $('#move-right').onclick=()=>{const index=state.clips.findIndex(c=>c.id===selected);if(index>=0&&index<state.clips.length-1)action({type:'move',index:index+1,to:index+2});};
 $('#format').onchange=e=>action({type:'format',format:e.target.value});
-$('#command-form').onsubmit=async e=>{
- e.preventDefault();const command=$('#command').value.trim();if(!command||busy)return;
- setBusy(true);
- try{state=await api('/api/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:state.revision,command})});$('#command').value='';render();toast('Команда применена');}
- catch(e){toast(e.message,true);setBusy(false);await refresh(true);}
- finally{setBusy(false);}
-};
 document.addEventListener('keydown',e=>{
  const tag=document.activeElement.tagName;
  if(!e.isComposing&&!['INPUT','TEXTAREA','SELECT'].includes(tag)&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();if(!busy&&!dragging)action({type:e.shiftKey?'redo':'undo'});return;}

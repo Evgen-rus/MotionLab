@@ -89,7 +89,7 @@ Density serves the task. Tonal panels, narrow dividers and modest corners establ
 
 **Key Characteristics:**
 - Neutral dark panels with thin structural dividers.
-- Blue editing actions and selection; green command application and local state.
+- Blue editing actions and selection; green detached audio and local state.
 - Local Manrope, compact labels and tabular time data.
 - Real user media and state-driven metadata.
 
@@ -115,7 +115,7 @@ The neutral foundation separates work regions while two purposeful accents organ
 - **Reading White** (`text`): primary content.
 - **Metadata Slate** (`muted`): secondary copy and metadata.
 
-**The Action Color Rule.** Blue identifies editing actions and selection; green identifies command application and local state.
+**The Action Color Rule.** Blue identifies editing actions and selection; green identifies detached audio and local state.
 
 ## Typography
 
@@ -132,9 +132,9 @@ Manrope is served locally through `/font.ttf` as a variable face (weights 200–
 
 ## Layout
 
-The current Workbench uses a 58px header, a flexible upper workspace, one full-width timeline and a separate command strip. Desktop columns are `clamp(220px,22vw,320px) minmax(0,1fr) clamp(245px,22vw,310px)`. The timeline row is 290px to accommodate detached audio; overlapping audio clips use separate rows within its scroll area. The shell uses `100dvh` with a 790px desktop minimum; shorter desktop viewports may scroll. Library and inspector scroll internally.
+The current Workbench uses a 58px header, a flexible upper workspace, one full-width timeline and a compact local-status footer. Desktop columns are `clamp(220px,22vw,320px) minmax(0,1fr) clamp(245px,22vw,310px)`. The timeline row is 290px to accommodate detached audio; overlapping audio clips use separate rows within its scroll area. The shell uses `100dvh` with a 790px desktop minimum; shorter desktop viewports may scroll. Library and inspector scroll internally.
 
-At 1200px the side columns become 210px and 240px and secondary header detail is hidden. At 960px the library and preview remain paired in a 450px row, followed by a 290px timeline and inspector. At 600px the page stacks preview, library, timeline, inspector and command strip. The final mobile preview rule fixes its height at 375px. Timeline content scrolls horizontally inside its own region.
+At 1200px the side columns become 210px and 240px and secondary header detail is hidden. At 960px the library and preview remain paired in a 450px row, followed by a 290px timeline and inspector. At 600px the page stacks preview, library, timeline and inspector. The final mobile preview rule fixes its height at 375px. Timeline content scrolls horizontally inside its own region.
 
 Panel padding is generally 16px, with 12px mobile edges. Common control gaps are 8–12px. These measurements describe Workbench; they do not require every future MotionLab surface to reproduce its editing layout.
 
@@ -166,8 +166,9 @@ Compact rounded tonal labels display actual format and counts. They are readouts
 ### Timeline and Monitor
 One sequential track carries video and attached source audio; a green audio region below holds detached fragments with independent placement, gain and tempo. Selected clips use a blue inset outline, edge trim handles and source-relative trim values in the inspector. Selection does not seek; the ruler supports click and drag scrubbing. A fit-to-sequence action adjusts timeline scale. A two-pixel playhead links time and position. The header offers persistent 30-step undo/redo, including CLI edits; library removal preserves files and rejects sources still used on the timeline. The monitor contains an output-ratio frame and fits source footage within it, retaining letterboxing where necessary. Empty states provide direct import guidance.
 
-### Command Strip
-A distinct bottom region contains a labeled command field, green application button and concise supported-command help. Complex requests continue in the Codex conversation; the strip does not imply arbitrary natural-language capabilities.
+### Editing through Codex
+
+Natural-language requests belong to the Codex conversation. Workbench has direct manual controls and a compact local-status footer; it does not duplicate the chat with a command field. CLI/API editing remains available to the agent.
 
 ## Do's and Don'ts
 

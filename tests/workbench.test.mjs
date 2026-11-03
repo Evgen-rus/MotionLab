@@ -164,15 +164,15 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
    await page.locator('#trim-start').fill('0.2');await page.locator('#trim-end').fill('2.2');
    await page.locator('#apply-trim').click();
    await page.waitForFunction(()=>document.querySelector('#trim-start').value==='0.20');
-   await page.locator('#command').fill('Раздели клип 2 на 1');
-   await page.locator('#command-submit').click();
+   const splitRuler=await page.locator('#ruler').boundingBox();
+   await page.mouse.click(splitRuler.x+20+3.8*34,splitRuler.y+10);
+   await page.locator('#split').click();
    await page.waitForFunction(()=>document.querySelectorAll('.clip').length===3);
    await page.locator('#format').selectOption('9:16');
    await page.waitForFunction(()=>document.querySelector('#preview-resolution').textContent.startsWith('720'));
    const ratio=await page.locator('#output-frame').evaluate(el=>el.clientWidth/el.clientHeight);
    assert.ok(Math.abs(ratio-9/16)<.02,'Preview frame must match export aspect ratio');
-   const frame=await page.locator('#timeline-scroll').boundingBox(),command=await page.locator('.commandbar').boundingBox();
-   assert.ok(command.y>=frame.y+frame.height,'Command bar must not cover clips');
+   assert.equal(await page.locator('.commandbar').count(),0);
    await page.locator('#export-top').click();
    await page.locator('#exports a').first().waitFor({timeout:30000});
    const download=await fetch(url+(await page.locator('#exports a').first().getAttribute('href')).slice(1));
@@ -216,7 +216,7 @@ test('local workbench serves UI, rejects cross-site commands and accepts approve
    for(const width of [1280,960,390]){
     await page.setViewportSize({width,height:900});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`No page overflow at ${width}px`);
-    assert.equal(await page.locator('#command-submit').isVisible(),true);
+    assert.equal(await page.locator('#split').isVisible(),true);
    }
    assert.deepEqual(errors,[]);
   } finally {await browser.close();}
