@@ -20,6 +20,22 @@ test('speech request, cache and expiry',async()=>{
  assert.deepEqual(JSON.parse(api.calls[1].options.body),{model:model.id,input:'Привет',voice:'voice-id',response_format:'mp3'});
  time=900001;await synth('Снова');assert.equal(api.calls.length,5);
 });
+
+test('availability check validates access and model without synthesis',async()=>{
+ const api=mock(),synth=createSpeechProvider({env,...api});
+ await synth('',{checkOnly:true});
+ assert.equal(api.calls.length,1);assert.match(api.calls[0].url,/\/models\?/);
+ await synth('Текст');assert.equal(api.calls.length,2);
+ for(const status of [401,403,503]){
+  let calls=0;
+  const fetchImpl=async()=>{calls++;return new Response('test-secret',{status});};
+  await assert.rejects(createSpeechProvider({env,fetchImpl})('',{checkOnly:true}),new RegExp(`^Error: openrouter_http_${status}$`));
+  assert.equal(calls,1);
+ }
+ const paid=mock({...model,pricing:{prompt:'0',completion:'1'}});
+ await assert.rejects(createSpeechProvider({env,...paid})('',{checkOnly:true}),/no_model_within_cost_limit/);
+ assert.equal(paid.calls.length,1);
+});
 test('unknown, malformed and paid prices never synthesize',async()=>{
  for(const pricing of [undefined,{}, {prompt:'0',completion:'0.1'}, {prompt:'NaN',completion:'0'}, {prompt:'0',completion:'0',audio:'1'}, {prompt:null,completion:'0'}, {prompt:'-1',completion:'0'}]){
   const api=mock({...model,pricing});

@@ -34,13 +34,29 @@ When the user explicitly asks for a final MP4, use `--export yes` or the UI Expo
 
 Use environment variables from the destination project root's `.env` (see `.env.example`); Node's `--env-file-if-exists=.env` loads them without a dependency and preserves existing environment overrides. Never print the key. Enable with `OWNER_VOICE_ENABLED=true`, set `OPENROUTER_API_KEY` and the model-specific `OPENROUTER_TTS_VOICE`. Default model: `fish-audio/s2.1-pro-free:free`; timeout: 120 seconds; cost cap: 0 USD. Voice example: `cb92b10e1a5946b9b6bd7391aefe31fe`.
 
-Save the approved narration in a UTF-8 file in the named project, deliver its text to the user first, then run:
+Save the approved narration in a UTF-8 file in the named project and deliver its text to the user first.
+
+Before preparing an API-dependent production run/batch, check access without generating audio or creating files:
+
+`node --env-file-if-exists=.env "<skill>/scripts/speech.mjs" --check yes`
+
+This authenticated catalog request validates the configured model and free-price policy; it cannot guarantee access to the synthesis endpoint. On failure, briefly report the safe error/status and stop dependent work, with no diagnosis/retries or provider substitution unless requested. A later synthesis failure is reported the same way. Never send a disposable synthesis request as a health check.
+
+After the check and narration-text approval, generate the voice:
 
 `node --env-file-if-exists=.env "<skill>/scripts/speech.mjs" --in "projects/Название ролика/диктор.txt" --out "projects/Название ролика/озвучка-01"`
 
 The new output directory contains cleaned `text.txt` even if audio fails, and `voice.mp3` on success; stdout emits the text before the audio path, stderr emits fixed secret-free errors and exit code is 1 on audio failure. Before final storyboard/render approval, present `voice.mp3` as a playable audio preview and link the separate MP3; let the user choose or request another available voice and wait for the choice unless explicit fast-mode delegation applies. Preserve each preview in a new directory. If generation or playback is unavailable, explain the limitation and do not claim the voice was approved. Cleaned input is capped at 12,000 characters, audio at 10 MiB. Price catalog is cached in the provider instance for 15 minutes, never reused after expiry. Only speech models with explicitly zero prompt/completion and all other reported prices zero are currently supported. Paid pricing shapes remain unknown and blocked even with a positive cap, because output duration/token costs cannot be bounded reliably. No fallback model is used.
 
 Pass `voice.mp3` to `render.mjs --audio` for the approved scene. The renderer pads/trims sound to the video length: check spoken duration before rendering to avoid cutting narration. When music is requested, mix the separate narration/music/effect stems with FFmpeg first. Workbench can edit audio detached from imported video; standalone MP3/WAV import is not yet supported. Use the authored-scene renderer for narrated animation.
+
+### Narration verification
+
+Retain the original voice and a separate voice-only WAV positioned on the final timeline (same pauses, edits and gain as the mix). After the last mux/compression run:
+
+`node "<skill>/scripts/check-audio.mjs" --source "projects/Название ролика/озвучка-01/voice.mp3" --narration "projects/Название ролика/звук/голос-в-монтаже.wav" --video "projects/Название ролика/готовое/ролик.mp4"`
+
+The read-only check decodes local inputs with FFmpeg (up to 120 seconds), rejects silent original/aligned voice, and checks correlation ≥0.5 with the final audio in each active one-second window. It rejects missing, heavily masked, misaligned or cut voice intervals with exit code 1; fix the mix instead of marking the video delivered. Keep final voice alignment/gain consistent; this numerical check does not verify words, that the aligned stem contains every original word, pronunciation, or aesthetic quality. Check those against the approved text and listen when possible; disclose unavailable listening. Record the command/result and limitations in existing job.audio metadata, without separate verification logs. No new API or graphics render is needed.
 
 ### Local synthesis
 

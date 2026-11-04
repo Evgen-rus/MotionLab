@@ -29,14 +29,14 @@ export function quoteSpeech(model) {
 
 export function createSpeechProvider({env=process.env, fetchImpl=fetch, now=Date.now}={}) {
  let catalog,expires=0;
- return async text=>{
+ return async (text,{checkOnly=false}={})=>{
   if(!['true','1','yes'].includes((env.OWNER_VOICE_ENABLED||'').toLowerCase()))throw Error('owner_voice_disabled');
   const key=env.OPENROUTER_API_KEY?.trim(),voice=env.OPENROUTER_TTS_VOICE?.trim();
   const model=env.OPENROUTER_TTS_MODEL?.trim()||'fish-audio/s2.1-pro-free:free';
   const timeout=Number(env.OPENROUTER_TTS_TIMEOUT_SECONDS??120),limit=Number(env.OWNER_VOICE_MAX_COST_USD??0);
   if(!key || !voice)throw Error('openrouter_not_configured');
   if(!Number.isFinite(timeout)||timeout<=0||timeout>2147483 || !Number.isFinite(limit)||limit<0)throw Error('openrouter_invalid_config');
-  const input=cleanSpeech(text);if(!input)throw Error('empty_speech_text');
+  const input=checkOnly?'':cleanSpeech(text);if(!checkOnly&&!input)throw Error('empty_speech_text');
   async function request(path,body,max){
    try {
     const response=await fetchImpl('https://openrouter.ai/api/v1'+path,{method:body?'POST':'GET',redirect:'error',signal:AbortSignal.timeout(timeout*1000),headers:{Authorization:`Bearer ${key}`,...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
@@ -51,6 +51,7 @@ export function createSpeechProvider({env=process.env, fetchImpl=fetch, now=Date
   }
   const cost=quoteSpeech(catalog.find(m=>m.id===model));
   if(cost===null || cost>limit)throw Error('no_model_within_cost_limit');
+  if(checkOnly)return;
   const audio=await request('/audio/speech',{model,input,voice,response_format:'mp3'},10*1024*1024);
   if(!audio.length)throw Error('empty_audio_response');
   return audio;
@@ -64,7 +65,12 @@ export async function deliverSpeech(text,{sendText,sendAudio,synthesize=createSp
 }
 
 if(process.argv[1] && import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
- const a=args();for(const key of Object.keys(a))if(!['in','out'].includes(key))throw Error(`Unknown option: ${key}`);
+ const a=args();for(const key of Object.keys(a))if(!['in','out','check'].includes(key))throw Error(`Unknown option: ${key}`);
+ if(a.check!==undefined){
+  if(a.check!=='yes'||a.in||a.out)throw Error('Use --check yes without --in/--out');
+  try{await createSpeechProvider()('',{checkOnly:true});console.log('OpenRouter: доступ и модель проверены; синтез не запускался.');}
+  catch(e){console.error('Проверка OpenRouter: '+e.message);process.exitCode=1;}
+ } else {
  const text=cleanSpeech(readFileSync(localFile(a.in),'utf8'));if(!text)throw Error('empty_speech_text');
  const out=freshOutput(a.out);
  const result=await deliverSpeech(text,{
@@ -72,4 +78,5 @@ if(process.argv[1] && import.meta.url===pathToFileURL(resolve(process.argv[1])).
   sendAudio:async audio=>{writeFileSync(join(out,'voice.mp3'),audio,{flag:'wx'});console.log(join(out,'voice.mp3'));}
  });
  if(!result.ok){console.error('Озвучка недоступна: '+result.error);process.exitCode=1;}
+ }
 }
