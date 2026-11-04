@@ -1,6 +1,9 @@
 # Visual-first decisions
 
-## Smart intake
+## Intake: ordinary or deep
+
+At each new video brief, offer «Обычный бриф — уточним необходимое и перейдём к оформлению» and «Глубокий разбор — проработаем идею, зрителя, начало, развитие, визуальный подход и звук». Wait for the user's selection unless already supplied for this brief; never infer the depth from complexity or silence. For deep intake, also read [deep-intake.md](deep-intake.md). The requirements below apply to both modes; ordinary intake keeps questions to the essentials. Existing projects and concrete editing requests do not need a fresh mode choice.
+
 Read the request, attachments and job before asking. Ask only missing answers in small groups with concrete choices and free text: purpose/main message/CTA, audience, platform AND placement, duration, sound. Tailor audience choices to the subject (e.g. general viewers, developers, business). Adapt copy, pacing, complexity, visual direction and sound to that audience. Do not make the user supply a professional brief.
 
 Audience is required: obtain an explicit user answer before designing, or reuse their explicit answer for this brief. Use `request_user_input_async` when available, with 2–3 tailored suggested answers and free text, in groups of up to three questions. Offer “помоги выбрать” when useful; never leave a missing decision as an open-ended demand for a professional brief. Cover these three blocks, asking only unanswered items and tailoring examples to the video:
