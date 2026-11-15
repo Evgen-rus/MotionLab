@@ -1,5 +1,9 @@
 # MotionLab audio profile
 
+For a fresh Git checkout without installed dependencies, follow [the initial
+Windows installation](setup.md#fresh-git-checkout-windows-x64). The offline
+steps below apply when the complete prepared runtime folder is supplied.
+
 ## Portable local environment
 
 The prepared bundle is for Windows x64 with the installed CPython 3.14 (regular,

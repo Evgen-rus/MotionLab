@@ -34,6 +34,8 @@ Use the local [music-production skill](../../music-production/SKILL.md) and its 
 
 Read `projects/<title>/job.json` first for existing duration, style, music role, narration and timed accents. Keep composition JSON, optional authoring script, cache and new render results under `projects/<title>/звук/<version>/`, retaining previous versions. Deliver checked 48 kHz stereo 24-bit `master.wav` for both listening and editing, without automatic MP3/FLAC copies; keep MIDI, stems and reports for revisions without routinely packaging every file. Audio-only work creates no video, visualizer or source archive unless requested.
 
+For a fresh Git checkout without audio dependencies, follow the initial Windows installation in the music skill's [setup.md](../../music-production/references/setup.md#fresh-git-checkout-windows-x64). It uses the existing bootstrap, pinned locks and a newly generated local configuration. Keep an already working prepared runtime.
+
 After setup or dependency changes, check without composing or rendering:
 
 `& "<audio-skill>/.venv/Scripts/python.exe" "<audio-skill>/scripts/studio.py" doctor --config "<audio-skill>/local-config.json"`
@@ -41,6 +43,14 @@ After setup or dependency changes, check without composing or rendering:
 Reuse a healthy runtime. If sandbox TEMP is unavailable, set `TEMP`/`TMP` only in the current process to a writable folder inside this project's `projects/`; keep both Surge portable data folders in `<audio-skill>/runtime/surge_xt/`. Do not run bootstrap or install additional banks for this prepared bundle.
 
 Record selected music, independently timed/enabled effects and final mix in the existing `job.audio.music`, `job.audio.effects` and `job.audio.mix`, preserving each job's existing field shapes and other audio metadata. Mix with the existing FFmpeg workflow and pass the ready mix to `render.mjs --audio`. For music-only video revisions, reuse available rendered video and remix/remux under the existing final-summary approval rules. Narration continues through `speech.mjs` and its original/aligned-voice checks; do not copy speech credentials. Workbench still imports only video and detaches its sound: standalone WAV/MP3 import is not supported, and music must not be disguised as video.
+
+## OpenAI transcription
+
+For recorded footage, the agent can use the configured `OPENAI_API_KEY` and `TRANSCRIPTION_MODEL` from the root `.env` (default `gpt-transcribe`). Transcription sends audio to OpenAI and may incur charges. Node.js 22+, FFmpeg and ffprobe are sufficient; no Python virtual environment or additional package is needed. The input is limited to 150 MiB and 60 minutes. The tool checks model access before uploading audio; failures stop the request.
+
+`node --env-file-if-exists=.env "<skill>/scripts/transcribe.mjs" --in "projects/Название ролика/исходники/видео.webm" --out "projects/Название ролика/расшифровка-01"`
+
+It decodes audio into 60-second pieces with five seconds of overlap, then saves `transcript.txt` and `transcript.json` only after all pieces finish. The labeled times are source intervals, not word timestamps; overlapping speech may appear twice. Empty recognized pieces do not prove silence. Inspect the recording before using these approximate boundaries for cuts. Output must be a new directory inside the project; no source is overwritten.
 
 ## OpenRouter narration
 

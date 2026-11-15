@@ -29,6 +29,9 @@ foley generator. A synthetic choir is an instrument, not a human singer.
 - Resolve `<skill>` from this file, never from the current directory. Follow
   [references/motionlab.md](references/motionlab.md) for the portable runtime,
   MotionLab handoff, timed effects and project paths.
+- For a fresh Git checkout without runtime files, follow the initial Windows
+  installation in [setup.md](references/setup.md#fresh-git-checkout-windows-x64).
+  Keep an already working environment; do not bootstrap it again.
 - Use the environment/configuration named in the current project's instructions
   when already installed. In the portable bundle these are
   `<skill>/.venv/Scripts/python.exe` and `<skill>/local-config.json`.

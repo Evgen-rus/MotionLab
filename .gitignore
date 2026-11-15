@@ -45,3 +45,4 @@ __pycache__/
 *.pyo
 .pytest_cache/
 /.agents/skills/music-production/runtime/
+/.agents/skills/music-production/local-config.json
