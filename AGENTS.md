@@ -1,6 +1,6 @@
 # MotionLab
 
-For reference analysis and video creation, read and follow `.agents/skills/motionlab/SKILL.md`. It owns the complete workflow, defaults, tools, preview/approval stages and delivery requirements; do not duplicate or replace it with a new framework. Work through the agent; the user only supplies a brief, visual feedback and approval.
+For reference analysis and video creation, read and follow `.agents/skills/motionlab/SKILL.md`. It owns the complete workflow, defaults, tools, preview/approval stages and delivery requirements; do not duplicate or replace it with a new framework. Work through the agent: ask the user intake and clarification questions, present previews and obtain the required choices and approvals, then perform the technical work yourself. The user supplies the brief, answers, visual feedback and approval; do not delegate terminal commands, installation or manual editing to the user.
 
 For original music and synthetic effects, read and follow `.agents/skills/music-production/SKILL.md` and its `references/motionlab.md`. Use only this MotionLab-local skill's `.venv/Scripts/python.exe`, `scripts/studio.py` and `local-config.json`; keep automatic skill discovery enabled. Audio-only requests deliver WAV for listening and editing, without automatic MP3/FLAC copies or video production. Keep `synth_audio.py` available for explicitly chosen simple sketches; do not substitute it automatically for a composition.
 
