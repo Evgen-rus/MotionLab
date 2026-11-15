@@ -1,0 +1,1718 @@
+{
+ "name": "Iowa MIS Percussion (music-production build)",
+ "comment": "Recorded by the University of Iowa Electronic Music Studios (Musical Instrument Samples, https://theremin.music.uiowa.edu/MIS.html) in an anechoic chamber, 5 feet from the instrument; the site states that since 1997 the recordings \"may be downloaded and used for any projects, without restrictions.\" Played by Andrew Thierauf, 2013, stereo, 24-bit/44.1 kHz. Orchestra bells (plastic mallets, chromatic at pp, mf and ff) on program 9, crotales (C6-C8, pp and ff, one file per note) on 10, Thai gongs (C4-C5, pp, mf and ff) on 11, and a kit on bank 128 program 48: clash cymbals, suspended cymbals struck, rolled, choked and bowed, tam-tams of 22, 28 and 40 inches struck and bowed, and a wind gong (keys in references/soundbanks.md). Each take rings until it falls 60 dB under its peak, at most 30 s. Each source file, a chromatic run at one dynamic, is cut into one note per file and every note checked against the run its file is named for (soundbank.py split); then pitch-checked again, intonation offsets within a semitone corrected by fineTune, leading silence trimmed, levels matched per layer with set layer offsets, 16-bit TPDF dither. In build b2 the steady hiss and rumble of the bells, crotales and Thai gongs are reduced by up to 10 dB: a Wiener gain against the noise measured in the quiet frames of each dynamic's takes.",
+ "copyright": "Source recordings: University of Iowa Electronic Music Studios, free for any use without restrictions",
+ "target_rms": 0.08,
+ "split": {
+  "groups": [
+   {
+    "name": "Bells",
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.pp.C5B5.aif",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.pp.C6B6.aif",
+      "dyn": "pp",
+      "notes": [
+       "C6",
+       "B6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.pp.C7B7.aif",
+      "dyn": "pp",
+      "notes": [
+       "C7",
+       "B7"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.pp.C8E8.aif",
+      "dyn": "pp",
+      "notes": [
+       "C8",
+       "E8"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.mf.C5B5.aif",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.mf.C6B6.aif",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "B6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.mf.C7B7.aif",
+      "dyn": "mf",
+      "notes": [
+       "C7",
+       "B7"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.mf.C8E8.aif",
+      "dyn": "mf",
+      "notes": [
+       "C8",
+       "E8"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.ff.C5B5.aif",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.ff.C6B6.aif",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "B6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.ff.C7B7.aif",
+      "dyn": "ff",
+      "notes": [
+       "C7",
+       "B7"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Percussion/Bells/bells.plastic.ff.C8E8.aif",
+      "dyn": "ff",
+      "notes": [
+       "C8",
+       "E8"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Crotales",
+    "pitch": "spectrum",
+    "files": [
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "C6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "C6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Db6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Db6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Db6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Db6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.D6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "D6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.D6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "D6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Eb6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Eb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Eb6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Eb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.E6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "E6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.E6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "E6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.F6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "F6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.F6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "F6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Gb6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Gb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Gb6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Gb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.G6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "G6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.G6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "G6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Ab6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Ab6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Ab6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Ab6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.A6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "A6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.A6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "A6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Bb6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Bb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Bb6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Bb6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.B6.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "B6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.B6.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "B6"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "C7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "C7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Db7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Db7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Db7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Db7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.D7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "D7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.D7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "D7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Eb7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Eb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Eb7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Eb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.E7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "E7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.E7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "E7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.F7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "F7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.F7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "F7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Gb7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Gb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Gb7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Gb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.G7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "G7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.G7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "G7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Ab7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Ab7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Ab7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Ab7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.A7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "A7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.A7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "A7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Bb7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Bb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.Bb7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Bb7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.B7.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "B7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.B7.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "B7"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C8.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "C8"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/crotales/crotale.C8.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "C8"
+      ],
+      "whole": true
+     }
+    ]
+   },
+   {
+    "name": "ThaiGong",
+    "pitch": "spectrum",
+    "octave_free": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "C4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "C4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "C4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Db4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Db4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Db4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "Db4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Db4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Db4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.D4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "D4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.D4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "D4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.D4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "D4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Eb4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Eb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Eb4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "Eb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Eb4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Eb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.E4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "E4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.E4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "E4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.E4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "E4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.F4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "F4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.F4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "F4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.F4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "F4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Gb4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Gb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Gb4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "Gb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Gb4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Gb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.G4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "G4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.G4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "G4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.G4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "G4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Ab4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Ab4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Ab4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "Ab4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Ab4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Ab4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.A4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "A4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.A4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "A4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.A4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "A4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Bb4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "Bb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Bb4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "Bb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.Bb4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "Bb4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.B4.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "B4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.B4.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "B4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.B4.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "B4"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C5.pp.aif",
+      "dyn": "pp",
+      "notes": [
+       "C5"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C5.mf.aif",
+      "dyn": "mf",
+      "notes": [
+       "C5"
+      ],
+      "whole": true
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/thaigongs/thaigong.C5.ff.aif",
+      "dyn": "ff",
+      "notes": [
+       "C5"
+      ],
+      "whole": true
+     }
+    ]
+   },
+   {
+    "name": "Kit",
+    "files": [
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.viennese.pp.aif",
+      "dyn": "pp",
+      "out": "ClashViennese18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.viennese.mf.aif",
+      "dyn": "mf",
+      "out": "ClashViennese18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.viennese.ff.aif",
+      "dyn": "ff",
+      "out": "ClashViennese18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.germanic.pp.aif",
+      "dyn": "pp",
+      "out": "ClashGerman18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.germanic.mf.aif",
+      "dyn": "mf",
+      "out": "ClashGerman18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/crash cymbals/18orchcrash.germanic.ff.aif",
+      "dyn": "ff",
+      "out": "ClashGerman18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/18crash.mallet.pp.aif",
+      "dyn": "pp",
+      "out": "SusCrash18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/18crash.mallet.mf.aif",
+      "dyn": "mf",
+      "out": "SusCrash18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/18crash.mallet.ff.aif",
+      "dyn": "ff",
+      "out": "SusCrash18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/20crash.mallet.pp.aif",
+      "dyn": "pp",
+      "out": "SusCrash20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/20crash.mallet.mf.aif",
+      "dyn": "mf",
+      "out": "SusCrash20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/mallet/20crash.mallet.ff.aif",
+      "dyn": "ff",
+      "out": "SusCrash20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/40tamtam.pp.aif",
+      "dyn": "pp",
+      "out": "TamTam40",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/40tamtam.mf.aif",
+      "dyn": "mf",
+      "out": "TamTam40",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/40tamtam.ff.aif",
+      "dyn": "ff",
+      "out": "TamTam40",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/28tamtam.pp.aif",
+      "dyn": "pp",
+      "out": "TamTam28",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/28tamtam.mf.aif",
+      "dyn": "mf",
+      "out": "TamTam28",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/28tamtam.ff.aif",
+      "dyn": "ff",
+      "out": "TamTam28",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/22tamtam.pp.aif",
+      "dyn": "pp",
+      "out": "TamTam22",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/22tamtam.mf.aif",
+      "dyn": "mf",
+      "out": "TamTam22",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/22tamtam.ff.aif",
+      "dyn": "ff",
+      "out": "TamTam22",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/20windgong.pp.aif",
+      "dyn": "pp",
+      "out": "WindGong20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/20windgong.mf.aif",
+      "dyn": "mf",
+      "out": "WindGong20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/20windgong.ff.aif",
+      "dyn": "ff",
+      "out": "WindGong20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/rolls/18crash.mallet.roll.aif",
+      "dyn": "default",
+      "out": "SusRoll18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/rolls/20crash.mallet.roll.aif",
+      "dyn": "default",
+      "out": "SusRoll20",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/choke/18crash.chokecrash.aif",
+      "dyn": "default",
+      "out": "Choke18",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/40tamtam.bow.aif",
+      "dyn": "default",
+      "out": "TamTam40Bowed",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/gongs & tamtams/28tamtam.bow.aif",
+      "dyn": "default",
+      "out": "TamTam28Bowed",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/bowed/18crash.bow.aif",
+      "dyn": "default",
+      "out": "SusCrash18Bowed",
+      "whole": true,
+      "pitch": false
+     },
+     {
+      "file": "sound files/MIS/Percussion/cymbals/suspended cymbals/bowed/20chinese.bow.aif",
+      "dyn": "default",
+      "out": "Chinese20Bowed",
+      "whole": true,
+      "pitch": false
+     }
+    ]
+   }
+  ]
+ },
+ "presets": [
+  {
+   "name": "Orchestra Bells",
+   "program": 9,
+   "layers": [
+    {
+     "dir": "Bells",
+     "pattern": "Bells_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      72,
+      112
+     ],
+     "pitch_source": "split",
+     "borrowed_level": "served",
+     "max_correction_cents": 100,
+     "level": "peak",
+     "match_notes": true,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 10
+     }
+    }
+   ]
+  },
+  {
+   "name": "Crotales",
+   "program": 10,
+   "layers": [
+    {
+     "dir": "Crotales",
+     "pattern": "Crotales_(?P<dyn>pp|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       80
+      ],
+      "ff": [
+       81,
+       127
+      ]
+     },
+     "keys": [
+      84,
+      108
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "level": "peak",
+     "match_notes": true,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 10
+     }
+    }
+   ]
+  },
+  {
+   "name": "Thai Gongs",
+   "program": 11,
+   "layers": [
+    {
+     "dir": "ThaiGong",
+     "pattern": "ThaiGong_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      60,
+      72
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "level": "peak",
+     "match_notes": true,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 10
+     }
+    }
+   ]
+  },
+  {
+   "name": "Orchestra Kit",
+   "bank": 128,
+   "program": 48,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "clash cymbals, 18-inch Viennese pair",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_ClashViennese18\\.wav",
+     "root": 49,
+     "keys": [
+      49,
+      49
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "clash cymbals, 18-inch German pair",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_ClashGerman18\\.wav",
+     "root": 57,
+     "keys": [
+      57,
+      57
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended 18-inch crash, soft mallet",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_SusCrash18\\.wav",
+     "root": 55,
+     "keys": [
+      55,
+      55
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended 20-inch crash, soft mallet",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_SusCrash20\\.wav",
+     "root": 51,
+     "keys": [
+      51,
+      51
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "40-inch tam-tam",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_TamTam40\\.wav",
+     "root": 52,
+     "keys": [
+      52,
+      52
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "28-inch tam-tam",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_TamTam28\\.wav",
+     "root": 50,
+     "keys": [
+      50,
+      50
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "22-inch tam-tam",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_TamTam22\\.wav",
+     "root": 48,
+     "keys": [
+      48,
+      48
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "20-inch wind gong",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>pp|mf|ff)_WindGong20\\.wav",
+     "root": 47,
+     "keys": [
+      47,
+      47
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended 18-inch crash, mallet roll",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_SusRoll18\\.wav",
+     "root": 59,
+     "keys": [
+      59,
+      59
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    },
+    {
+     "name": "suspended 20-inch crash, mallet roll",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_SusRoll20\\.wav",
+     "root": 60,
+     "keys": [
+      60,
+      60
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    },
+    {
+     "name": "suspended 18-inch crash, choked",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_Choke18\\.wav",
+     "root": 56,
+     "keys": [
+      56,
+      56
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 0.2
+     }
+    },
+    {
+     "name": "40-inch tam-tam, bowed",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_TamTam40Bowed\\.wav",
+     "root": 27,
+     "keys": [
+      27,
+      27
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    },
+    {
+     "name": "28-inch tam-tam, bowed",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_TamTam28Bowed\\.wav",
+     "root": 28,
+     "keys": [
+      28,
+      28
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    },
+    {
+     "name": "suspended 18-inch crash, bowed",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_SusCrash18Bowed\\.wav",
+     "root": 29,
+     "keys": [
+      29,
+      29
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    },
+    {
+     "name": "20-inch Chinese cymbal, bowed",
+     "dir": "Kit",
+     "pattern": "Kit_(?P<dyn>default)_Chinese20Bowed\\.wav",
+     "root": 30,
+     "keys": [
+      30,
+      30
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "max_seconds": 30,
+     "ring_db": -60,
+     "envelope": {
+      "release": 100
+     }
+    }
+   ]
+  }
+ ]
+}

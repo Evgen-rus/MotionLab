@@ -1,0 +1,357 @@
+{
+  "name": "Iowa MIS Nylon Guitar (music-production build)",
+  "comment": "Recorded by the University of Iowa Electronic Music Studios (Musical Instrument Samples, https://theremin.music.uiowa.edu/MIS.html; guitar page MISguitar.html): a Raimundo 118 nylon-string classical guitar played by Brian Penkrot on 11 December 2011 in an anechoic chamber, 5 feet from an Earthworks QTC40; the site states that since 1997 the recordings \"may be downloaded and used for any projects, without restrictions.\" Each string recorded chromatically at pp, mf and ff (24-bit/96 kHz mono files). Each note is taken from the string where it is stopped in the lowest position (a semitone over that string's open note up to the next open string; only the lowest string is used open), or from the nearest string that has it. Program 24 (General MIDI nylon guitar), bank 0, one velocity layer per recorded dynamic. Each source file, a chromatic run at one dynamic, is cut into one note per file and every note checked against the run its file is named for (soundbank.py split); then pitch-checked again, intonation offsets within a semitone corrected by fineTune, leading silence trimmed, levels matched per layer with set layer offsets, the steady hiss reduced by up to 12 dB (a Wiener gain against the noise measured in the quiet frames of each dynamic's takes), 16-bit TPDF dither. Build b3: each half-octave band of a take from 1 kHz up is taken out once it has come down to the recording's hiss, never in the first 0.06 s of a note (close_hiss): a plucked string's upper partials die first, and what those bands held afterwards was hiss, heard under a soft passage played alone. Levels, tuning and the first 0.06 s of every take are as in b2. Build b4 (b3 was not released): a band is not closed while a narrow component that its filter would take from is heard in the hiss, a partial that dies slowly or one that the reading against the top band missed; the band closes after the last quarter second that holds one, and stays as recorded where one lasts into the later part of the take. Build b5 (b4 was not released): every quarter second of a take is read for such a component against its own floor, to the end of the take; b4 read the later part as one average and every window against the later part's floor, which hid a short tone late in a take and, under a fade of the whole recording, took hiss for tones. Build b6 (b5 was not released): each channel is read for such a component on its own, up to the take's last sample; b5 read the two channels' average, under which a tone in one channel went unseen, and stopped up to 85 ms before the end of the take. Build b7 (b6 was not released): each frame is set against its own level before a window's frames are averaged; in b6 a window over a recording's own fade-out was ruled by its loudest frame, whose chance peaks passed for a tone and kept the band as recorded. A frame's level is also no lower than the floor a stored sample carries, 16 bits under the take's peak: what is left where a take has faded to nothing held bands as a tone would. Build b8 (b7 was not released): a window's floor in that reading is held no lower than the stored sample's floor in the window's own units; b7 held it at the level the frames were set against, which in a half octave crowded with a low note's partials is itself partials, and took those for hiss.",
+  "copyright": "Source recordings: University of Iowa Electronic Music Studios, free for any use without restrictions",
+  "target_rms": 0.08,
+  "split": {
+    "groups": [
+      {
+        "name": "Guitar_nylon",
+        "fmin": 70,
+        "fmax": 1200,
+        "strings": {
+          "E": [
+            40,
+            45
+          ],
+          "A": [
+            46,
+            50
+          ],
+          "D": [
+            51,
+            55
+          ],
+          "G": [
+            56,
+            59
+          ],
+          "B": [
+            60,
+            64
+          ],
+          "e": [
+            65,
+            127
+          ]
+        },
+        "partial": true,
+        "files": [
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulE.E2B2.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "E2",
+              "B2"
+            ],
+            "string": "E",
+            "analysis_highpass_hz": 60
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulA.A2B2.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "A2",
+              "B2"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulA.C3B3.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "C3",
+              "B3"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulD.D3B3.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "D3",
+              "B3"
+            ],
+            "string": "D",
+            "analysis_highpass_hz": 100
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulG.G3B3.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "G3",
+              "B3"
+            ],
+            "string": "G",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sulB.C4B4.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "C4",
+              "B4"
+            ],
+            "string": "B",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sul_E.E4B4.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "E4",
+              "B4"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.pp.sul_E.C5B5.mono.aif",
+            "dyn": "pp",
+            "notes": [
+              "C5",
+              "B5"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulE.E2B2.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "E2",
+              "B2"
+            ],
+            "string": "E",
+            "analysis_highpass_hz": 60
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulA.A2B2.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "A2",
+              "B2"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulA.C3B3.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "C3",
+              "B3"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulD.D3B3.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "D3",
+              "B3"
+            ],
+            "string": "D",
+            "analysis_highpass_hz": 100
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulG.G3B3.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "G3",
+              "B3"
+            ],
+            "string": "G",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sulB.C4B4.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "C4",
+              "B4"
+            ],
+            "string": "B",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sul_E.E4B4.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "E4",
+              "B4"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.mf.sul_E.C5B5.mono.aif",
+            "dyn": "mf",
+            "notes": [
+              "C5",
+              "B5"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulE.E2B2.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "E2",
+              "B2"
+            ],
+            "string": "E",
+            "analysis_highpass_hz": 60
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulA.A2B2.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "A2",
+              "B2"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulA.C3B3.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "C3",
+              "B3"
+            ],
+            "string": "A",
+            "analysis_highpass_hz": 80
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulD.D3B3.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "D3",
+              "B3"
+            ],
+            "string": "D",
+            "analysis_highpass_hz": 100
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulG.G3B3.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "G3",
+              "B3"
+            ],
+            "string": "G",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sulB.C4B4.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "C4",
+              "B4"
+            ],
+            "string": "B",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sul_E.E4B4.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "E4",
+              "B4"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          },
+          {
+            "file": "sound files/MIS/Piano_Other/guitar/Guitar.ff.sul_E.C5Bb5.mono.aif",
+            "dyn": "ff",
+            "notes": [
+              "C5",
+              "Bb5"
+            ],
+            "string": "e",
+            "analysis_highpass_hz": 120
+          }
+        ],
+        "quiet_db": 40,
+        "edge_db": 50,
+        "leave_out": [
+          {
+            "dyn": "ff",
+            "note": "C3",
+            "why": "recorded about 15 dB under the ff notes either side (peak -27.5 dBFS against -10 to -19), more than the level match makes up"
+          }
+        ]
+      }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Nylon Guitar",
+      "program": 24,
+      "layers": [
+        {
+          "dir": "Guitar_nylon",
+          "onset_db": -24.0,
+          "pattern": "Guitar_nylon_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+          "dynamics": [
+            "pp",
+            "mf",
+            "ff"
+          ],
+          "velocity": {
+            "pp": [
+              1,
+              55
+            ],
+            "mf": [
+              56,
+              95
+            ],
+            "ff": [
+              96,
+              127
+            ]
+          },
+          "keys": [
+            40,
+            83
+          ],
+          "pitch_source": "spectrum",
+          "borrowed_level": "served",
+          "max_correction_cents": 100,
+          "match_notes": true,
+          "match_limit_db": 12,
+          "level": "peak",
+          "envelope": {
+            "attack": 0.001,
+            "release": 0.35
+          },
+          "layer_levels_db": {
+            "pp": -12,
+            "mf": -6,
+            "ff": 0
+          },
+          "denoise": {
+            "reduce_db": 12,
+            "keep_partials_below": 300
+          },
+          "highpass": {
+            "ratio": 0.73,
+            "max_hz": 120
+          },
+          "spectrum_window": [
+            0.2,
+            1.2
+          ],
+          "close_hiss": {}
+        }
+      ]
+    }
+  ]
+}

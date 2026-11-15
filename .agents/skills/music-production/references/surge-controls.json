@@ -1,0 +1,628 @@
+{
+  "source": "Read from the curated Surge XT 1.3.4 factory patches by scripts/surge_controls.py: what the mod wheel (CC1) and each routed macro move in the patch, with the routing depth (semitones for a filter cutoff) and the wheel position the patch was saved with (0-1), where a part without CC1 leaves it. An empty list: the patch does not route it.",
+  "presets": {
+    "moogy_saw": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "LFO 1 depth +1.00"
+      ],
+      "macros": {}
+    },
+    "notched_saws": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "effect 2 parameter 7 -43.71",
+        "effect 2 parameter 8 -20.25",
+        "effect 2 parameter 9 +0.42",
+        "oscillator 1 parameter 6 -0.17"
+      ],
+      "macros": {}
+    },
+    "butter": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +39 semitones"
+      ],
+      "macros": {}
+    },
+    "smooth_lead": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +17 semitones"
+      ],
+      "macros": {}
+    },
+    "fm_rock": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "FM depth +17.36"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "effect 1 parameter 5 +4.63"
+          ]
+        }
+      }
+    },
+    "sharpish": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -38 semitones",
+        "filter 1 resonance +0.91",
+        "filter 1 envelope amount -26.74",
+        "filter 1 key tracking +0.55"
+      ],
+      "macros": {}
+    },
+    "turbo": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +48 semitones",
+        "filter 1 resonance -0.40"
+      ],
+      "macros": {}
+    },
+    "shanai": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "synth_guitar": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 1 +0.95",
+        "oscillator 1 parameter 2 +0.39",
+        "filter 1 resonance +0.23",
+        "filter 2 cutoff -10 semitones",
+        "filter 2 resonance +0.25"
+      ],
+      "macros": {}
+    },
+    "violini_solo": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -4 semitones",
+        "filter 2 cutoff +6 semitones",
+        "filter 1 cutoff -4 semitones",
+        "filter 2 cutoff +6 semitones"
+      ],
+      "macros": {}
+    },
+    "dreamy_flute": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +25 semitones"
+      ],
+      "macros": {}
+    },
+    "synth_brass_warm": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "synth_brass_bright": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -9 semitones",
+        "filter 1 envelope amount -56.06"
+      ],
+      "macros": {}
+    },
+    "juno_60_strings": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +42 semitones"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "oscillator 1 parameter 1 +0.57",
+            "oscillator 1 parameter 2 +0.00",
+            "oscillator 1 parameter 4 +0.21"
+          ]
+        }
+      }
+    },
+    "bell_pad": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 envelope amount +48.86"
+      ],
+      "macros": {
+        "1": {
+          "label": "Cutoff",
+          "targets": [
+            "level -5.91",
+            "filter 1 cutoff +20 semitones"
+          ]
+        },
+        "2": {
+          "label": "Skew H",
+          "targets": [
+            "oscillator 1 parameter 5 +1.22"
+          ]
+        },
+        "3": {
+          "label": "Shape",
+          "targets": [
+            "oscillator 1 parameter 1 +1.00"
+          ]
+        },
+        "4": {
+          "label": "Speed",
+          "targets": [
+            "filter 1 envelope amount -9.26",
+            "amp envelope attack -6.69",
+            "filter envelope attack -7.45"
+          ]
+        },
+        "5": {
+          "label": "Vibrato Rate",
+          "targets": [
+            "LFO 1 rate +0.49"
+          ]
+        },
+        "6": {
+          "label": "LO",
+          "targets": [
+            "effect 2 parameter 1 +12.09"
+          ]
+        },
+        "7": {
+          "label": "MID",
+          "targets": [
+            "effect 2 parameter 4 +12.86"
+          ]
+        },
+        "8": {
+          "label": "HI",
+          "targets": [
+            "effect 2 parameter 7 +13.11"
+          ]
+        }
+      }
+    },
+    "sawteeth": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +42 semitones"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "oscillator 1 parameter 1 +0.57",
+            "oscillator 1 parameter 2 +0.00",
+            "oscillator 1 parameter 4 +0.21"
+          ]
+        }
+      }
+    },
+    "bright_pad": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "LFO 1 rate +0.15",
+        "LFO 1 depth +0.97"
+      ],
+      "macros": {
+        "1": {
+          "label": "Cutoff",
+          "targets": [
+            "filter 1 cutoff +41 semitones"
+          ]
+        },
+        "2": {
+          "label": "Resonance",
+          "targets": [
+            "filter 1 resonance +1.00"
+          ]
+        },
+        "3": {
+          "label": "Uni Spread",
+          "targets": [
+            "oscillator 1 parameter 6 +0.17"
+          ]
+        },
+        "4": {
+          "label": "Attack",
+          "targets": [
+            "amp envelope attack -3.41",
+            "amp envelope release -1.18"
+          ]
+        }
+      }
+    },
+    "ghost_pad": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "moody_pad": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "retro_choir": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 1 -1.00"
+      ],
+      "macros": {}
+    },
+    "synth_choir": {
+      "wheel_saved": 1.0,
+      "wheel": [
+        "effect 1 parameter 2 +6.07",
+        "effect 1 parameter 5 +5.74",
+        "effect 1 parameter 8 +2.02"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "filter 1 cutoff +24 semitones"
+          ]
+        },
+        "2": {
+          "label": null,
+          "targets": [
+            "filter 1 resonance +0.25",
+            "filter 2 resonance +0.23"
+          ]
+        }
+      }
+    },
+    "comb_strings": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 1 -0.69",
+        "oscillator 1 parameter 4 +0.65",
+        "oscillator 1 parameter 6 +0.20"
+      ],
+      "macros": {}
+    },
+    "slow_poly": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -24 semitones",
+        "filter 1 resonance +0.76"
+      ],
+      "macros": {
+        "1": {
+          "label": "Cutoff",
+          "targets": [
+            "filter 1 cutoff +19 semitones"
+          ]
+        },
+        "2": {
+          "label": "Sync",
+          "targets": [
+            "oscillator 3 parameter 5 +21.11"
+          ]
+        }
+      }
+    },
+    "mg_poly": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -32 semitones",
+        "filter 1 resonance +0.45",
+        "filter envelope decay +3.27"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "filter 1 cutoff +18 semitones"
+          ]
+        },
+        "2": {
+          "label": null,
+          "targets": [
+            "filter 1 resonance +0.92"
+          ]
+        }
+      }
+    },
+    "uni_saw": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {
+        "1": {
+          "label": "Sync",
+          "targets": [
+            "oscillator 1 parameter 5 +38.09",
+            "level -7.71",
+            "filter 1 cutoff +26 semitones"
+          ]
+        },
+        "2": {
+          "label": "Uni Spread",
+          "targets": [
+            "oscillator 1 parameter 6 +0.08"
+          ]
+        },
+        "3": {
+          "label": "Decay",
+          "targets": [
+            "filter 1 envelope amount +9.77",
+            "filter envelope attack -3.06",
+            "filter envelope decay -5.99"
+          ]
+        }
+      }
+    },
+    "phasey": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "ahh_poly": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "waveshaper drive -2.31",
+        "filter 1 cutoff -20 semitones",
+        "filter 2 cutoff +24 semitones"
+      ],
+      "macros": {}
+    },
+    "trance_stab": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "filter 1 cutoff +30 semitones"
+          ]
+        },
+        "2": {
+          "label": null,
+          "targets": [
+            "filter 1 resonance +0.49",
+            "filter 2 resonance +0.49"
+          ]
+        }
+      }
+    },
+    "prophet_vs": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff +42 semitones"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "oscillator 1 parameter 1 +0.57",
+            "oscillator 1 parameter 2 +0.00",
+            "oscillator 1 parameter 4 +0.21"
+          ]
+        }
+      }
+    },
+    "violini_poly": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -4 semitones",
+        "filter 2 cutoff +6 semitones",
+        "filter 1 cutoff -4 semitones",
+        "filter 2 cutoff +6 semitones"
+      ],
+      "macros": {}
+    },
+    "ep_1": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "dx_ep": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "soft_suitcase": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "organ_1": {
+      "wheel_saved": 1.0,
+      "wheel": [
+        "effect 2 parameter 1 +0.60"
+      ],
+      "macros": {
+        "1": {
+          "label": null,
+          "targets": [
+            "oscillator 1 parameter 1 +0.30"
+          ]
+        }
+      }
+    },
+    "bell_pluck": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 1 +0.09"
+      ],
+      "macros": {}
+    },
+    "fantasy_bell": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 5 +1.19",
+        "amp envelope release +2.86",
+        "filter envelope decay +2.09",
+        "filter envelope release +3.62"
+      ],
+      "macros": {}
+    },
+    "ambient_guitar": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "LFO 4 depth +0.96",
+        "LFO 7 depth +0.99"
+      ],
+      "macros": {
+        "1": {
+          "label": "Drive",
+          "targets": [
+            "effect 1 parameter 5 +10.80",
+            "effect 1 parameter 11 -5.79"
+          ]
+        },
+        "2": {
+          "label": "Brightness",
+          "targets": [
+            "effect 1 parameter 4 +22.29",
+            "effect 1 parameter 10 +16.71"
+          ]
+        },
+        "3": {
+          "label": "M1 Amount",
+          "targets": [
+            "oscillator 1 parameter 1 +0.07",
+            "oscillator 1 parameter 7 -0.25"
+          ]
+        },
+        "4": {
+          "label": "M2 Amount",
+          "targets": [
+            "oscillator 1 parameter 3 +0.07"
+          ]
+        },
+        "5": {
+          "label": "Pluck Level",
+          "targets": [
+            "LFO 1 depth +0.50"
+          ]
+        },
+        "6": {
+          "label": "Pluck Decay",
+          "targets": [
+            "LFO 1 decay +2.00"
+          ]
+        },
+        "7": {
+          "label": "FX1 Send",
+          "targets": [
+            "send to effect 1 +0.33"
+          ]
+        },
+        "8": {
+          "label": "Feedback",
+          "targets": [
+            "effect 5 parameter 3 +0.32"
+          ]
+        }
+      }
+    },
+    "pure_square": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "LFO 7 depth +1.00"
+      ],
+      "macros": {}
+    },
+    "diamonds": {
+      "wheel_saved": 1.0,
+      "wheel": [
+        "filter 1 cutoff +11 semitones",
+        "filter 2 resonance +0.46"
+      ],
+      "macros": {
+        "1": {
+          "label": "Speedos",
+          "targets": [
+            "amp envelope release -2.72",
+            "filter envelope decay -3.55"
+          ]
+        }
+      }
+    },
+    "music_box": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "woody": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 2 +0.34",
+        "oscillator 1 parameter 3 -0.02",
+        "oscillator 1 parameter 5 +0.33",
+        "filter 1 cutoff +1 semitones"
+      ],
+      "macros": {}
+    },
+    "late_fall": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "level -5.14",
+        "filter balance +0.09",
+        "filter 1 cutoff +66 semitones",
+        "filter 2 cutoff -4 semitones",
+        "filter 2 resonance -0.45",
+        "filter envelope decay -4.94"
+      ],
+      "macros": {}
+    },
+    "sub_bass_3": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "rubber_bass": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "filter 1 cutoff -63 semitones",
+        "filter 1 resonance -0.27"
+      ],
+      "macros": {}
+    },
+    "bass_1": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "fm_bass": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "oscillator 1 parameter 4 +0.13",
+        "oscillator 1 parameter 7 +0.46"
+      ],
+      "macros": {}
+    },
+    "fingered_bass": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "fm_slap": {
+      "wheel_saved": 0.0,
+      "wheel": [],
+      "macros": {}
+    },
+    "saw_lofi_bass": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "effect 1 parameter 7 -36.60",
+        "effect 1 parameter 8 +0.68",
+        "scene level +0.06"
+      ],
+      "macros": {}
+    },
+    "distorted_fm_bass": {
+      "wheel_saved": 0.0,
+      "wheel": [
+        "effect 1 parameter 1 -24.69",
+        "effect 1 parameter 2 +3.04",
+        "effect 1 parameter 5 +20.19"
+      ],
+      "macros": {}
+    }
+  }
+}

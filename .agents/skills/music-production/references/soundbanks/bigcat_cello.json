@@ -1,0 +1,169 @@
+{
+ "name": "Karoryfer x bigcat cello (music-production build)",
+ "comment": "Built from Karoryfer x bigcat cello by Karoryfer Lecolds and bigcat instruments, played by Kamila Borowiak, CC0 1.0. Source: https://github.com/sfzinstruments/karoryfer-bigcat.cello at 6fd75fbfc1dbb3109bf26220ba1adea46188a18b. A solo cello. Sustained notes (program 42): 17 pitches C2-A5 in minor thirds, four dynamics on the library's velocity split (p 1-32, mp 33-64, mf 65-96, f 97-127), a down-bow and an up-bow take of each, played with each recording's own sustain loop so a held note lasts as long as the key. Staccato (bank 1): four dynamics, four round robins. Pizzicato (bank 2): four round robins. The library names notes an octave below standard pitch. Changes: pitch-checked against the names, small intonation offsets as fineTune; where a take sags at the end of its loop (the player easing off), the loop end moves back to before the sag, to the point that best matches the loop start in phase, with a 0.12 s crossfade; the takes are played without vibrato (the library adds it with an LFO), so the synthesizer's vibrato LFO adds a gentle one, 5.5 Hz and 12 cents after 0.35 s, which the mod wheel deepens; the four dynamics levelled to one median and a straight velocity line of 30 dB from velocity 0 to 127, so velocity sets loudness smoothly and the recorded dynamic sets the tone; a take louder or softer than its neighbours pulled toward them (at most 6 dB); bow directions and round robins alternate on neighbouring velocities; 16-bit TPDF dither. Build b2: sustained presets also come as one preset per recorded dynamic, banks 16 and up on the same program and deaf to velocity, for crossfading along a dynamics curve; melodic ones also as legato presets, banks 32 and up, each take entered past its attack.",
+ "copyright": "Source samples CC0 1.0 (Karoryfer Lecolds and bigcat instruments, Karoryfer x bigcat cello)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Cello",
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Samples/sus",
+     "pattern": "(?P<note>[A-G]b?\\d)_(?P<dyn>p|mp|mf|f)_(?P<rr>[dg])\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "p",
+      "mp",
+      "mf",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       32
+      ],
+      "mp": [
+       33,
+       64
+      ],
+      "mf": [
+       65,
+       96
+      ],
+      "f": [
+       97,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      84
+     ],
+     "loop": "recorded",
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.12
+     },
+     "fmin": 50,
+     "fmax": 1200,
+     "match_notes": "local",
+     "layer_levels_db": {
+      "p": 0,
+      "mp": 0,
+      "mf": 0,
+      "f": 0
+     },
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.4
+     },
+     "vibrato": {
+      "rate_hz": 5.5,
+      "depth_cents": 12,
+      "delay_seconds": 0.35
+     },
+     "velocity_attenuation_cb": 300,
+     "velocity_curve": "linear",
+     "velocity_filter_cents": 0
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Cello Staccato",
+   "bank": 1,
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Samples/staccato",
+     "pattern": "(?P<note>[A-G]b?\\d)_(?P<dyn>p|mp|mf|f)_?(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "p",
+      "mp",
+      "mf",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       32
+      ],
+      "mp": [
+       33,
+       64
+      ],
+      "mf": [
+       65,
+       96
+      ],
+      "f": [
+       97,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      84
+     ],
+     "fmin": 50,
+     "fmax": 1200,
+     "match_notes": "local",
+     "layer_levels_db": {
+      "p": 0,
+      "mp": 0,
+      "mf": 0,
+      "f": 0
+     },
+     "envelope": {
+      "attack": 0.002,
+      "release": 0.2
+     },
+     "velocity_attenuation_cb": 300,
+     "velocity_curve": "linear",
+     "velocity_filter_cents": 0
+    }
+   ]
+  },
+  {
+   "name": "Cello Pizzicato",
+   "bank": 2,
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Samples/pizzcato",
+     "pattern": "(?P<note>[A-G]b?\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      74
+     ],
+     "fmin": 50,
+     "fmax": 1200,
+     "level": "peak",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.6
+     }
+    }
+   ]
+  }
+ ]
+}

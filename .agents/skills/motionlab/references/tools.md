@@ -28,7 +28,19 @@ Apply a limited natural-language command: `--command "Раздели клип 1 
 
 When the user explicitly asks for a final MP4, use `--export yes` or the UI Export button. The FFmpeg montage uses cuts, aspect-preserving letterboxing/padding, 30 fps, H.264/AAC, and silence when a source has no audio. Detached audio is mixed with its own position, boundaries, gain and pitch-preserving tempo; the video's original sound is disabled on detachment. Audio does not follow subsequent video reordering/trims. Output duration follows video, with audio tails trimmed. Browser audio preview uses independent HTML audio players, so timing is approximate; FFmpeg export uses sample-based placement. Exports are unique directories under `projects/<title>/монтаж/`. It is an editing tool for existing footage, not a substitute for the authored-scene `render.mjs` approval workflow. Only local video files are accepted, and the browser may be unable to preview some MOV/MKV codecs; the export processor can still handle them if FFmpeg supports them. The UI needs Node.js 22+, FFmpeg and ffprobe; it does not require Edge/Chrome for server startup, although a browser is needed to view it.
 
-## Optional local sound synthesis
+## Local music and synthetic effects
+
+Use the local [music-production skill](../../music-production/SKILL.md) and its [MotionLab profile](../../music-production/references/motionlab.md). `<audio-skill>` is the absolute path to this project's `.agents/skills/music-production`, independent of the old MusicLab folder. Run its existing CLI with `<audio-skill>/.venv/Scripts/python.exe` and `<audio-skill>/local-config.json`; no server, API, global install or external skill updates are needed.
+
+Read `projects/<title>/job.json` first for existing duration, style, music role, narration and timed accents. Keep composition JSON, optional authoring script, cache and new render results under `projects/<title>/звук/<version>/`, retaining previous versions. Deliver checked 48 kHz stereo 24-bit `master.wav` for both listening and editing, without automatic MP3/FLAC copies; keep MIDI, stems and reports for revisions without routinely packaging every file. Audio-only work creates no video, visualizer or source archive unless requested.
+
+After setup or dependency changes, check without composing or rendering:
+
+`& "<audio-skill>/.venv/Scripts/python.exe" "<audio-skill>/scripts/studio.py" doctor --config "<audio-skill>/local-config.json"`
+
+Reuse a healthy runtime. If sandbox TEMP is unavailable, set `TEMP`/`TMP` only in the current process to a writable folder inside this project's `projects/`; keep both Surge portable data folders in `<audio-skill>/runtime/surge_xt/`. Do not run bootstrap or install additional banks for this prepared bundle.
+
+Record selected music, independently timed/enabled effects and final mix in the existing `job.audio.music`, `job.audio.effects` and `job.audio.mix`, preserving each job's existing field shapes and other audio metadata. Mix with the existing FFmpeg workflow and pass the ready mix to `render.mjs --audio`. For music-only video revisions, reuse available rendered video and remix/remux under the existing final-summary approval rules. Narration continues through `speech.mjs` and its original/aligned-voice checks; do not copy speech credentials. Workbench still imports only video and detaches its sound: standalone WAV/MP3 import is not supported, and music must not be disguised as video.
 
 ## OpenRouter narration
 
@@ -58,11 +70,11 @@ Retain the original voice and a separate voice-only WAV positioned on the final 
 
 The read-only check decodes local inputs with FFmpeg (up to 120 seconds), rejects silent original/aligned voice, and checks correlation ≥0.5 with the final audio in each active one-second window. It rejects missing, heavily masked, misaligned or cut voice intervals with exit code 1; fix the mix instead of marking the video delivered. Keep final voice alignment/gain consistent; this numerical check does not verify words, that the aligned stem contains every original word, pronunciation, or aesthetic quality. Check those against the approved text and listen when possible; disclose unavailable listening. Record the command/result and limitations in existing job.audio metadata, without separate verification logs. No new API or graphics render is needed.
 
-### Local synthesis
+## Simple synthetic sketches
 
-Python 3 with NumPy is optional: check `python -c "import numpy; print(numpy.__version__)"`. If missing, use a project-local venv (`python -m venv .venv`, then `.venv/Scripts/python -m pip install numpy` on Windows; `.venv/bin/python -m pip install numpy` on Linux). No SciPy or external API is needed. The supplied demo uses SciPy filters; this implementation uses simple NumPy noise differentiation, oscillators and envelopes instead. Synthetic timbres are approximations.
+Keep `synth_audio.py` for explicitly selected simple sketches and basic synthetic cues; use the music skill above for original compositions. The prepared local audio Python already supplies NumPy, so use `<audio-skill>/.venv/Scripts/python.exe` without pip or another environment. No SciPy or external API is needed. This sketch uses simple NumPy noise differentiation, oscillators and envelopes; synthetic timbres are approximations.
 
-`python "<skill>/scripts/synth_audio.py" --out "projects/Проверка звука/audio-A" --duration 6 --tempo 108 --mood warm --instruments kick,snare,hat,bass,chords --seed 42`
+`& "<audio-skill>/.venv/Scripts/python.exe" "<skill>/scripts/synth_audio.py" --out "projects/Название ролика/звук/эскиз-A" --duration 6 --tempo 108 --mood warm --instruments kick,snare,hat,bass,chords --seed 42`
 
 Use an initialized named project. Output directory must be new and inside projects. Options: duration 0.1–120 seconds, tempo 30–240 BPM; mood warm/bright/dark changes harmony; instruments is a comma-separated subset of kick/snare/hat/bass/chords. For three previews run into audio-A/B/C, e.g. warm/108/full ensemble, bright/128/kick,hat,bass, dark/72/bass,chords. Adapt these choices to the brief, not a fixed style. `--effects cues.json` accepts an array of `{ "time": 0.5, "kind": "tap", "gain": 0.12, "pan": 0, "enabled": true }`; kinds tap/drop/swoosh; `[]` means no effects. Default cues are a demonstration, replace with scene timings.
 

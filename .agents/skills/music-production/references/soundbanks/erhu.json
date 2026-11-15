@@ -1,0 +1,118 @@
+{
+ "name": "Erhu (music-production build)",
+ "comment": "An inexpensive erhu played by a violinist, close-miked in stereo, sampled and released as CC0 1.0 (aliexpress-erhu): sustained notes with two round robins, each take looped (0:110), short notes with four round robins (1:110), and sustained notes bowed over the fingerboard (sul tasto), looped (2:110). Source: https://github.com/sfzinstruments/aliexpress-erhu at 6615047b2fd06126877483e97b8bb4af9d00b080. Changes: pitch-checked against file names (a reading an octave off taken as the named note), small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0-1.0",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Erhu",
+   "program": 110,
+   "layers": [
+    {
+     "dir": "Samples/sus",
+     "pattern": "erhu_(?P<note>[a-gA-G]b?-?\\d)_sus_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.3
+     },
+     "fmin": 200,
+     "fmax": 3000,
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.35,
+      "period_search": true,
+      "min_loop": 0.5,
+      "match_seconds": 0.12
+     },
+     "fold_octaves": true
+    }
+   ]
+  },
+  {
+   "name": "Erhu Short",
+   "bank": 1,
+   "program": 110,
+   "layers": [
+    {
+     "dir": "Samples/stac",
+     "pattern": "erhu_(?P<note>[a-gA-G]b?-?\\d)_stac_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.002,
+      "release": 0.15
+     },
+     "fmin": 200,
+     "fmax": 3000,
+     "fold_octaves": true
+    }
+   ]
+  },
+  {
+   "name": "Erhu Sul Tasto",
+   "bank": 2,
+   "program": 110,
+   "layers": [
+    {
+     "dir": "Samples/st",
+     "pattern": "erhu_(?P<note>[a-gA-G]b?-?\\d)_st_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.3
+     },
+     "fmin": 200,
+     "fmax": 3000,
+     "fold_octaves": true,
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.35,
+      "period_search": true,
+      "min_loop": 0.5,
+      "match_seconds": 0.12
+     }
+    }
+   ]
+  }
+ ]
+}

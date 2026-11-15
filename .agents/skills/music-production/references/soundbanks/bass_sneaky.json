@@ -1,0 +1,129 @@
+{
+ "name": "Karoryfer Sneakybass (music-production build)",
+ "comment": "A double bass played pizzicato, quietly, by Karoryfer Samples (Sneakybass), CC0 1.0: plucked with the finger (soft) and with more weight (loud) as two velocity layers with four round robins (0:32), muted notes (1:32) and ghost notes (2:32). Source: https://github.com/sfzinstruments/karoryfer.sneakybass at cc1a67e5c913678b85eaad1a3b5cb180d3be3e2d. Changes: pitch-checked against file names (a reading an octave off taken as the named note), small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0-1.0",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Upright Bass",
+   "program": 32,
+   "layers": [
+    {
+     "dir": "Samples/finger",
+     "pattern": "sneakybass_(?P<note>[a-gA-G]b?-?\\d)_(?P<dyn>finger)_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "finger"
+     ],
+     "velocity": {
+      "finger": [
+       1,
+       84
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": "local",
+     "gain": 0.75,
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.25
+     },
+     "max_seconds": 8,
+     "ring_db": -60,
+     "fmin": 30,
+     "fmax": 600,
+     "fold_octaves": true,
+     "max_correction_cents": 70
+    },
+    {
+     "dir": "Samples/pluck",
+     "pattern": "sneakybass_(?P<note>[a-gA-G]b?-?\\d)_(?P<dyn>pluck)_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "pluck"
+     ],
+     "velocity": {
+      "pluck": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.25
+     },
+     "max_seconds": 8,
+     "ring_db": -60,
+     "fmin": 30,
+     "fmax": 600,
+     "fold_octaves": true,
+     "max_correction_cents": 70
+    }
+   ]
+  },
+  {
+   "name": "Upright Bass Muted",
+   "bank": 1,
+   "program": 32,
+   "layers": [
+    {
+     "dir": "Samples/mute",
+     "pattern": "sneakybass_(?P<note>[a-gA-G]b?-?\\d)_mute_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.15
+     },
+     "max_seconds": 3,
+     "fmin": 30,
+     "fmax": 600,
+     "fold_octaves": true,
+     "max_correction_cents": 70
+    }
+   ]
+  },
+  {
+   "name": "Upright Bass Ghost",
+   "bank": 2,
+   "program": 32,
+   "layers": [
+    {
+     "dir": "Samples/ghost",
+     "pattern": "sneakybass_(?P<note>[a-gA-G]b?-?\\d)_ghost_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "octave_offset": -12,
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.1
+     },
+     "max_seconds": 2
+    }
+   ]
+  }
+ ]
+}

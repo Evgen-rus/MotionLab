@@ -1,0 +1,970 @@
+{
+ "source": {
+  "program": "Surge XT 1.3.4",
+  "repository": "https://github.com/surge-synthesizer/surge",
+  "tag": "release_xt_1.3.4",
+  "commit": "f7b97c682ade0b87da85ca5968b63d5c7c98e68d",
+  "path": "resources/data/patches_factory",
+  "license": "GPL-3.0-or-later, as Surge XT"
+ },
+ "presets": {
+  "moogy_saw": {
+   "patch": "Leads/Moogy Saw.fxp",
+   "bytes": 31333,
+   "sha256": "c769a738a753ba8a3f170f8cc24eb329432839ba9711e49c693935a47bb2f3f4",
+   "git_blob": "c2e05255fc6949669e4d4351e8ce134115e9c1eb",
+   "role": "lead",
+   "transpose": 0,
+   "character": "mid, fast attack, short tail, narrow",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -21.4,
+    "centroid_hz": 1493.0,
+    "attack_s": 0.002,
+    "tail_s": 0.85,
+    "width_db": -23.2,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "notched_saws": {
+   "patch": "Polysynths/Notched Saws.fxp",
+   "bytes": 25337,
+   "sha256": "5e4ba0c07752a078135709ca8952e6973d11441689a62f9a69a3e7824a01c10a",
+   "git_blob": "32c93d579c423315d4052b7c313d9f792de9c577",
+   "role": "lead",
+   "transpose": 0,
+   "character": "bright, fast attack, short tail, wide",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -29.0,
+    "centroid_hz": 2002.0,
+    "attack_s": 0.002,
+    "tail_s": 0.75,
+    "width_db": -5.5,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0005
+   }
+  },
+  "butter": {
+   "patch": "Leads/Butter.fxp",
+   "bytes": 30971,
+   "sha256": "67a5f29ae842f3119548f818e0be62acbe58fbbf73a21739bd0827c1f9c23ddb",
+   "git_blob": "eaa530680fe03956a17f6d9900a29e3c278e20a0",
+   "role": "lead",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, narrow",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -14.5,
+    "centroid_hz": 711.0,
+    "attack_s": 0.001,
+    "tail_s": 0.66,
+    "width_db": -18.4,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "smooth_lead": {
+   "patch": "Leads/Smoothness World Cup.fxp",
+   "bytes": 31551,
+   "sha256": "22d269d8223ce002c638f3508755e9c291924b7a7789a5400c6f68e28b35be63",
+   "git_blob": "300a6bb2bbe8504557a6b9b8196583f18bf3a9a0",
+   "role": "lead",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, narrow",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -4.5,
+    "centroid_hz": 705.0,
+    "attack_s": 0.004,
+    "tail_s": 0.39,
+    "width_db": -21.7,
+    "f0_ratio": 1.002,
+    "below_lowest_share": 0.0
+   }
+  },
+  "fm_rock": {
+   "patch": "Leads/FM Rock.fxp",
+   "bytes": 28683,
+   "sha256": "cb66210e4082ddbf295fe6a65f20b9975bf1eba5d3f87ddaeefd317b3400ee39",
+   "git_blob": "fedde7e2e558b8345728a52f794294dc25bdead6",
+   "role": "lead",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, narrow",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -18.0,
+    "centroid_hz": 724.0,
+    "attack_s": 0.0,
+    "tail_s": 0.66,
+    "width_db": -27.8,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0675
+   }
+  },
+  "sharpish": {
+   "patch": "Leads/Sharpish.fxp",
+   "bytes": 31314,
+   "sha256": "577fa74a88faec72b1a292c2d376a61c969479b38c0a4a4b34707d7dea362d80",
+   "git_blob": "9b9260d0268b85825a5769d02d78cd571a24f5d7",
+   "role": "lead",
+   "transpose": 0,
+   "character": "bright, fast attack, short tail, narrow",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -16.7,
+    "centroid_hz": 1633.0,
+    "attack_s": 0.015,
+    "tail_s": 0.61,
+    "width_db": -21.8,
+    "f0_ratio": 0.999,
+    "below_lowest_share": 0.0
+   }
+  },
+  "turbo": {
+   "patch": "Leads/Turbo.fxp",
+   "bytes": 31536,
+   "sha256": "17b002cc1f5e66cd5d51ea589c4cee75ed7d4805d0dad2afcf08162e5029c69b",
+   "git_blob": "4118bb4002f0e724c97d67469cb66e6a65d2edf4",
+   "role": "lead",
+   "transpose": 0,
+   "character": "bright, fast attack, long tail, wide",
+   "fallback": "supersaw_lead",
+   "measured": {
+    "rms_db": -20.9,
+    "centroid_hz": 2162.0,
+    "attack_s": 0.0,
+    "tail_s": 1.2,
+    "width_db": -4.5,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "shanai": {
+   "patch": "Leads/Shanai.fxp",
+   "bytes": 33403,
+   "sha256": "142ed6f888c43fa7f974c139d964e422e4558dd7a3f4d67fbb941cf8480e21d6",
+   "git_blob": "c035ca06cbad1590c3ceb2effba3b39ef7b7795a",
+   "role": "lead",
+   "transpose": 0,
+   "character": "bright, fast attack, short tail, narrow",
+   "fallback": "chip_pulse25",
+   "measured": {
+    "rms_db": -19.7,
+    "centroid_hz": 2969.0,
+    "attack_s": 0.002,
+    "tail_s": 0.84,
+    "width_db": -29.2,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0
+   }
+  },
+  "synth_guitar": {
+   "patch": "Leads/Synth Guitar 1.fxp",
+   "bytes": 32043,
+   "sha256": "5af9f59896bfea862b24fdd372ea31227843180aa4d4166f94e6be7e4dbdc746",
+   "git_blob": "191879cb0116d46372c708d6bef0aa7370179345",
+   "role": "lead",
+   "transpose": 0,
+   "character": "mid, fast attack, long tail, wide",
+   "fallback": "pluck",
+   "measured": {
+    "rms_db": -16.7,
+    "centroid_hz": 967.0,
+    "attack_s": 0.0,
+    "tail_s": 1.36,
+    "width_db": -0.6,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0015
+   }
+  },
+  "violini_solo": {
+   "patch": "Leads/Violini Solo.fxp",
+   "bytes": 35097,
+   "sha256": "1a99cbc65e463b5af2ebcca1e3cf40dd2513719e4ee3881079f6eb9c173bbadc",
+   "git_blob": "10b66b8360aad25b7214557a3fe036e3f0839c41",
+   "role": "lead",
+   "transpose": 0,
+   "character": "mid, fast attack, long tail, wide",
+   "fallback": "pwm_strings",
+   "measured": {
+    "rms_db": -18.2,
+    "centroid_hz": 917.0,
+    "attack_s": 0.013,
+    "tail_s": 1.2,
+    "width_db": -10.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0003
+   }
+  },
+  "dreamy_flute": {
+   "patch": "Winds/Dreamy Flute.fxp",
+   "bytes": 39966,
+   "sha256": "313152b6e49e7cc2a37ce1ae3787df820ab36806cd84ef198c2e5d5f8c4eab5a",
+   "git_blob": "0e244b9fd06adfcacf49b30ef12abcb0b6a41b81",
+   "role": "lead",
+   "transpose": 0,
+   "character": "mid, fast attack, long tail, narrow",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -15.7,
+    "centroid_hz": 1235.0,
+    "attack_s": 0.017,
+    "tail_s": 1.55,
+    "width_db": -17.9,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0
+   }
+  },
+  "synth_brass_warm": {
+   "patch": "Brass/Synth Brass 3.fxp",
+   "bytes": 27807,
+   "sha256": "b54be04f19cf0f46c805cce8bad1f5680ac78194883659b8d97cfa55d2e9f24c",
+   "git_blob": "bbaf7f5cfde6919852ee2e1051d7dbbfd9f80135",
+   "role": "brass",
+   "transpose": 0,
+   "character": "mid, fast attack, short tail, wide",
+   "fallback": "brass_stab",
+   "measured": {
+    "rms_db": -22.7,
+    "centroid_hz": 888.0,
+    "attack_s": 0.023,
+    "tail_s": 0.47,
+    "width_db": -10.8,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0002
+   }
+  },
+  "synth_brass_bright": {
+   "patch": "Brass/Synth Brass 2.fxp",
+   "bytes": 30627,
+   "sha256": "2a3d7a6cd79b01ccc31f2dbb8e8fca72a51a797d9a74ebe02ca73e2f2c22d258",
+   "git_blob": "7529ba6c58db8b0f3e0bca533dcd853c7af28da5",
+   "role": "brass",
+   "transpose": 0,
+   "character": "bright, fast attack, short tail, narrow",
+   "fallback": "brass_stab",
+   "measured": {
+    "rms_db": -27.3,
+    "centroid_hz": 2233.0,
+    "attack_s": 0.0,
+    "tail_s": 0.52,
+    "width_db": -20.0,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "juno_60_strings": {
+   "patch": "Polysynths/Juno-60 Strings.fxp",
+   "bytes": 31841,
+   "sha256": "f0144071880706b8000cbc6c55ffb6359dcabac663bed6f5b20c56667193cc50",
+   "git_blob": "5324bd16ad15a8ede8b6beee2c342dc9610e11df",
+   "role": "pad",
+   "transpose": 0,
+   "character": "warm, slow swell, long tail, wide",
+   "fallback": "pwm_strings",
+   "measured": {
+    "rms_db": -23.6,
+    "centroid_hz": 644.0,
+    "attack_s": 0.61,
+    "tail_s": 2.18,
+    "width_db": -5.3,
+    "f0_ratio": null,
+    "below_lowest_share": 0.0
+   }
+  },
+  "bell_pad": {
+   "patch": "Pads/Bell Pad.fxp",
+   "bytes": 57549,
+   "sha256": "530296d4697c601f24955b1b5f88e510e7eab3ae1034e31418de4a3bda9920ab",
+   "git_blob": "f799a61d2a7409384da94179305dfa6241b87d56",
+   "role": "pad",
+   "transpose": 0,
+   "character": "warm, slow swell, long tail, narrow",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -20.2,
+    "centroid_hz": 409.0,
+    "attack_s": 0.432,
+    "tail_s": 1.32,
+    "width_db": -12.7,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0
+   }
+  },
+  "sawteeth": {
+   "patch": "Pads/Sawteeth.fxp",
+   "bytes": 32440,
+   "sha256": "a35ff6a951d010ede90fe35bec758d017343bbcc58dc5642ffc38c89f8d31f91",
+   "git_blob": "be5dea66afcbce2754ccdbaf59cc5197ea52fb9a",
+   "role": "pad",
+   "transpose": 0,
+   "character": "warm, slow swell, long tail, wide",
+   "fallback": "trance_pad",
+   "measured": {
+    "rms_db": -16.8,
+    "centroid_hz": 404.0,
+    "attack_s": 0.305,
+    "tail_s": 1.33,
+    "width_db": -5.4,
+    "f0_ratio": 1.002,
+    "below_lowest_share": 0.0
+   }
+  },
+  "bright_pad": {
+   "patch": "Pads/Bright.fxp",
+   "bytes": 25175,
+   "sha256": "da1ae93ffd9cbe45dc7b644707408b256606b08b689dca8042a41897331b8e74",
+   "git_blob": "324ca3c139922f05d62c3c8c1ea5baa42356bb9d",
+   "role": "pad",
+   "transpose": 0,
+   "character": "warm, slow swell, long tail, narrow",
+   "fallback": "trance_pad",
+   "measured": {
+    "rms_db": -15.2,
+    "centroid_hz": 648.0,
+    "attack_s": 0.321,
+    "tail_s": 1.93,
+    "width_db": -12.9,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0006
+   }
+  },
+  "ghost_pad": {
+   "patch": "Pads/Ghost Pad.fxp",
+   "bytes": 25650,
+   "sha256": "51b914c4f627e99630705e59bb9f10d1e86df8be14f16243116dc74f4a3a0ca3",
+   "git_blob": "855fa957795ba62874ad649e1749dbee6b5bcf3c",
+   "role": "pad",
+   "transpose": 0,
+   "character": "mid, soft attack, long tail, wide",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -19.5,
+    "centroid_hz": 942.0,
+    "attack_s": 0.239,
+    "tail_s": 2.46,
+    "width_db": -7.4,
+    "f0_ratio": null,
+    "below_lowest_share": 0.0
+   }
+  },
+  "moody_pad": {
+   "patch": "Pads/Moody Statement.fxp",
+   "bytes": 148090,
+   "sha256": "6b089b9e09655e20e5aae0dd7795f696419e2ea635b8bb76314cf530165dff1c",
+   "git_blob": "208d6295c2df8a46f725fde8f00efb458f75e184",
+   "role": "pad",
+   "transpose": 0,
+   "character": "dark, slow swell, long tail, wide",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -20.8,
+    "centroid_hz": 332.0,
+    "attack_s": 1.132,
+    "tail_s": 1.91,
+    "width_db": -10.9,
+    "f0_ratio": null,
+    "below_lowest_share": 0.0055
+   }
+  },
+  "retro_choir": {
+   "patch": "Pads/Retro Choir.fxp",
+   "bytes": 31743,
+   "sha256": "be2ac10499bf8879148f801fa541270d829bc562cef009d41d3610be086c8f8e",
+   "git_blob": "0e7fd8a1a6c15c69c57c21d6e0e98140a186f7b0",
+   "role": "pad",
+   "transpose": 0,
+   "character": "mid, slow swell, short tail, narrow",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -22.1,
+    "centroid_hz": 821.0,
+    "attack_s": 0.426,
+    "tail_s": 0.69,
+    "width_db": -14.1,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0
+   }
+  },
+  "synth_choir": {
+   "patch": "Pads/Synth Choir MW O-Ah.fxp",
+   "bytes": 25844,
+   "sha256": "fa41dcf7814463ee816f0c7fe47155837053bd60f539ab96182fa12c586cc704",
+   "git_blob": "49d2aba0067bc83013fdde569eb7bb4728c92b79",
+   "role": "pad",
+   "transpose": 0,
+   "character": "mid, soft attack, short tail, wide",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -21.8,
+    "centroid_hz": 891.0,
+    "attack_s": 0.036,
+    "tail_s": 0.74,
+    "width_db": 0.6,
+    "f0_ratio": 1.008,
+    "below_lowest_share": 0.0
+   }
+  },
+  "comb_strings": {
+   "patch": "Pads/Subtle Comb Strings.fxp",
+   "bytes": 24901,
+   "sha256": "6cb8bd7b92e10a77ae7f008bcc15328bc2a7b2b1b9dcf8a1c9325a7de51b7e9d",
+   "git_blob": "d0af7e179cdcc834bea10b76c8725e65c3411019",
+   "role": "pad",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, wide",
+   "fallback": "pwm_strings",
+   "measured": {
+    "rms_db": -20.8,
+    "centroid_hz": 673.0,
+    "attack_s": 0.028,
+    "tail_s": 0.96,
+    "width_db": -5.7,
+    "f0_ratio": 1.009,
+    "below_lowest_share": 0.0
+   }
+  },
+  "slow_poly": {
+   "patch": "Polysynths/Slow Poly MW.fxp",
+   "bytes": 24803,
+   "sha256": "15bc471c8c626eb2c8758622b907d8eaeba9e46923abdce80f577399665325b8",
+   "git_blob": "789fff2dce5c5fdc78f090c07ccbf0822ad175a1",
+   "role": "chords",
+   "transpose": 0,
+   "character": "dark, soft attack, long tail, wide",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -18.5,
+    "centroid_hz": 367.0,
+    "attack_s": 0.042,
+    "tail_s": 1.27,
+    "width_db": -2.0,
+    "f0_ratio": 1.005,
+    "below_lowest_share": 0.0
+   }
+  },
+  "mg_poly": {
+   "patch": "Polysynths/MG.fxp",
+   "bytes": 24797,
+   "sha256": "5cec5fad7ff028630e0a39676b4c34887160c1d0d613f0a7eafd6ccd8d6d97fb",
+   "git_blob": "deae3b2e3391d0cbdc81a4dea87e051b47c0ede2",
+   "role": "chords",
+   "transpose": 0,
+   "character": "dark, fast attack, long tail, narrow",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -21.9,
+    "centroid_hz": 349.0,
+    "attack_s": 0.008,
+    "tail_s": 1.26,
+    "width_db": -17.3,
+    "f0_ratio": 1.002,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "uni_saw": {
+   "patch": "Polysynths/Uni Saw FB.fxp",
+   "bytes": 24093,
+   "sha256": "bb6a83a7b26fd16385801fe9a2bc45779b8ffef653e4713e3340fdd44becb515",
+   "git_blob": "825e10ecd83e910ba41c5d04e8fdbddf734e75c9",
+   "role": "chords",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, wide",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -19.9,
+    "centroid_hz": 499.0,
+    "attack_s": 0.001,
+    "tail_s": 0.92,
+    "width_db": -3.8,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0008
+   }
+  },
+  "phasey": {
+   "patch": "Polysynths/Phasey.fxp",
+   "bytes": 34615,
+   "sha256": "cdae406c2f43cb09c976b0570facf664168e9b852e825a6923a04a81fcbc6886",
+   "git_blob": "fcbe958c10d8a125aab530be8dbe834a176c7ea2",
+   "role": "chords",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, wide",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -15.6,
+    "centroid_hz": 539.0,
+    "attack_s": 0.007,
+    "tail_s": 1.11,
+    "width_db": 0.2,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0006
+   }
+  },
+  "ahh_poly": {
+   "patch": "Polysynths/Ahh Polly.fxp",
+   "bytes": 24619,
+   "sha256": "48011dac908280886dce1e4837d6e7fa54ac15f59f86b36016f5c7d15cbbe71e",
+   "git_blob": "500c8d33767e33d03eaa09ef35e4fd5ab418e7b7",
+   "role": "chords",
+   "transpose": 0,
+   "character": "warm, fast attack, long tail, wide",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -15.6,
+    "centroid_hz": 637.0,
+    "attack_s": 0.018,
+    "tail_s": 1.76,
+    "width_db": -2.6,
+    "f0_ratio": 0.999,
+    "below_lowest_share": 0.0
+   }
+  },
+  "trance_stab": {
+   "patch": "Polysynths/Tarnce.fxp",
+   "bytes": 32413,
+   "sha256": "c2c7772e3648228bb8ddb4c5a502d30c52331ceb7f50da880c55dc228a0e13cb",
+   "git_blob": "97ba676ee69e87b17e9d6cad0ed49a3443cee6c8",
+   "role": "chords",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, wide",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -19.6,
+    "centroid_hz": 760.0,
+    "attack_s": 0.001,
+    "tail_s": 0.86,
+    "width_db": -8.3,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0012
+   }
+  },
+  "prophet_vs": {
+   "patch": "Polysynths/Prophet VS.fxp",
+   "bytes": 31844,
+   "sha256": "7d0662898b687627e67b8765d8584ff915cc6748f972ab5f9e6b3f60b8cd5e6e",
+   "git_blob": "ba6486ab3e50a4a8f721fe3c624896399a3430c3",
+   "role": "chords",
+   "transpose": 0,
+   "character": "mid, fast attack, long tail, wide",
+   "fallback": "future_bass_chord",
+   "measured": {
+    "rms_db": -25.8,
+    "centroid_hz": 1287.0,
+    "attack_s": 0.0,
+    "tail_s": 1.68,
+    "width_db": -2.1,
+    "f0_ratio": null,
+    "below_lowest_share": 0.0501
+   }
+  },
+  "violini_poly": {
+   "patch": "Polysynths/Violini Poly.fxp",
+   "bytes": 26688,
+   "sha256": "338b0296c3591aab745b35ec115c8a65c40932f847c10ed68fca99a859af410e",
+   "git_blob": "c6367cb0f3e344b02ab43fac9c9596e6e1f193be",
+   "role": "chords",
+   "transpose": 0,
+   "character": "warm, fast attack, long tail, narrow",
+   "fallback": "pwm_strings",
+   "measured": {
+    "rms_db": -14.1,
+    "centroid_hz": 591.0,
+    "attack_s": 0.011,
+    "tail_s": 1.32,
+    "width_db": -15.3,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "ep_1": {
+   "patch": "Keys/EP 1.fxp",
+   "bytes": 25798,
+   "sha256": "1cb3f361e494951b0d7e6076072c19ea287235f455026361448f24889568754e",
+   "git_blob": "8bc188101e2fdec89e119405f0d92953d718ca26",
+   "role": "keys",
+   "transpose": 0,
+   "character": "dark, fast attack, dry, narrow",
+   "fallback": "fm_epiano",
+   "measured": {
+    "rms_db": -24.8,
+    "centroid_hz": 325.0,
+    "attack_s": 0.005,
+    "tail_s": 0.0,
+    "width_db": -18.2,
+    "f0_ratio": 0.998,
+    "below_lowest_share": 0.0008
+   }
+  },
+  "dx_ep": {
+   "patch": "Keys/DX EP.fxp",
+   "bytes": 24480,
+   "sha256": "58dce856cd45ed4fc58db9208932180c3bfcb5fe52b74f8b493a943bc778a54d",
+   "git_blob": "3b454b9957f1067fcbdd100ef6738b96f551c025",
+   "role": "keys",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, wide",
+   "fallback": "fm_epiano",
+   "measured": {
+    "rms_db": -24.7,
+    "centroid_hz": 736.0,
+    "attack_s": 0.0,
+    "tail_s": 0.51,
+    "width_db": -5.6,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0028
+   }
+  },
+  "soft_suitcase": {
+   "patch": "Keys/Soft Suitcase.fxp",
+   "bytes": 24475,
+   "sha256": "9b366c2aee480a80c0d5bb74bf2f00e45d19161d271f3f5eef6910476b8149aa",
+   "git_blob": "d3f828bf584448a1bddab2e1142380a1fc212de4",
+   "role": "keys",
+   "transpose": 0,
+   "character": "dark, fast attack, short tail, narrow",
+   "fallback": "lofi_keys",
+   "measured": {
+    "rms_db": -21.8,
+    "centroid_hz": 299.0,
+    "attack_s": 0.0,
+    "tail_s": 0.37,
+    "width_db": -27.9,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0007
+   }
+  },
+  "organ_1": {
+   "patch": "Keys/Organ 1.fxp",
+   "bytes": 28818,
+   "sha256": "fce0dacadec69ca8dbc98fc326937c127cbb2fd4cc12346d374854dfee5032e9",
+   "git_blob": "2ba158887ba4ab609a882ec546699e0c20f56eeb",
+   "role": "keys",
+   "transpose": 0,
+   "character": "dark, fast attack, dry, wide",
+   "fallback": "warm_pad",
+   "measured": {
+    "rms_db": -19.0,
+    "centroid_hz": 288.0,
+    "attack_s": 0.001,
+    "tail_s": 0.07,
+    "width_db": -9.8,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0015
+   }
+  },
+  "bell_pluck": {
+   "patch": "Plucks/Bell 1.fxp",
+   "bytes": 56097,
+   "sha256": "8bb11753f84b7d8e1aa84c805fb4c6e4da471f5e32adc8269321f9297f7d6b6d",
+   "git_blob": "4fd929e53b99d0d05053822c5c3996e291934045",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, dry, narrow",
+   "fallback": "fm_bell",
+   "measured": {
+    "rms_db": -22.1,
+    "centroid_hz": 453.0,
+    "attack_s": 0.004,
+    "tail_s": 0.0,
+    "width_db": -24.1,
+    "f0_ratio": 0.999,
+    "below_lowest_share": 0.0013
+   }
+  },
+  "fantasy_bell": {
+   "patch": "Plucks/Fantasy Bell.fxp",
+   "bytes": 39980,
+   "sha256": "5828d2cce0483e4144683247d5dd49f938c62eb37663174c3ce1dfd0fe64ac36",
+   "git_blob": "78296dc1f0d3006320322d9196212164ed25386c",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, long tail, narrow",
+   "fallback": "fm_bell",
+   "measured": {
+    "rms_db": -19.2,
+    "centroid_hz": 553.0,
+    "attack_s": 0.006,
+    "tail_s": 1.79,
+    "width_db": -15.3,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0017
+   }
+  },
+  "ambient_guitar": {
+   "patch": "Plucks/Ambient E-Guitar.fxp",
+   "bytes": 25406,
+   "sha256": "e0e84cb5d1b5dbfb9101d57a5dce3504886c7ca1470a19068692a1e8bc092037",
+   "git_blob": "eeebaa7707bd2a214c1ea0972032f1245112ae0f",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, long tail, narrow",
+   "fallback": "pluck",
+   "measured": {
+    "rms_db": -17.9,
+    "centroid_hz": 512.0,
+    "attack_s": 0.006,
+    "tail_s": 1.9,
+    "width_db": -13.1,
+    "f0_ratio": 0.249,
+    "below_lowest_share": 0.0055
+   }
+  },
+  "pure_square": {
+   "patch": "Plucks/Pure Square.fxp",
+   "bytes": 23845,
+   "sha256": "19004b352498b61ac73b22e0913080bcd759507d8585be66ad3893ea23023790",
+   "git_blob": "8fb9314d19220bd10dcc388227211571de15faa8",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, narrow",
+   "fallback": "chip_square",
+   "measured": {
+    "rms_db": -18.8,
+    "centroid_hz": 657.0,
+    "attack_s": 0.002,
+    "tail_s": 0.68,
+    "width_db": -16.2,
+    "f0_ratio": 1.001,
+    "below_lowest_share": 0.0024
+   }
+  },
+  "diamonds": {
+   "patch": "Plucks/Diamonds.fxp",
+   "bytes": 26519,
+   "sha256": "ca7a3eb9a98c383894a363d213ef1704ea5ae0b22c9caebb34ed8f4f6b2a8285",
+   "git_blob": "da5739c447134f0584006c7b8a6c0c625115f0ef",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "mid, fast attack, long tail, narrow",
+   "fallback": "pluck",
+   "measured": {
+    "rms_db": -14.4,
+    "centroid_hz": 1035.0,
+    "attack_s": 0.007,
+    "tail_s": 1.5,
+    "width_db": -13.0,
+    "f0_ratio": 0.999,
+    "below_lowest_share": 0.0001
+   }
+  },
+  "music_box": {
+   "patch": "Plucks/Magic Music Box.fxp",
+   "bytes": 28950,
+   "sha256": "a27ef39b8ee5d9f65e27fd2f662a5994b9bb6b2996a219a48cfa9700d8b5b17a",
+   "git_blob": "f2883102f2c0a5c707296b2e364817cea4957a5c",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, long tail, narrow",
+   "fallback": "fm_bell",
+   "measured": {
+    "rms_db": -16.4,
+    "centroid_hz": 738.0,
+    "attack_s": 0.001,
+    "tail_s": 1.34,
+    "width_db": -21.0,
+    "f0_ratio": 0.994,
+    "below_lowest_share": 0.0002
+   }
+  },
+  "woody": {
+   "patch": "Plucks/Woody.fxp",
+   "bytes": 56827,
+   "sha256": "d8df90f9028ccdda2b9d1ee64392162f7878f6abc231bbec20ad818a4711a0f3",
+   "git_blob": "6b70e0295f57ef87e0ffb1606acced3a4e9f3f82",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, dry, narrow",
+   "fallback": "pluck",
+   "measured": {
+    "rms_db": -24.8,
+    "centroid_hz": 788.0,
+    "attack_s": 0.005,
+    "tail_s": 0.0,
+    "width_db": -26.5,
+    "f0_ratio": 0.999,
+    "below_lowest_share": 0.001
+   }
+  },
+  "late_fall": {
+   "patch": "Plucks/Late Fall.fxp",
+   "bytes": 24699,
+   "sha256": "2c5f436073b4f01cd4eb33655eb7d35ae223b067d6b6f9cfbe6d37cdf324baa8",
+   "git_blob": "3f65a2ef00da02d141e6f976ee91bf4985fdf859",
+   "role": "pluck",
+   "transpose": 0,
+   "character": "warm, fast attack, short tail, narrow",
+   "fallback": "pluck",
+   "measured": {
+    "rms_db": -14.5,
+    "centroid_hz": 786.0,
+    "attack_s": 0.009,
+    "tail_s": 1.12,
+    "width_db": -19.5,
+    "f0_ratio": 0.991,
+    "below_lowest_share": 0.0
+   }
+  },
+  "sub_bass_3": {
+   "patch": "Basses/Sub 3.fxp",
+   "bytes": 30633,
+   "sha256": "0dcfc1f1a5d34c31845ce520b9af7901c8934cfe5cce3a92e08f261391fc0550",
+   "git_blob": "4063076c2fc8957fcc6bb074bce840bb2c4ec047",
+   "role": "bass",
+   "transpose": 12,
+   "character": "sub, fast attack, dry, mono",
+   "fallback": "sub_bass",
+   "measured": {
+    "rms_db": -11.0,
+    "centroid_hz": 71.0,
+    "attack_s": 0.0,
+    "tail_s": 0.04,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0105
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "rubber_bass": {
+   "patch": "Basses/Rubber Bass.fxp",
+   "bytes": 30796,
+   "sha256": "efffde06312df7406b440fd5f19f10aab8c92a69d96a020a6231b5f97eb28b13",
+   "git_blob": "b9ad399f1075d7f8ed96b0312419f199e9d0b024",
+   "role": "bass",
+   "transpose": 12,
+   "character": "sub, fast attack, dry, mono",
+   "fallback": "synthwave_bass",
+   "measured": {
+    "rms_db": -10.2,
+    "centroid_hz": 88.0,
+    "attack_s": 0.006,
+    "tail_s": 0.03,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0444
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "bass_1": {
+   "patch": "Basses/Bass 1.fxp",
+   "bytes": 27370,
+   "sha256": "8ac06c3a958da5edff6697ab48345576ac778e41cc822ab94da63c9b0414f96d",
+   "git_blob": "9ecb275f1becfaf24d8bf07e572f2c968032b9fd",
+   "role": "bass",
+   "transpose": 12,
+   "character": "round, fast attack, dry, mono",
+   "fallback": "synthwave_bass",
+   "measured": {
+    "rms_db": -14.2,
+    "centroid_hz": 97.0,
+    "attack_s": 0.008,
+    "tail_s": 0.03,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0112
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "fm_bass": {
+   "patch": "Basses/FM Bass 5.fxp",
+   "bytes": 30958,
+   "sha256": "7cf62f3de6fdaf1ac670d0e007c36c0b844745079ca49161f34c63efb172070f",
+   "git_blob": "a8762110854f6a60c2d0ae6dc350e65aaef66ba7",
+   "role": "bass",
+   "transpose": 12,
+   "character": "sub, fast attack, dry, mono",
+   "fallback": "synthwave_bass",
+   "measured": {
+    "rms_db": -14.7,
+    "centroid_hz": 73.0,
+    "attack_s": 0.0,
+    "tail_s": 0.03,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0184
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "fingered_bass": {
+   "patch": "Basses/Fingered.fxp",
+   "bytes": 36199,
+   "sha256": "15c17acb73807ad649ba8ddbd0ab3f0ce59baf19d9462c86468b7a6df34933f6",
+   "git_blob": "39dfdfe6579ef4ffed9303a8762d993edddf6f1b",
+   "role": "bass",
+   "transpose": 12,
+   "character": "round, fast attack, dry, mono",
+   "fallback": "synthwave_bass",
+   "measured": {
+    "rms_db": -21.4,
+    "centroid_hz": 123.0,
+    "attack_s": 0.005,
+    "tail_s": 0.04,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0001
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "fm_slap": {
+   "patch": "Basses/FM Slap.fxp",
+   "bytes": 23347,
+   "sha256": "58c9997c6dd8740d07b01ff2aa909a70301e8624e1aed5206f986fbcd819744d",
+   "git_blob": "e6b18b6cc55e9537a6cb1d2cc8c7b452940a29c4",
+   "role": "bass",
+   "transpose": 12,
+   "character": "edgy, fast attack, dry, mono",
+   "fallback": "synthwave_bass",
+   "measured": {
+    "rms_db": -11.3,
+    "centroid_hz": 176.0,
+    "attack_s": 0.001,
+    "tail_s": 0.05,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0053
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "saw_lofi_bass": {
+   "patch": "Basses/Saw Lo-Fi.fxp",
+   "bytes": 30847,
+   "sha256": "552ac4b50869fa0337189b585adb70dc2bf8e479415c336a6634a6a0d8af7c22",
+   "git_blob": "6e01a65fad948c16c0c45e7ac0ca77c8584762b3",
+   "role": "bass",
+   "transpose": 12,
+   "character": "round, fast attack, dry, mono",
+   "fallback": "acid_bass",
+   "measured": {
+    "rms_db": -13.8,
+    "centroid_hz": 111.0,
+    "attack_s": 0.01,
+    "tail_s": 0.03,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0123
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  },
+  "distorted_fm_bass": {
+   "patch": "Basses/Distorted FM.fxp",
+   "bytes": 31402,
+   "sha256": "8a6874c9b11ace9a1e8a2a8fbb7cf2259c629376c4cca0a893416c8c94431235",
+   "git_blob": "3e446af09ca3b88807d35d79a5a001087a18172b",
+   "role": "bass",
+   "transpose": 12,
+   "character": "edgy, fast attack, dry, mono",
+   "fallback": "reese_bass",
+   "measured": {
+    "rms_db": -15.3,
+    "centroid_hz": 203.0,
+    "attack_s": 0.0,
+    "tail_s": 0.03,
+    "width_db": -120.0,
+    "f0_ratio": 1.0,
+    "below_lowest_share": 0.0144
+   },
+   "note": "the patch sounds an octave below the key it is played on; the renderer plays it an octave up, so the written pitch sounds"
+  }
+ }
+}

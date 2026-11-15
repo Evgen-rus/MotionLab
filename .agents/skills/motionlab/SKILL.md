@@ -11,6 +11,10 @@ The agent does all analysis, design, coding, previewing, rendering and checking.
 
 `<skill>` is THIS directory, wherever it was copied. Run commands from the destination project's root; use absolute `<skill>/scripts/...` paths. All tools, dependency lockfile, font and starter scene live here. Read [references/tools.md](references/tools.md) when preparing or using tools. No MotionLab checkout, root package.json or README is required. Only Node.js 22+, ffmpeg and Edge/Chrome are external prerequisites. Nothing is installed globally.
 
+## Original music and synthetic effects
+
+Use the sibling local [music-production skill](../music-production/SKILL.md) for original music and synthetic effects, following its [MotionLab handoff](../music-production/references/motionlab.md). Its Python is `<skill>/../music-production/.venv/Scripts/python.exe`, its CLI is `scripts/studio.py` there, and its config is `local-config.json` there; resolve absolute paths inside this MotionLab project. Audio-only requests follow that skill's workflow and deliver WAV for listening and editing without automatic MP3/FLAC copies, video intake, design options or video export. For video sound, reuse `job.json` duration, style, music role, narration and hit points; retain the sound/storyboard approvals below. Keep editable compositions and results in new `projects/<title>/звук/<version>/` folders and record music, effects and mix separately in the existing `job.audio`. Narration stays with `speech.mjs`; never copy keys or `.env` into the music skill. `synth_audio.py` remains an optional simple sketch, never an automatic replacement for an original composition.
+
 ## Workflow and stopping points
 
 ### Optional video editing Workbench

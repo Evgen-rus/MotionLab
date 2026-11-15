@@ -1,0 +1,110 @@
+{
+ "name": "Karoryfer Shinyguitar (music-production build)",
+ "comment": "An archtop guitar played and mapped by Drogomir Smolken (Karoryfer Samples, Shinyguitar), CC0 1.0: its microphone signal (0:25) and its magnetic pickup (0:26), each at four velocities with four round robins, sampled every third semitone. Source: https://github.com/sfzinstruments/karoryfer.shinyguitar at 57243cca85277dbcc120ce17c6178032f93c80f3. Changes: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0-1.0",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Archtop Guitar",
+   "program": 25,
+   "layers": [
+    {
+     "dir": "Samples/acoustic",
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_(?P<dyn>vl\\d)_rr(?P<rr>\\d)_1\\.wav",
+     "dynamics": [
+      "vl1",
+      "vl2",
+      "vl3",
+      "vl4"
+     ],
+     "velocity": {
+      "vl1": [
+       1,
+       40
+      ],
+      "vl2": [
+       41,
+       75
+      ],
+      "vl3": [
+       76,
+       105
+      ],
+      "vl4": [
+       106,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": "local",
+     "layer_levels_db": {
+      "vl1": -12,
+      "vl2": -8,
+      "vl3": -4,
+      "vl4": 0
+     },
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "max_seconds": 10,
+     "ring_db": -60,
+     "fmin": 60,
+     "fmax": 1500
+    }
+   ]
+  },
+  {
+   "name": "Archtop Electric",
+   "program": 26,
+   "layers": [
+    {
+     "dir": "Samples/electric",
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_(?P<dyn>vl\\d)_rr(?P<rr>\\d)_2\\.wav",
+     "dynamics": [
+      "vl1",
+      "vl2",
+      "vl3",
+      "vl4"
+     ],
+     "velocity": {
+      "vl1": [
+       1,
+       40
+      ],
+      "vl2": [
+       41,
+       75
+      ],
+      "vl3": [
+       76,
+       105
+      ],
+      "vl4": [
+       106,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "match_notes": "local",
+     "layer_levels_db": {
+      "vl1": -12,
+      "vl2": -8,
+      "vl3": -4,
+      "vl4": 0
+     },
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "max_seconds": 10,
+     "ring_db": -60,
+     "fmin": 60,
+     "fmax": 1500
+    }
+   ]
+  }
+ ]
+}

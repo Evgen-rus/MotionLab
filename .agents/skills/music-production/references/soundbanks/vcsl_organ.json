@@ -1,0 +1,133 @@
+{
+ "name": "VCSL Pipe Organ (music-production build)",
+ "comment": "Built from the Pipe Organ of the Versilian Community Sample Library (VCSL) by Versilian Studios, CC0 1.0; the organ was sampled by Simon Dalzell of Ivy Audio, and the folder's Info.txt encourages crediting both. Source: https://github.com/sgossner/VCSL at c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e. A pipe organ sampled every minor third, three presets: the full manual registration Man3Open (program 19), a soft stopped-flute manual Man3Quiet (bank 1) and the pedal division (bank 2). Each key was held about 10 s; build b2 cuts a loop from each recording's steady part (2 to 9.6 s after the onset, clear of key noises), matched in phase and crossfaded over 0.3 s, so a held note lasts as long as the key, and the release comes from the envelope and the mix's room. Pitches come from each recording's spectrum: both manuals sound an octave above their file names (8' pitch; the full registration adds a quieter sub-octave from about middle C up), the pedal sounds at its names (its 16' fundamental). Velocity does not change the sound, as on an organ; shape dynamics with expression (CC11), like a swell pedal. Left out: the three lowest soft-manual notes, 12-28 dB quieter than their neighbours, and the soft pedal recordings, whose level beats by 10-15 dB about once a second. Changes: the full and pedal registrations keep their recorded voicing (no levelling between notes); the soft stop's notes differ by 5-14 dB from their neighbours in the recording, so each is pulled toward its neighbours (at most 6 dB); leading silence trimmed; 16-bit TPDF dither.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VCSL; organ sampled by Simon Dalzell, Ivy Audio)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Pipe Organ",
+   "program": 19,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud",
+     "pattern": "Rode_Man3Open_(?P<note>[A-G]#?\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      96
+     ],
+     "pitch_check": false,
+     "match_notes": false,
+     "envelope": {
+      "attack": 0.005,
+      "release": 0.35
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_filter_cents": 0,
+     "loop": "found",
+     "loop_window": [
+      2.0,
+      9.6
+     ],
+     "loop_repair": {
+      "sag_db": 6,
+      "crossfade": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "name": "Pipe Organ Soft",
+   "bank": 1,
+   "program": 19,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Pipe Organ/Quiet",
+     "pattern": "NT5_Man3Quiet_(?P<note>A1|[A-G]#?[2-6])_rr1\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": [
+      43,
+      96
+     ],
+     "pitch_check": false,
+     "match_notes": "local",
+     "envelope": {
+      "attack": 0.005,
+      "release": 0.35
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_filter_cents": 0,
+     "loop": "found",
+     "loop_window": [
+      2.0,
+      9.6
+     ],
+     "loop_repair": {
+      "sag_db": 6,
+      "crossfade": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "name": "Organ Pedal",
+   "bank": 2,
+   "program": 19,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud Pedal",
+     "pattern": "Rode_Pedal_(?P<note>[A-G]#?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": [
+      24,
+      55
+     ],
+     "pitch_check": false,
+     "match_notes": false,
+     "envelope": {
+      "attack": 0.005,
+      "release": 0.35
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_filter_cents": 0,
+     "loop": "found",
+     "loop_window": [
+      2.0,
+      9.6
+     ],
+     "loop_repair": {
+      "sag_db": 6,
+      "crossfade": 0.3
+     }
+    }
+   ]
+  }
+ ]
+}

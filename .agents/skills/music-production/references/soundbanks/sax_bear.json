@@ -1,0 +1,105 @@
+{
+ "name": "Karoryfer Bear Sax (music-production build)",
+ "comment": "A 1926 Conn baritone saxophone by Karoryfer Samples (Bear Sax), CC0 1.0: sustained notes at two dynamics, each with the library's own loop (0:67, with dynamic layers and legato), and short notes at four velocities with round robins (1:67). Source: https://github.com/sfzinstruments/karoryfer.bear-sax at 7abb3c652525a15dfac80e1b5dfbba9964ee568f. Changes: pitch-checked against file names (a reading an octave off taken as the named note), intonation offsets up to 60 cents as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0-1.0",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Bear Sax",
+   "program": 67,
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.02
+   },
+   "layers": [
+    {
+     "dir": "Samples",
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_looped_(?P<dyn>[pf])\\.wav",
+     "dynamics": [
+      "p",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       80
+      ],
+      "f": [
+       81,
+       127
+      ]
+     },
+     "keys": "auto",
+     "match_notes": "local",
+     "layer_levels_db": {
+      "p": -9,
+      "f": 0
+     },
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.25
+     },
+     "loop": "recorded",
+     "fmin": 30,
+     "fmax": 1200,
+     "fold_octaves": true,
+     "max_correction_cents": 60
+    }
+   ]
+  },
+  {
+   "name": "Bear Sax Short",
+   "bank": 1,
+   "program": 67,
+   "layers": [
+    {
+     "dir": "Samples",
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_(?P<dyn>vl[1-4])_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "vl1",
+      "vl2",
+      "vl3",
+      "vl4"
+     ],
+     "velocity": {
+      "vl1": [
+       1,
+       40
+      ],
+      "vl2": [
+       41,
+       75
+      ],
+      "vl3": [
+       76,
+       105
+      ],
+      "vl4": [
+       106,
+       127
+      ]
+     },
+     "keys": "auto",
+     "match_notes": "local",
+     "layer_levels_db": {
+      "vl1": -12,
+      "vl2": -8,
+      "vl3": -4,
+      "vl4": 0
+     },
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.25
+     },
+     "fmin": 30,
+     "fmax": 1200,
+     "fold_octaves": true,
+     "max_correction_cents": 60
+    }
+   ]
+  }
+ ]
+}

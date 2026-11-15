@@ -1,0 +1,3258 @@
+{
+ "name": "Iowa MIS Solo Strings (music-production build)",
+ "comment": "Recorded by the University of Iowa Electronic Music Studios (Musical Instrument Samples, https://theremin.music.uiowa.edu/MIS.html) in an anechoic chamber, 5 feet from the instrument; the site states that since 1997 the recordings \"may be downloaded and used for any projects, without restrictions.\" Solo violin, viola, cello and double bass, arco and pizzicato, each string recorded chromatically at pp, mf and ff, mono, 16-bit/44.1 kHz. Each note is taken from the string where it is stopped in the lowest position (a semitone over that string's open note up to the next open string; only the lowest open string is used open), or from the nearest string that has it. Violin on program 40, viola 41, cello 42, double bass 43: arco on bank 0 (one preset per recorded dynamic on banks 16-18, legato presets on banks 32-34, each note looped on its steady part), pizzicato on bank 2. Each source file, a chromatic run at one dynamic, is cut into one note per file and every note checked against the run its file is named for (soundbank.py split); then pitch-checked again, intonation offsets within a semitone corrected by fineTune, leading silence trimmed, levels matched per layer with set layer offsets, 16-bit TPDF dither. In build b2 the steady hiss and rumble of every take are reduced by up to 12 dB: a Wiener gain against the noise measured in the quiet frames of each dynamic's takes.",
+ "copyright": "Source recordings: University of Iowa Electronic Music Studios, free for any use without restrictions",
+ "target_rms": 0.08,
+ "split": {
+  "groups": [
+   {
+    "name": "Violin_arco",
+    "fmin": 150,
+    "fmax": 4200,
+    "strings": {
+     "G": [
+      55,
+      62
+     ],
+     "D": [
+      63,
+      69
+     ],
+     "A": [
+      70,
+      76
+     ],
+     "E": [
+      77,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulG.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulG.B3Ab4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B3",
+       "Ab4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulG.A4Gb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A4",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulD.D4Bb4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D4",
+       "Bb4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulD.B4A5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B4",
+       "A5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulD.Bb5Db6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb5",
+       "Db6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulA.A4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulA.C5A5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "A5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulA.Bb5Ab6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb5",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulE.E5A5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "E5",
+       "A5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulE.A5G6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A5",
+       "G6"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.pp.sulE.Ab6B7.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Ab6",
+       "B7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulG.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulG.B3B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B3",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulG.C5G5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "G5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulD.D4A4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D4",
+       "A4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulD.Bb4C6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Bb4",
+       "C6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulD.D6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulA.A4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulA.C5C6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "C6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulA.Db6Ab6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Db6",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulE.E5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "E5",
+       "B5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulE.C6Gb7.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "Gb7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.mf.sulE.Ab7A7.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Ab7",
+       "A7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulG.G3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulG.C4Eb5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "Eb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulG.E5Gb5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "E5",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulD.D4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulD.C5D6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "D6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulA.A4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulA.C5Db6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "Db6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulA.D6G6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D6",
+       "G6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulE.E5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "E5",
+       "B5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulE.C6Gb7.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "Gb7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.arco.ff.sulE.Ab7B7.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Ab7",
+       "B7"
+      ],
+      "string": "E"
+     }
+    ]
+   },
+   {
+    "name": "Violin_pizz",
+    "fmin": 150,
+    "fmax": 4200,
+    "strings": {
+     "G": [
+      55,
+      62
+     ],
+     "D": [
+      63,
+      69
+     ],
+     "A": [
+      70,
+      76
+     ],
+     "E": [
+      77,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulG.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulG.B3A4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B3",
+       "A4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulG.Bb4Gb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb4",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulD.D4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulD.C5Db6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "Db6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulA.A4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulA.C5Bb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "Bb5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulA.B5Ab6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B5",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulE.E5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "E5",
+       "B5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulE.B5B6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B5",
+       "B6"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.pp.sulE.C7G7.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C7",
+       "G7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulG.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulG.B3A4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B3",
+       "A4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulG.A4G5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "G5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulD.D4Ab4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D4",
+       "Ab4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulD.A4G5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "G5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulD.Ab5Db6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Ab5",
+       "Db6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulA.A4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulA.B4Ab5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B4",
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulA.A5G6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A5",
+       "G6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulE.E5Ab5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "E5",
+       "Ab5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulE.Ab5F6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Ab5",
+       "F6"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulE.Gb6Gb7.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Gb6",
+       "Gb7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.mf.sulE.A7.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A7"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulG.G3Bb3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "Bb3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulG.B3C5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B3",
+       "C5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulG.Db5Gb5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Db5",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulD.D4Ab4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D4",
+       "Ab4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulD.A4A5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "A5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulD.Bb5Db6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb5",
+       "Db6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulA.A4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulA.B4A5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B4",
+       "A5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulA.Bb5Ab6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb5",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulE.E5A5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "E5",
+       "A5"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulE.Bb5G6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb5",
+       "G6"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/violin/Violin.pizz.ff.sulE.Ab6Ab7.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Ab6",
+       "Ab7"
+      ],
+      "string": "E"
+     }
+    ],
+    "min_note": 0.05
+   },
+   {
+    "name": "Viola_arco",
+    "fmin": 100,
+    "fmax": 2500,
+    "strings": {
+     "C": [
+      48,
+      55
+     ],
+     "G": [
+      56,
+      62
+     ],
+     "D": [
+      63,
+      69
+     ],
+     "A": [
+      70,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.pp.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.pp.Db4C5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Db4",
+       "C5"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.pp.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.pp.Db4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Db4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.pp.C5Gb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.pp.D4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.pp.C5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.pp.A4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.pp.C5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.pp.C6G6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C6",
+       "G6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.mf.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.mf.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.mf.C5G5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "G5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.mf.D4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.mf.C6Eb6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "Eb6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.mf.A4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.mf.C6Ab6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulC.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.ff.G3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulG.ff.C5Ab5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "Ab5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.ff.D4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulD.ff.C6D6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "D6"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.ff.A4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.arco.sulA.ff.C6Bb6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "Bb6"
+      ],
+      "string": "A"
+     }
+    ]
+   },
+   {
+    "name": "Viola_pizz",
+    "fmin": 100,
+    "fmax": 2500,
+    "strings": {
+     "C": [
+      48,
+      55
+     ],
+     "G": [
+      56,
+      62
+     ],
+     "D": [
+      63,
+      69
+     ],
+     "A": [
+      70,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.pp.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.pp.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.pp.C5F5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "F5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.pp.D4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.pp.C5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.pp.A4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.pp.C5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.pp.C6G6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C6",
+       "G6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.mf.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.mf.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.mf.C5Gb5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "Gb5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.mf.D4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.mf.A4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.mf.C6Ab6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "Ab6"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulC.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.ff.G3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulG.ff.C5A5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "A5"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.ff.D4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulD.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.ff.A4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/viola/Viola.pizz.sulA.ff.C6Bb6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "Bb6"
+      ],
+      "string": "A"
+     }
+    ],
+    "min_note": 0.05
+   },
+   {
+    "name": "Cello_arco",
+    "fmin": 50,
+    "fmax": 1500,
+    "strings": {
+     "C": [
+      36,
+      43
+     ],
+     "G": [
+      44,
+      50
+     ],
+     "D": [
+      51,
+      57
+     ],
+     "A": [
+      58,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulC.C2Gb2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "Gb2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulC.Gb2D3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Gb2",
+       "D3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulC.D3Bb3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D3",
+       "Bb3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulC.B3Db4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B3",
+       "Db4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulG.G2Bb2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G2",
+       "Bb2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulG.B2A3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B2",
+       "A3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulG.Bb3Gb4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb3",
+       "Gb4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulG.Gb4G4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Gb4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulD.D3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulD.C4A4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "A4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulD.Bb4D5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb4",
+       "D5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulA.A3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulA.C4Bb4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "Bb4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulA.B4Ab5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B4",
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.pp.sulA.Ab5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulC.C2Ab2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "Ab2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulC.A2Gb3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A2",
+       "Gb3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulC.C4Gb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "Gb4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulG.G2Bb2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G2",
+       "Bb2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulG.B2A3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B2",
+       "A3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulG.Bb3Eb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Bb3",
+       "Eb4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulG.E4G4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "E4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulD.D3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulD.C4Bb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "Bb4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulD.B4Eb5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B4",
+       "Eb5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulA.A3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulA.C4C5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "C5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.mf.sulA.C5Ab5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulC.C2A2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "A2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulC.Bb2F3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb2",
+       "F3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulC.Gb3Db4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Gb3",
+       "Db4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulG.G2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulG.B2Bb3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B2",
+       "Bb3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulG.B3Gb4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B3",
+       "Gb4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulG.G4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulD.D3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulD.C4Bb4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "Bb4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulD.B4D5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B4",
+       "D5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulA.A3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulA.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.arco.ff.sulA.C5Bb5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "Bb5"
+      ],
+      "string": "A"
+     }
+    ]
+   },
+   {
+    "name": "Cello_pizz",
+    "fmin": 50,
+    "fmax": 1500,
+    "strings": {
+     "C": [
+      36,
+      43
+     ],
+     "G": [
+      44,
+      50
+     ],
+     "D": [
+      51,
+      57
+     ],
+     "A": [
+      58,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulC.C2Bb2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "Bb2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulC.B2G3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B2",
+       "G3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulC.Ab3Db4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Ab3",
+       "Db4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulG.G2Bb2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G2",
+       "Bb2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulG.B2C4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B2",
+       "C4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulG.Db4G4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Db4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulD.D3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulD.C4A4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "A4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulD.Bb4D5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb4",
+       "D5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulA.A3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulA.B3Bb4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B3",
+       "Bb4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulA.B4Ab5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "B4",
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.pp.sulA.Ab5Bb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Ab5",
+       "Bb5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulC.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulC.C3Bb3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "Bb3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulC.C4D4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulG.G2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulG.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulG.C4Bb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "Bb4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulD.D3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulD.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulD.C5Db5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "Db5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulA.A3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulA.B3Bb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B3",
+       "Bb4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulA.B4Ab5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B4",
+       "Ab5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.mf.sulA.A5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A5"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulC.C2A2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "A2"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulC.Bb2Gb3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb2",
+       "Gb3"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulC.G3Db4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "Db4"
+      ],
+      "string": "C"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulG.G2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulG.B2Ab3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "B2",
+       "Ab3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulG.A3Ab4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A3",
+       "Ab4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulD.D3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulD.C4Ab4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "Ab4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulD.A4Db5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A4",
+       "Db5"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulA.A3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A3",
+       "B3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulA.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/cello/Cello.pizz.ff.sulA.C5A5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "A5"
+      ],
+      "string": "A"
+     }
+    ],
+    "min_note": 0.05
+   },
+   {
+    "name": "Bass_arco",
+    "fmin": 25,
+    "fmax": 800,
+    "strings": {
+     "E": [
+      28,
+      33
+     ],
+     "A": [
+      34,
+      38
+     ],
+     "D": [
+      39,
+      43
+     ],
+     "G": [
+      44,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulE.E1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulE.C2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulE.C3D3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "D3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulA.A1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulA.C2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulA.C3A3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulD.D2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulD.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulD.C4D4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulG.G2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulG.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.pp.sulG.C4G4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulE.E1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulE.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulE.C3D3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "D3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulA.A1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulA.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulA.C3A3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulD.D2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulD.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulD.C4D4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulG.G2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.mf.sulG.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulE.E1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulE.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulE.C3D3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "D3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulA.A1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulA.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulA.C3A3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulD.D2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulD.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulD.C4D4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulG.G2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulG.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.arco.ff.sulG.C4G4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "G4"
+      ],
+      "string": "G"
+     }
+    ]
+   },
+   {
+    "name": "Bass_pizz",
+    "fmin": 25,
+    "fmax": 800,
+    "strings": {
+     "E": [
+      28,
+      33
+     ],
+     "A": [
+      34,
+      38
+     ],
+     "D": [
+      39,
+      43
+     ],
+     "G": [
+      44,
+      127
+     ]
+    },
+    "partial": true,
+    "files": [
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulE.E1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulE.C2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulE.C3E3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "E3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulA.A1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulA.C2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulA.C3A3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulD.D2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulD.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulD.C4D4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulG.G2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulG.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.pp.sulG.C4G4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulE.E1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulE.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulE.C3E3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "E3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulA.A1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulA.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulA.C3A3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulD.D2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulD.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulD.C4D4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulG.G2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulG.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.mf.sulG.C4G4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "G4"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulE.E1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "E1",
+       "B1"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulE.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulE.C3E3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "E3"
+      ],
+      "string": "E"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulA.A1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "A1",
+       "B1"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulA.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulA.C3A3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "A3"
+      ],
+      "string": "A"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulD.D2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "D2",
+       "B2"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulD.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulD.C4D4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "D4"
+      ],
+      "string": "D"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulG.G2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G2",
+       "B2"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulG.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "string": "G"
+     },
+     {
+      "file": "sound files/MIS/Strings/doublebass/Bass.pizz.ff.sulG.C4G4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "G4"
+      ],
+      "string": "G"
+     }
+    ],
+    "min_note": 0.05
+   }
+  ]
+ },
+ "presets": [
+  {
+   "name": "Violin",
+   "program": 40,
+   "layers": [
+    {
+     "dir": "Violin_arco",
+     "pattern": "Violin_arco_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      107
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.4
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.5,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.3,
+      "period_search": true,
+      "min_loop": 0.4,
+      "match_seconds": 0.12
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Violin Pizzicato",
+   "bank": 2,
+   "program": 40,
+   "layers": [
+    {
+     "dir": "Violin_pizz",
+     "pattern": "Violin_pizz_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      105
+     ],
+     "pitch_source": "split",
+     "borrowed_level": "served",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ]
+  },
+  {
+   "name": "Viola",
+   "program": 41,
+   "layers": [
+    {
+     "dir": "Viola_arco",
+     "pattern": "Viola_arco_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      94
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.4
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.5,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.3,
+      "period_search": true,
+      "min_loop": 0.4,
+      "match_seconds": 0.12
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Viola Pizzicato",
+   "bank": 2,
+   "program": 41,
+   "layers": [
+    {
+     "dir": "Viola_pizz",
+     "pattern": "Viola_pizz_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      94
+     ],
+     "pitch_source": "split",
+     "borrowed_level": "served",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ]
+  },
+  {
+   "name": "Cello",
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Cello_arco",
+     "pattern": "Cello_arco_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      82
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.4
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.5,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.3,
+      "period_search": true,
+      "min_loop": 0.4,
+      "match_seconds": 0.12
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Cello Pizzicato",
+   "bank": 2,
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Cello_pizz",
+     "pattern": "Cello_pizz_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      82
+     ],
+     "pitch_source": "split",
+     "borrowed_level": "served",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ]
+  },
+  {
+   "name": "Double Bass",
+   "program": 43,
+   "layers": [
+    {
+     "dir": "Bass_arco",
+     "pattern": "Bass_arco_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      28,
+      67
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.03,
+      "release": 0.4
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.5,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.3,
+      "period_search": true,
+      "min_loop": 0.4,
+      "match_seconds": 0.12
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Double Bass Pizzicato",
+   "bank": 2,
+   "program": 43,
+   "layers": [
+    {
+     "dir": "Bass_pizz",
+     "pattern": "Bass_pizz_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       55
+      ],
+      "mf": [
+       56,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      28,
+      67
+     ],
+     "pitch_source": "split",
+     "borrowed_level": "served",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,932 @@
+{
+ "name": "VSCO2 CE Colours (music-production build)",
+ "comment": "Built from VSCO 2 Community Edition by Versilian Studios (recorded by Sam Gossner and Simon Dalzell; sample cutting by Elan Hickler/Soundemote), CC0 1.0. Source: https://github.com/sgossner/VSCO-2-CE at 440300901dfe9275fd84e0b7763af1f8443ae62e. Articulations and instruments the vsco and vsco_extra banks leave out: muted horn (0:60), harmon- and straight-muted trumpet (0:59, 1:59), trombone with vibrato (0:57), falls (1:57) and growls (2:57), solo violin tremolo (0:44) and pizzicato (2:40), flute with vibrato and expressive vibrato (0:73, 1:73), oboe and bassoon with vibrato (0:68, 0:70), an upright piano (0:0), glockenspiel glissandi (128:9) and orchestral effects (128:50: gong and cymbal scrapes, bowed cymbal, rubbed bass drum). Sustained takes loop on their steady part. Changes as in the main VSCO build: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer with set soft-layer offsets, 16-bit TPDF dither. Build b3 levels the upright piano's recorded dynamics and round robins (every dynamic and round robin of a note at one level, on a register slope the dynamics share, each take moved by up to 12 dB), so the velocity curve sets loudness and the layers set the tone.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VSCO 2 CE)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Horn Muted",
+   "program": 60,
+   "layers": [
+    {
+     "dir": "Brass/F Horn/mute",
+     "pattern": "MOHorn_mute_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Trumpet Harmon Mute",
+   "program": 59,
+   "layers": [
+    {
+     "dir": "Brass/Trumpet/harmonM-sus",
+     "pattern": "Sum_SHTrumpet_harmonM-sus_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v3": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Trumpet Straight Mute",
+   "program": 59,
+   "layers": [
+    {
+     "dir": "Brass/Trumpet/straightM-sus",
+     "pattern": "Sum_SHTrumpet_straightM-sus_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v3": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Trombone Vibrato",
+   "program": 57,
+   "layers": [
+    {
+     "dir": "Brass/OldTrombone/Vibrato",
+     "pattern": "Trombone_Vibrato_(?P<note>[A-G]#?-?\\d)_v(?P<dyn>\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "1"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "name": "Trombone Fall",
+   "program": 57,
+   "layers": [
+    {
+     "dir": "Brass/OldTrombone/Fall",
+     "pattern": "Trombone_Fall_(?P<note>[A-G]#?-?\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "pitch_check": false
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Trombone Growl",
+   "program": 57,
+   "layers": [
+    {
+     "dir": "Brass/OldTrombone/Buzz",
+     "pattern": "Trombone_Buzz_(?P<note>[A-G]#?-?\\d)_v(?P<dyn>\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       84
+      ],
+      "2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "1": -6,
+      "2": 0
+     },
+     "pitch_check": false
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Solo Violin Tremolo",
+   "program": 44,
+   "layers": [
+    {
+     "dir": "Strings/Solo Violin/Trem",
+     "pattern": "LLVln_trem_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.4
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "noise_db": 8,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Solo Violin Pizzicato",
+   "program": 40,
+   "layers": [
+    {
+     "dir": "Strings/Solo Violin/Pizz",
+     "pattern": "LLVln_Pizz_(?P<note>[A-G]#?-?\\d)_(?P<dyn>p|f)_RR(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "p",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       84
+      ],
+      "f": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.6
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "p": -9,
+      "f": 0
+     }
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Flute Vibrato",
+   "program": 73,
+   "layers": [
+    {
+     "dir": "Woodwinds/Flute/susvib",
+     "pattern": "LDFlute_susvib_(?P<note>[A-G]#?-?\\d)_v(?P<dyn>\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "1"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "name": "Flute Expressive Vibrato",
+   "program": 73,
+   "layers": [
+    {
+     "dir": "Woodwinds/Flute/expvib",
+     "pattern": "LDFlute_expvib_(?P<note>[A-G]#?-?\\d)_v(?P<dyn>\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "1"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Oboe Vibrato",
+   "program": 68,
+   "layers": [
+    {
+     "dir": "Woodwinds/Oboe/Vib",
+     "pattern": "Oboe_Vib_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_Main\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v3": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Bassoon Vibrato",
+   "program": 70,
+   "layers": [
+    {
+     "dir": "Woodwinds/Bassoon/vib",
+     "pattern": "PSBassoon_(?P<note>[A-G]#?-?\\d)_(?P<dyn>v\\d)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Upright Piano",
+   "program": 0,
+   "layers": [
+    {
+     "dir": "Keys/Upright Nr1",
+     "pattern": "UR1_(?P<note>[A-G]#?-?\\d)_(?P<dyn>pp|mf|f)_RR(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "pp",
+      "mf",
+      "f"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       60
+      ],
+      "mf": [
+       61,
+       95
+      ],
+      "f": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.5
+     },
+     "match_notes": "across",
+     "max_seconds": 20,
+     "ring_db": -60,
+     "layer_levels_db": {
+      "pp": 0,
+      "mf": 0,
+      "f": 0
+     },
+     "match_limit_db": 12
+    }
+   ]
+  },
+  {
+   "name": "Glockenspiel Glissandi",
+   "bank": 128,
+   "program": 9,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "down chromatic fast",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_down_chromatic_fast_0(?P<rr>\\d)\\.wav",
+     "root": 84,
+     "keys": [
+      84,
+      84
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "down chromatic slow",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_down_chromatic_slow_0(?P<rr>\\d)\\.wav",
+     "root": 85,
+     "keys": [
+      85,
+      85
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "down pentatonic med",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_down_pentatonic_med_0(?P<rr>\\d)\\.wav",
+     "root": 86,
+     "keys": [
+      86,
+      86
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "up chromatic fast",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_up_chromatic_fast_0(?P<rr>\\d)\\.wav",
+     "root": 87,
+     "keys": [
+      87,
+      87
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "up chromatic med",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_up_chromatic_med_0(?P<rr>\\d)\\.wav",
+     "root": 88,
+     "keys": [
+      88,
+      88
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "up chromatic slow",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_up_chromatic_slow_0(?P<rr>\\d)\\.wav",
+     "root": 89,
+     "keys": [
+      89,
+      89
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "up pentatonic med",
+     "dir": "Miscellania Raw/Misc 2/glock_glisses",
+     "pattern": "glock_fx_up_pentatonic_med_0(?P<rr>\\d)\\.wav",
+     "root": 90,
+     "keys": [
+      90,
+      90
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Orchestral FX",
+   "bank": 128,
+   "program": 50,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "gong scrape",
+     "dir": "Percussion",
+     "pattern": "gongscrape_(?P<dyn>pp|mf)\\.wav",
+     "root": 52,
+     "keys": [
+      52,
+      52
+     ],
+     "dynamics": [
+      "pp",
+      "mf"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       63
+      ],
+      "mf": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 20,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended cymbal, bowed",
+     "dir": "Percussion",
+     "pattern": "susCymb1-bow-(?P<rr>\\d)\\.wav",
+     "root": 53,
+     "keys": [
+      53,
+      53
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 20,
+     "ring_db": -60
+    },
+    {
+     "name": "suspended cymbal, scraped",
+     "dir": "Percussion",
+     "pattern": "susCymb1-scrape(?P<rr>\\d)_v1\\.wav",
+     "root": 54,
+     "keys": [
+      54,
+      54
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 15,
+     "ring_db": -60
+    },
+    {
+     "name": "bass drum, rubbed",
+     "dir": "Percussion",
+     "pattern": "bassdrum_rub(?P<rr>\\d)_v1\\.wav",
+     "root": 35,
+     "keys": [
+      35,
+      35
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 10,
+     "ring_db": -60
+    }
+   ]
+  }
+ ]
+}

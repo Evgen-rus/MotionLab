@@ -1,0 +1,1457 @@
+{
+ "name": "Big Rusty Drums GM (music-production build)",
+ "comment": "Built from Big Rusty Drums by Karoryfer Samples, CC0 1.0. Source: https://github.com/sfzinstruments/karoryfer.big-rusty-drums at f07ce00df34a46b6b08375be56fe116cf15782bc. One kit on GM keys (35-53, 57, 59): every velocity layer and round robin of the default articulations; close and overhead microphones mixed per hit at the levels and pans of the library's own default programs; the recorded balance between pieces kept, except the cymbals, 6 dB louder than that program; open, closed and pedal hi-hat share an exclusive class. Keys 48 and 50 replay the 14-inch tom two and four semitones up. Changes: leading silence trimmed, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0 1.0 (Karoryfer Samples, Big Rusty Drums)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Big Rusty Kit",
+   "program": 0,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "kick, open",
+     "mics": [
+      {
+       "dir": "Samples/kick_24_nodamp/kick/kick",
+       "gain": 0.7874
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 35,
+     "keys": [
+      35,
+      35
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "kick",
+     "mics": [
+      {
+       "dir": "Samples/kick_24/kick/kick",
+       "gain": 0.7874
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 36,
+     "keys": [
+      36,
+      36
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       9
+      ],
+      "2": [
+       10,
+       18
+      ],
+      "3": [
+       19,
+       27
+      ],
+      "4": [
+       28,
+       36
+      ],
+      "5": [
+       37,
+       45
+      ],
+      "6": [
+       46,
+       54
+      ],
+      "7": [
+       55,
+       64
+      ],
+      "8": [
+       65,
+       73
+      ],
+      "9": [
+       74,
+       83
+      ],
+      "10": [
+       84,
+       91
+      ],
+      "11": [
+       92,
+       100
+      ],
+      "12": [
+       101,
+       109
+      ],
+      "13": [
+       110,
+       118
+      ],
+      "14": [
+       119,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "side stick",
+     "mics": [
+      {
+       "dir": "Samples/snare_14/sidestick/btm",
+       "gain": 0.7874,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/sidestick/top",
+       "gain": 0.315,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/sidestick/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 37,
+     "keys": [
+      37,
+      37
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       31
+      ],
+      "2": [
+       32,
+       63
+      ],
+      "3": [
+       64,
+       95
+      ],
+      "4": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "snare",
+     "mics": [
+      {
+       "dir": "Samples/snare_14/center/btm",
+       "gain": 0.7874,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/center/top",
+       "gain": 0.315,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/center/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 38,
+     "keys": [
+      38,
+      38
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       13
+      ],
+      "2": [
+       14,
+       25
+      ],
+      "3": [
+       26,
+       38
+      ],
+      "4": [
+       39,
+       51
+      ],
+      "5": [
+       52,
+       64
+      ],
+      "6": [
+       65,
+       76
+      ],
+      "7": [
+       77,
+       89
+      ],
+      "8": [
+       90,
+       101
+      ],
+      "9": [
+       102,
+       114
+      ],
+      "10": [
+       115,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "snare edge",
+     "mics": [
+      {
+       "dir": "Samples/snare_14/edge/btm",
+       "gain": 0.7874,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/edge/top",
+       "gain": 0.315,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/edge/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 39,
+     "keys": [
+      39,
+      39
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       18
+      ],
+      "2": [
+       19,
+       36
+      ],
+      "3": [
+       37,
+       54
+      ],
+      "4": [
+       55,
+       73
+      ],
+      "5": [
+       74,
+       91
+      ],
+      "6": [
+       92,
+       109
+      ],
+      "7": [
+       110,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "rimshot",
+     "mics": [
+      {
+       "dir": "Samples/snare_14/rimshot/btm",
+       "gain": 0.7874,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/rimshot/top",
+       "gain": 0.315,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/snare_14/rimshot/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 40,
+     "keys": [
+      40,
+      40
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "tom 22",
+     "mics": [
+      {
+       "dir": "Samples/tom_22/center/cl",
+       "gain": 0.7874,
+       "pan": 0.6875
+      },
+      {
+       "dir": "Samples/tom_22/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 41,
+     "keys": [
+      41,
+      41
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       18
+      ],
+      "2": [
+       19,
+       36
+      ],
+      "3": [
+       37,
+       54
+      ],
+      "4": [
+       55,
+       73
+      ],
+      "5": [
+       74,
+       91
+      ],
+      "6": [
+       92,
+       109
+      ],
+      "7": [
+       110,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "hi-hat closed",
+     "mics": [
+      {
+       "dir": "Samples/hihat_14/tc/cl",
+       "gain": 0.5512,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/hihat_14/tc/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 42,
+     "keys": [
+      42,
+      42
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       15
+      ],
+      "2": [
+       16,
+       31
+      ],
+      "3": [
+       32,
+       47
+      ],
+      "4": [
+       48,
+       63
+      ],
+      "5": [
+       64,
+       79
+      ],
+      "6": [
+       80,
+       95
+      ],
+      "7": [
+       96,
+       111
+      ],
+      "8": [
+       112,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "exclusive_class": 1
+    },
+    {
+     "name": "tom 18",
+     "mics": [
+      {
+       "dir": "Samples/tom_18/center/cl",
+       "gain": 0.7874,
+       "pan": 0.375
+      },
+      {
+       "dir": "Samples/tom_18/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 43,
+     "keys": [
+      43,
+      43
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       15
+      ],
+      "2": [
+       16,
+       31
+      ],
+      "3": [
+       32,
+       47
+      ],
+      "4": [
+       48,
+       63
+      ],
+      "5": [
+       64,
+       79
+      ],
+      "6": [
+       80,
+       95
+      ],
+      "7": [
+       96,
+       111
+      ],
+      "8": [
+       112,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "hi-hat pedal",
+     "mics": [
+      {
+       "dir": "Samples/hihat_14/chik/cl",
+       "gain": 0.5512,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/hihat_14/chik/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 44,
+     "keys": [
+      44,
+      44
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       25
+      ],
+      "2": [
+       26,
+       51
+      ],
+      "3": [
+       52,
+       76
+      ],
+      "4": [
+       77,
+       101
+      ],
+      "5": [
+       102,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "exclusive_class": 1
+    },
+    {
+     "name": "tom 15",
+     "mics": [
+      {
+       "dir": "Samples/tom_15/center/cl",
+       "gain": 0.7874,
+       "pan": -0.3651
+      },
+      {
+       "dir": "Samples/tom_15/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 45,
+     "keys": [
+      45,
+      45
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       18
+      ],
+      "2": [
+       19,
+       36
+      ],
+      "3": [
+       37,
+       54
+      ],
+      "4": [
+       55,
+       73
+      ],
+      "5": [
+       74,
+       91
+      ],
+      "6": [
+       92,
+       109
+      ],
+      "7": [
+       110,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "hi-hat open",
+     "mics": [
+      {
+       "dir": "Samples/hihat_14/open/cl",
+       "gain": 0.5512,
+       "pan": 0.0
+      },
+      {
+       "dir": "Samples/hihat_14/open/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 46,
+     "keys": [
+      46,
+      46
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "exclusive_class": 1
+    },
+    {
+     "name": "tom 14",
+     "mics": [
+      {
+       "dir": "Samples/tom_14/center/cl",
+       "gain": 0.7874,
+       "pan": -0.6825
+      },
+      {
+       "dir": "Samples/tom_14/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 47,
+     "keys": [
+      47,
+      47
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "tom 14, up 2",
+     "mics": [
+      {
+       "dir": "Samples/tom_14/center/cl",
+       "gain": 0.7874,
+       "pan": -0.6825
+      },
+      {
+       "dir": "Samples/tom_14/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 46,
+     "keys": [
+      48,
+      48
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "crash",
+     "mics": [
+      {
+       "dir": "Samples/crash_17/cr/cl",
+       "gain": 0.2205,
+       "pan": -0.5238
+      },
+      {
+       "dir": "Samples/crash_17/cr/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 49,
+     "keys": [
+      49,
+      49
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       25
+      ],
+      "2": [
+       26,
+       51
+      ],
+      "3": [
+       52,
+       76
+      ],
+      "4": [
+       77,
+       101
+      ],
+      "5": [
+       102,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    },
+    {
+     "name": "tom 14, up 4",
+     "mics": [
+      {
+       "dir": "Samples/tom_14/center/cl",
+       "gain": 0.7874,
+       "pan": -0.6825
+      },
+      {
+       "dir": "Samples/tom_14/center/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 46,
+     "keys": [
+      50,
+      50
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "ride",
+     "mics": [
+      {
+       "dir": "Samples/ride_22/rd/cl",
+       "gain": 0.189,
+       "pan": 0.5312
+      },
+      {
+       "dir": "Samples/ride_22/rd/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 51,
+     "keys": [
+      51,
+      51
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       13
+      ],
+      "2": [
+       14,
+       25
+      ],
+      "3": [
+       26,
+       38
+      ],
+      "4": [
+       39,
+       51
+      ],
+      "5": [
+       52,
+       64
+      ],
+      "6": [
+       65,
+       76
+      ],
+      "7": [
+       77,
+       89
+      ],
+      "8": [
+       90,
+       101
+      ],
+      "9": [
+       102,
+       114
+      ],
+      "10": [
+       115,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    },
+    {
+     "name": "china",
+     "mics": [
+      {
+       "dir": "Samples/china_18/cn/cl",
+       "gain": 0.2205,
+       "pan": -0.2063
+      },
+      {
+       "dir": "Samples/china_18/cn/oh",
+       "gain": 0.5512
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 52,
+     "keys": [
+      52,
+      52
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       25
+      ],
+      "2": [
+       26,
+       51
+      ],
+      "3": [
+       52,
+       76
+      ],
+      "4": [
+       77,
+       101
+      ],
+      "5": [
+       102,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    },
+    {
+     "name": "ride bell",
+     "mics": [
+      {
+       "dir": "Samples/ride_22/bl/cl",
+       "gain": 0.189,
+       "pan": 0.5312
+      },
+      {
+       "dir": "Samples/ride_22/bl/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 53,
+     "keys": [
+      53,
+      53
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       31
+      ],
+      "2": [
+       32,
+       63
+      ],
+      "3": [
+       64,
+       95
+      ],
+      "4": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    },
+    {
+     "name": "crash 2 (sizzle)",
+     "mics": [
+      {
+       "dir": "Samples/crash_sizzle_17/cr/cl",
+       "gain": 0.189,
+       "pan": -0.1587
+      },
+      {
+       "dir": "Samples/crash_sizzle_17/cr/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 57,
+     "keys": [
+      57,
+      57
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       21
+      ],
+      "2": [
+       22,
+       42
+      ],
+      "3": [
+       43,
+       63
+      ],
+      "4": [
+       64,
+       85
+      ],
+      "5": [
+       86,
+       106
+      ],
+      "6": [
+       107,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    },
+    {
+     "name": "ride 2 (sizzle)",
+     "mics": [
+      {
+       "dir": "Samples/ride_sizzle_19/rd/cl",
+       "gain": 0.189,
+       "pan": 0.2188
+      },
+      {
+       "dir": "Samples/ride_sizzle_19/rd/oh",
+       "gain": 0.4724
+      }
+     ],
+     "pattern": ".+_vl(?P<dyn>\\d+)_rr(?P<rr>\\d+)\\.flac",
+     "root": 59,
+     "keys": [
+      59,
+      59
+     ],
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       13
+      ],
+      "2": [
+       14,
+       25
+      ],
+      "3": [
+       26,
+       38
+      ],
+      "4": [
+       39,
+       51
+      ],
+      "5": [
+       52,
+       64
+      ],
+      "6": [
+       65,
+       76
+      ],
+      "7": [
+       77,
+       89
+      ],
+      "8": [
+       90,
+       101
+      ],
+      "9": [
+       102,
+       114
+      ],
+      "10": [
+       115,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 2.0
+    }
+   ]
+  }
+ ]
+}

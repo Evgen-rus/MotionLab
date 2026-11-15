@@ -1,0 +1,40 @@
+{
+  "fluidsynth": {
+    "path": "runtime/fluidsynth/fluidsynth-v2.6.1-win10-x64-cpp11/bin/fluidsynth.exe",
+    "sha256": "557b9e98d860a6df6a927e58f6cc274d6451a046da780a1011810d9d00db133d",
+    "version": "2.6.1",
+    "license": "LGPL-2.1-or-later",
+    "source": "https://github.com/FluidSynth/fluidsynth/releases/download/v2.6.1/fluidsynth-v2.6.1-win10-x64-cpp11.zip"
+  },
+  "ffmpeg": {
+    "path": "runtime/ffmpeg/ffmpeg-9.0.2-essentials_build/bin/ffmpeg.exe",
+    "sha256": "3256173f3f8bffd7df12227c68adf68025edb1832273a9530688a7bb1ed8edec",
+    "version": "9.0.2",
+    "license": "GPL-3.0 build",
+    "source": "https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-essentials_build.zip"
+  },
+  "soundfont": {
+    "path": "runtime/MS Basic.sf3",
+    "sha256": "5ea2375e8bd7d8e71def1036978c1621e85b66934169b6a2744b27b9b3c2d99c",
+    "version": "MuseScore repository commit 32f0a26e5b70d784a891a3637f32124431abed6f",
+    "license": "MIT; retain named sample-author notices",
+    "source": "https://raw.githubusercontent.com/musescore/MuseScore/32f0a26e5b70d784a891a3637f32124431abed6f/share/sound/MS%20Basic.sf3"
+  },
+  "surge": {
+    "path": "runtime/surge_xt/Surge XT.vst3/Contents/x86_64-win/Surge XT.vst3",
+    "binary": "runtime/surge_xt/Surge XT.vst3/Contents/x86_64-win/Surge XT.vst3",
+    "sha256": "49794ad99d899a869b97416024283d74baf2c517bac15db0fde511bc99624e20",
+    "version": "1.3.4",
+    "license": "GPL-3.0-or-later",
+    "source": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
+    "patches": "runtime/surge_patches"
+  },
+  "pedalboard": {
+    "path": "runtime/pylib",
+    "sha256": "64862c6bddc46a853280dc0375ca92460cb3644ac11b203ec403e8a49df7fedb",
+    "record_sha256": "b1428ef09f4bc7bf98e76d185502c7c4776062d6165a9b978d2215b5c8824928",
+    "version": "0.9.26",
+    "license": "GPL-3.0",
+    "source": "https://files.pythonhosted.org/packages/c9/87/a76ffe0d9a669b5c36fc9dbb1e1b4919b64342b3abc1c18e4850a91a975b/pedalboard-0.9.26-cp314-cp314-win_amd64.whl"
+  }
+}

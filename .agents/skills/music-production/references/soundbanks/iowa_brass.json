@@ -1,0 +1,346 @@
+{
+ "name": "Iowa MIS Brass (music-production build)",
+ "comment": "Recorded by the University of Iowa Electronic Music Studios (Musical Instrument Samples, https://theremin.music.uiowa.edu/MIS.html) in an anechoic chamber, 5 feet from the instrument; the site states that since 1997 the recordings \"may be downloaded and used for any projects, without restrictions.\" French horn (Jessica Wiskus, 1997) and bass trombone, chromatic at pp, mf and ff, mono, 16-bit/44.1 kHz. Horn on program 60 (A#1-F5; the source has no pp from C2 to B3 and no mf from C3 to B3: those notes borrow the nearest recorded dynamic), bass trombone on program 57; sustain on bank 0, one preset per recorded dynamic on banks 16-18 and legato presets on banks 32-34. Each note loops on its steady part so a held note lasts as long as the key. Each source file, a chromatic run at one dynamic, is cut into one note per file and every note checked against the run its file is named for (soundbank.py split); then pitch-checked again, intonation offsets within a semitone corrected by fineTune, leading silence trimmed, levels matched per layer with set layer offsets, 16-bit TPDF dither.",
+ "copyright": "Source recordings: University of Iowa Electronic Music Studios, free for any use without restrictions",
+ "target_rms": 0.08,
+ "split": {
+  "groups": [
+   {
+    "name": "Horn",
+    "fmin": 40,
+    "fmax": 1000,
+    "files": [
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.pp.Bb1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Bb1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.pp.C5F5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "F5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.mf.Bb1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Bb1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.mf.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.mf.C5F5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "F5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.ff.Bb1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Bb1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.ff.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/frenchhorn/Horn.ff.C5F5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "F5"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "BassTrombone",
+    "fmin": 25,
+    "fmax": 800,
+    "files": [
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.pp.C1B1.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.pp.C2B2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.pp.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.pp.C4Bb4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "Bb4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.mf. Db1B1.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Db1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.mf.C2B2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.mf.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.mf.C4G4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "G4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.ff. Db1B1.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Db1",
+       "B1"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.ff.C2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Brass/basstrombone/BassTrombone.ff.C4F4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "F4"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "presets": [
+  {
+   "name": "Horn",
+   "program": 60,
+   "layers": [
+    {
+     "dir": "Horn",
+     "pattern": "Horn_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       60
+      ],
+      "mf": [
+       61,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      34,
+      77
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Bass Trombone",
+   "program": 57,
+   "layers": [
+    {
+     "dir": "BassTrombone",
+     "pattern": "BassTrombone_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       60
+      ],
+      "mf": [
+       61,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      24,
+      70
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -12,
+      "mf": -6,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  }
+ ]
+}

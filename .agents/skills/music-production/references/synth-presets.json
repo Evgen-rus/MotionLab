@@ -1,0 +1,720 @@
+{
+ "note": "Patches for engine \"synth\" (musiclib/synth.py). Use one by name with \"synth\": {\"preset\": \"pluck\"}; any field given beside it replaces the preset's. Envelope times in seconds; filter cutoff in Hz, env_amount, key_track and velocity in octaves; resonance 0-1.",
+ "presets": {
+  "supersaw_lead": {
+   "use": "trance and EDM lead, anthem chords",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "supersaw",
+      "voices": 7,
+      "detune_cents": 28,
+      "spread": 0.8,
+      "level": 1.0
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 12,
+     "cutoff_hz": 3500,
+     "resonance": 0.15,
+     "env_amount": 0.8,
+     "key_track": 0.3
+    },
+    "filter_env": {
+     "attack": 0.005,
+     "decay": 0.5,
+     "sustain": 0.4,
+     "release": 0.4
+    },
+    "amp": {
+     "attack": 0.01,
+     "decay": 0.3,
+     "sustain": 0.85,
+     "release": 0.3
+    }
+   }
+  },
+  "trance_pad": {
+   "use": "wide sustained pad",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "supersaw",
+      "voices": 9,
+      "detune_cents": 18,
+      "spread": 1.0
+     },
+     {
+      "wave": "saw",
+      "octave": -1,
+      "level": 0.4
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 2200,
+     "resonance": 0.1,
+     "key_track": 0.3
+    },
+    "lfo": {
+     "rate_hz": 0.2,
+     "shape": "sine",
+     "to_cutoff_octaves": 0.4
+    },
+    "amp": {
+     "attack": 0.6,
+     "decay": 1.0,
+     "sustain": 0.9,
+     "release": 1.4
+    }
+   }
+  },
+  "pluck": {
+   "use": "melodic pluck, arpeggios",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw"
+     },
+     {
+      "wave": "square",
+      "octave": 1,
+      "level": 0.4
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 500,
+     "resonance": 0.3,
+     "env_amount": 3.2,
+     "key_track": 0.5,
+     "velocity": 0.5
+    },
+    "filter_env": {
+     "attack": 0.001,
+     "decay": 0.22,
+     "sustain": 0.0,
+     "release": 0.2
+    },
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.45,
+     "sustain": 0.0,
+     "release": 0.25
+    }
+   }
+  },
+  "future_bass_chord": {
+   "use": "future bass supersaw chords (duck them with the kick)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "supersaw",
+      "voices": 7,
+      "detune_cents": 22,
+      "spread": 0.9
+     },
+     {
+      "wave": "square",
+      "level": 0.35
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 12,
+     "cutoff_hz": 2800,
+     "resonance": 0.2,
+     "env_amount": 1.0
+    },
+    "filter_env": {
+     "attack": 0.02,
+     "decay": 0.4,
+     "sustain": 0.5,
+     "release": 0.3
+    },
+    "amp": {
+     "attack": 0.02,
+     "decay": 0.2,
+     "sustain": 0.9,
+     "release": 0.25
+    },
+    "drive": 0.15
+   }
+  },
+  "sub_bass": {
+   "use": "sine sub under a kick",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "sine"
+     }
+    ],
+    "mono": true,
+    "amp": {
+     "attack": 0.004,
+     "decay": 0.1,
+     "sustain": 1.0,
+     "release": 0.08
+    }
+   }
+  },
+  "bass_808": {
+   "use": "808-style bass: a long sine with a pitch punch and glide between notes",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "sine"
+     }
+    ],
+    "pitch_env": {
+     "semitones": 12,
+     "decay": 0.03
+    },
+    "amp": {
+     "attack": 0.001,
+     "decay": 2.5,
+     "sustain": 0.0,
+     "release": 0.15
+    },
+    "mono": true,
+    "glide_ms": 60,
+    "drive": 0.25
+   }
+  },
+  "reese_bass": {
+   "use": "drum and bass, dubstep, dark synthwave",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw",
+      "cents": -12
+     },
+     {
+      "wave": "saw",
+      "cents": 12
+     },
+     {
+      "wave": "sine",
+      "octave": -1,
+      "level": 0.6
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 900,
+     "resonance": 0.2,
+     "key_track": 0.3
+    },
+    "amp": {
+     "attack": 0.005,
+     "decay": 0.2,
+     "sustain": 1.0,
+     "release": 0.12
+    },
+    "mono": true,
+    "drive": 0.3
+   }
+  },
+  "acid_bass": {
+   "use": "resonant squelchy bass line (303-like)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw"
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 320,
+     "resonance": 0.85,
+     "env_amount": 3.5,
+     "velocity": 0.8
+    },
+    "filter_env": {
+     "attack": 0.001,
+     "decay": 0.18,
+     "sustain": 0.0,
+     "release": 0.1
+    },
+    "amp": {
+     "attack": 0.002,
+     "decay": 0.2,
+     "sustain": 0.8,
+     "release": 0.06
+    },
+    "mono": true,
+    "glide_ms": 60,
+    "drive": 0.4
+   }
+  },
+  "synthwave_bass": {
+   "use": "eighth-note octave bass of synthwave",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw"
+     },
+     {
+      "wave": "square",
+      "octave": -1,
+      "level": 0.5
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 600,
+     "resonance": 0.25,
+     "env_amount": 2.0,
+     "key_track": 0.4
+    },
+    "filter_env": {
+     "attack": 0.001,
+     "decay": 0.2,
+     "sustain": 0.2,
+     "release": 0.15
+    },
+    "amp": {
+     "attack": 0.002,
+     "decay": 0.25,
+     "sustain": 0.7,
+     "release": 0.1
+    }
+   }
+  },
+  "wobble_bass": {
+   "use": "tempo-synced wobble (lfo rate in beats)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw"
+     },
+     {
+      "wave": "square",
+      "level": 0.6,
+      "cents": 7
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 260,
+     "resonance": 0.6,
+     "key_track": 0.2
+    },
+    "lfo": {
+     "rate_beats": 0.5,
+     "shape": "sine",
+     "to_cutoff_octaves": 3.0
+    },
+    "amp": {
+     "attack": 0.005,
+     "decay": 0.2,
+     "sustain": 1.0,
+     "release": 0.1
+    },
+    "mono": true,
+    "drive": 0.45
+   }
+  },
+  "brass_stab": {
+   "use": "synth brass hits and swells",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw",
+      "cents": -6
+     },
+     {
+      "wave": "saw",
+      "cents": 6
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 900,
+     "resonance": 0.15,
+     "env_amount": 2.2,
+     "key_track": 0.5
+    },
+    "filter_env": {
+     "attack": 0.04,
+     "decay": 0.35,
+     "sustain": 0.35,
+     "release": 0.3
+    },
+    "amp": {
+     "attack": 0.02,
+     "decay": 0.3,
+     "sustain": 0.7,
+     "release": 0.25
+    }
+   }
+  },
+  "pwm_strings": {
+   "use": "analog string machine pad",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "pulse",
+      "width": 0.5,
+      "pwm": {
+       "rate_hz": 0.7,
+       "depth": 0.3
+      }
+     },
+     {
+      "wave": "pulse",
+      "width": 0.4,
+      "cents": 8,
+      "pwm": {
+       "rate_hz": 0.53,
+       "depth": 0.3
+      }
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 12,
+     "cutoff_hz": 3200,
+     "resonance": 0.05,
+     "key_track": 0.4
+    },
+    "amp": {
+     "attack": 0.35,
+     "decay": 0.5,
+     "sustain": 0.9,
+     "release": 0.9
+    }
+   }
+  },
+  "fm_bell": {
+   "use": "bright bell, glassy keys",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "fm",
+      "ratio": 3.5,
+      "index": 4.0,
+      "index_env": {
+       "attack": 0.001,
+       "decay": 1.2,
+       "sustain": 0.1,
+       "release": 0.8
+      }
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 2.5,
+     "sustain": 0.0,
+     "release": 1.2
+    }
+   }
+  },
+  "fm_epiano": {
+   "use": "DX-style electric piano",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "fm",
+      "ratio": 1.0,
+      "index": 1.6,
+      "index_env": {
+       "attack": 0.001,
+       "decay": 0.6,
+       "sustain": 0.15,
+       "release": 0.4
+      }
+     },
+     {
+      "wave": "fm",
+      "ratio": 14.0,
+      "index": 0.6,
+      "level": 0.15,
+      "index_env": {
+       "attack": 0.001,
+       "decay": 0.08,
+       "sustain": 0.0,
+       "release": 0.1
+      }
+     }
+    ],
+    "amp": {
+     "attack": 0.002,
+     "decay": 1.6,
+     "sustain": 0.25,
+     "release": 0.5
+    }
+   }
+  },
+  "chip_square": {
+   "use": "chiptune lead (50% pulse)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "pulse",
+      "width": 0.5
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.05,
+     "sustain": 0.9,
+     "release": 0.03
+    },
+    "mono": true
+   }
+  },
+  "chip_pulse25": {
+   "use": "chiptune lead or arpeggio (25% pulse)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "pulse",
+      "width": 0.25
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.05,
+     "sustain": 0.9,
+     "release": 0.03
+    }
+   }
+  },
+  "chip_pulse12": {
+   "use": "thin chiptune lead or echo (12.5% pulse)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "pulse",
+      "width": 0.125
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.05,
+     "sustain": 0.9,
+     "release": 0.03
+    }
+   }
+  },
+  "chip_arp": {
+   "use": "chiptune chords as a 60 Hz arpeggio (write the chord; it plays one note at a time)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "pulse",
+      "width": 0.25
+     }
+    ],
+    "arpeggio": {
+     "rate_hz": 60
+    },
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.08,
+     "sustain": 0.8,
+     "release": 0.03
+    }
+   }
+  },
+  "chip_triangle": {
+   "use": "chiptune bass (the NES triangle: 16 steps)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "triangle",
+      "steps": 16
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.05,
+     "sustain": 1.0,
+     "release": 0.03
+    },
+    "mono": true
+   }
+  },
+  "chip_noise": {
+   "use": "chiptune drums from clocked noise: low notes thud, C5 a snare, C7 and up hats",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "noise",
+      "clock": true
+     }
+    ],
+    "amp": {
+     "attack": 0.001,
+     "decay": 0.12,
+     "sustain": 0.0,
+     "release": 0.03
+    }
+   }
+  },
+  "lofi_keys": {
+   "use": "soft keys with tape wobble",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "triangle"
+     },
+     {
+      "wave": "sine",
+      "octave": 1,
+      "level": 0.25
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 12,
+     "cutoff_hz": 1800,
+     "resonance": 0.05,
+     "key_track": 0.3
+    },
+    "lfo": {
+     "rate_hz": 0.6,
+     "shape": "sine",
+     "to_pitch_cents": 7
+    },
+    "amp": {
+     "attack": 0.004,
+     "decay": 1.4,
+     "sustain": 0.35,
+     "release": 0.6
+    }
+   }
+  },
+  "warm_pad": {
+   "use": "slow soft pad",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "saw",
+      "cents": -7
+     },
+     {
+      "wave": "saw",
+      "cents": 7
+     },
+     {
+      "wave": "triangle",
+      "octave": -1,
+      "level": 0.5
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "slope": 24,
+     "cutoff_hz": 1200,
+     "resonance": 0.1,
+     "key_track": 0.3
+    },
+    "lfo": {
+     "rate_hz": 0.15,
+     "shape": "triangle",
+     "to_cutoff_octaves": 0.5
+    },
+    "amp": {
+     "attack": 1.2,
+     "decay": 1.0,
+     "sustain": 0.9,
+     "release": 2.0
+    }
+   }
+  },
+  "noise_riser": {
+   "use": "white-noise riser: hold the note over the build (the filter opens over 8 s)",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "noise"
+     }
+    ],
+    "filter": {
+     "type": "bandpass",
+     "cutoff_hz": 300,
+     "resonance": 0.3,
+     "env_amount": 5.0
+    },
+    "filter_env": {
+     "attack": 8.0,
+     "decay": 0.1,
+     "sustain": 1.0,
+     "release": 0.3
+    },
+    "amp": {
+     "attack": 6.0,
+     "decay": 0.1,
+     "sustain": 1.0,
+     "release": 0.3
+    }
+   }
+  },
+  "downlifter": {
+   "use": "falling noise sweep after a drop",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "noise"
+     }
+    ],
+    "filter": {
+     "type": "lowpass",
+     "cutoff_hz": 200,
+     "resonance": 0.2,
+     "env_amount": 6.0
+    },
+    "filter_env": {
+     "attack": 0.001,
+     "decay": 3.0,
+     "sustain": 0.0,
+     "release": 0.5
+    },
+    "amp": {
+     "attack": 0.005,
+     "decay": 3.0,
+     "sustain": 0.0,
+     "release": 0.5
+    }
+   }
+  },
+  "reverse_cymbal": {
+   "use": "reversed-cymbal swell into a downbeat: end the note on the beat",
+   "patch": {
+    "oscillators": [
+     {
+      "wave": "noise"
+     }
+    ],
+    "filter": {
+     "type": "highpass",
+     "cutoff_hz": 4000,
+     "resonance": 0.1,
+     "env_amount": -1.5
+    },
+    "filter_env": {
+     "attack": 2.0,
+     "decay": 0.1,
+     "sustain": 1.0,
+     "release": 0.05
+    },
+    "amp": {
+     "attack": 2.0,
+     "decay": 0.1,
+     "sustain": 1.0,
+     "release": 0.03
+    }
+   }
+  }
+ }
+}

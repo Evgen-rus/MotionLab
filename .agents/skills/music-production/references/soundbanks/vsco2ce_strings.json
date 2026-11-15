@@ -1,0 +1,518 @@
+{
+ "name": "VSCO2 CE String Sections (music-production build)",
+ "comment": "Built from VSCO 2 Community Edition by Versilian Studios (recorded by Sam Gossner and Simon Dalzell; sample cutting by Elan Hickler/Soundemote), CC0 1.0. Source: https://github.com/sgossner/VSCO-2-CE at 440300901dfe9275fd84e0b7763af1f8443ae62e. The violin, viola and cello sections, each over its whole sampled range (violins G3-D6, violas C3-D6, cellos C2-F5; the file names sit an octave under scientific pitch) and mapped at most 4 semitones past its top sample: violins on program 40, violas 41, cellos 42, with sustain on bank 0 (also as one preset per recorded dynamic on banks 16 and up, and as legato presets on banks 32 and up, each take entered past its attack), spiccato on bank 1 and pizzicato on bank 2; tremolo on programs 44, 45 and 46 (bank 0, with dynamic layers). Changes as in the main VSCO build: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer with set soft-layer offsets, 16-bit TPDF dither, round robins alternated on neighbouring velocities. A bank of its own because the main VSCO bank is near the SF2 limit of 65,535 instrument generators.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VSCO 2 CE)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Violins Sustain",
+   "program": 40,
+   "layers": [
+    {
+     "dir": "Strings/Violin Section/susVib",
+     "pattern": "VlnEns_susVib_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      90
+     ],
+     "fmin": 150,
+     "fmax": 3000,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Violas Sustain",
+   "program": 41,
+   "layers": [
+    {
+     "dir": "Strings/Viola Section/susvib",
+     "pattern": "ViolaEns_susvib_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_1\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      90
+     ],
+     "fmin": 100,
+     "fmax": 1500,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Cellos Sustain",
+   "program": 42,
+   "layers": [
+    {
+     "dir": "Strings/Cello Section/susvib",
+     "pattern": "susvib_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_1\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v3": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      81
+     ],
+     "fmin": 50,
+     "fmax": 900,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v3": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Violins Spiccato",
+   "program": 40,
+   "bank": 1,
+   "layers": [
+    {
+     "dir": "Strings/Violin Section/Spic",
+     "pattern": "VlnEns_Spic_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      90
+     ],
+     "fmin": 150,
+     "fmax": 3000,
+     "envelope": {
+      "attack": 0.002,
+      "release": 0.18
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Violas Spiccato",
+   "program": 41,
+   "bank": 1,
+   "layers": [
+    {
+     "dir": "Strings/Viola Section/spic",
+     "pattern": "Violas_spic_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      90
+     ],
+     "fmin": 100,
+     "fmax": 1500,
+     "envelope": {
+      "attack": 0.002,
+      "release": 0.18
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Cellos Spiccato",
+   "program": 42,
+   "bank": 1,
+   "layers": [
+    {
+     "dir": "Strings/Cello Section/spic",
+     "pattern": "spic_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_RR(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      81
+     ],
+     "fmin": 50,
+     "fmax": 900,
+     "envelope": {
+      "attack": 0.002,
+      "release": 0.18
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Violins Pizzicato",
+   "program": 40,
+   "bank": 2,
+   "layers": [
+    {
+     "dir": "Strings/Violin Section/Pizz",
+     "pattern": "VlnEns_Pizz_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      90
+     ],
+     "fmin": 150,
+     "fmax": 3000,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     },
+     "level": "peak",
+     "onset_db": -35
+    }
+   ]
+  },
+  {
+   "name": "Violas Pizzicato",
+   "program": 41,
+   "bank": 2,
+   "layers": [
+    {
+     "dir": "Strings/Viola Section/pizz",
+     "pattern": "ViolaEns_pizz_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      90
+     ],
+     "fmin": 100,
+     "fmax": 1500,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     },
+     "level": "peak",
+     "onset_db": -35
+    }
+   ]
+  },
+  {
+   "name": "Cellos Pizzicato",
+   "program": 42,
+   "bank": 2,
+   "layers": [
+    {
+     "dir": "Strings/Cello Section/pizzT",
+     "pattern": "pizzT_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_RR(?P<rr>\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      81
+     ],
+     "fmin": 50,
+     "fmax": 900,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "layer_levels_db": {
+      "v1": -7,
+      "v2": 0
+     },
+     "level": "peak",
+     "onset_db": -35
+    }
+   ]
+  },
+  {
+   "name": "Violins Tremolo",
+   "program": 44,
+   "layers": [
+    {
+     "dir": "Strings/Violin Section/Trem",
+     "pattern": "VlnEns_Trem_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      90
+     ],
+     "fmin": 150,
+     "fmax": 3000,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   }
+  },
+  {
+   "name": "Violas Tremolo",
+   "program": 45,
+   "layers": [
+    {
+     "dir": "Strings/Viola Section/trem",
+     "pattern": "Violas_trem_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr1\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      90
+     ],
+     "fmin": 100,
+     "fmax": 1500,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   }
+  },
+  {
+   "name": "Cellos Tremolo",
+   "program": 46,
+   "layers": [
+    {
+     "dir": "Strings/Cello Section/trem",
+     "pattern": "trem_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_1\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      81
+     ],
+     "fmin": 50,
+     "fmax": 900,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.45
+     },
+     "layer_levels_db": {
+      "v1": -9,
+      "v2": 0
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   }
+  }
+ ]
+}

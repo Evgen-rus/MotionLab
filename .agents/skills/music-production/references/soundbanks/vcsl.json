@@ -1,0 +1,1139 @@
+{
+ "name": "VCSL (music-production build)",
+ "comment": "Built from the Versilian Community Sample Library (VCSL) by Versilian Studios, CC0 1.0. Source: https://github.com/sgossner/VCSL at c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e. Concert harp, marimba, vibraphone (soft mallets), xylophone (medium mallets) and tubular bells, each cut at a few seconds; the mallets and bells keep recorded soft layers 4-8 dB under the loudest (layer_levels_db). Grand Piano, Steinway B, close position, no sustain pedal: 42 notes A#0-G#7 in whole tones serving A0-C8, 3 velocity layers. The library normalized every sample and asks for a velocity curve instead of layer gains, so layers are matched by peak and the synthesizer's velocity curve shapes the dynamics. Changes: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, notes cut at 14 s with a 50 ms fade, 16-bit TPDF dither. Build b3 adds timpani (17 tuning positions of VCSL Timpani 2, each pitch measured from its (1,1) mode and corrected by fine tune; 3 velocity layers, 2 round robins) and an orchestra kit on bank 128 program 48: concert bass drum, snare and snare roll, clash and suspended cymbals with timed swells, gong, tambourine, triangle, sleigh bells and mark tree, keeping the recorded balance between pieces except the small percussion, raised 6-10 dB so it carries in a band mix. Build b4 keeps each take of the harp, tubular bells, timpani, the Steinway and the struck gong, clash and suspended cymbals until its ring falls 60 dB under its peak (at most 30 s, the timpani 12 s) instead of a fixed cut: low piano notes had been cut while still 27-46 dB down, bells and harp 35-40 dB. Build b6 makes the Steinway's soft and middle dynamics (vl2, vl3) from its loud one (vl4), key by key (soft_from): those takes were recorded little over the room, and the library's normalizing raised their hum and hiss with them (on C3 and C5 the hiss lies 56 to 60 dB under the note in the soft takes and 66 to 73 in the middle ones, where the loud takes keep 77 to 81). The loud dynamic and every other preset are bit for bit those of b4. (No b5 was released.) Build b7 (b6 was not released): on the concert harp, each half-octave band of a take from 1 kHz up is taken out once it has come down to the recording's hiss, never in the first 0.06 s of a note (close_hiss): a plucked string's upper partials die first, and what those bands held afterwards was hiss, heard under a soft passage played alone. Every other preset is as in b6. Also in b7: on Vibraphone, Tubular Bells, Timpani, each half-octave band of a take from 1 kHz up is taken out once it has come down to the recording's hiss, never in the first 0.06 s of a note and never where it would lower the take's peak or level (close_hiss); every other preset is as it was. Build b8 (b7 was not released): a band is not closed while a narrow component that its filter would take from is heard in the hiss, a partial that dies slowly or one that the reading against the top band missed; the band closes after the last quarter second that holds one, and stays as recorded where one lasts into the later part of the take. Build b9 (b8 was not released): every quarter second of a take is read for such a component against its own floor, to the end of the take; b8 read the later part as one average and every window against the later part's floor, which hid a short tone late in a take and, under a fade of the whole recording, took hiss for tones. Build b10 (b9 was not released): each channel is read for such a component on its own, up to the take's last sample; b9 read the two channels' average, under which a tone in one channel went unseen, and stopped up to 85 ms before the end of the take. Build b11 (b10 was not released): each frame is set against its own level before a window's frames are averaged; in b10 a window over a recording's own fade-out was ruled by its loudest frame, whose chance peaks passed for a tone and kept the band as recorded. A frame's level is also no lower than the floor a stored sample carries, 16 bits under the take's peak: what is left where a take has faded to nothing held bands as a tone would. Build b12 (b11 was not released): a window's floor in that reading is held no lower than the stored sample's floor in the window's own units; b11 held it at the level the frames were set against, which in a half octave crowded with a low note's partials is itself partials, and took those for hiss. The timpani are as recorded again: closing bands gave them nothing that was measured, and `close_hiss` is kept for the instruments that are heard alone, the concert harp, the vibraphone and the tubular bells.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VCSL)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Grand Steinway B",
+   "program": 0,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Grand Piano, Steinway B/NoSus",
+     "pattern": "JHPiano_NoSus_Close_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr1\\.wav",
+     "dynamics": [
+      "2",
+      "3",
+      "4"
+     ],
+     "velocity": {
+      "2": [
+       1,
+       64
+      ],
+      "3": [
+       65,
+       96
+      ],
+      "4": [
+       97,
+       127
+      ]
+     },
+     "keys": [
+      21,
+      108
+     ],
+     "level": "peak",
+     "max_seconds": 30,
+     "envelope": {
+      "release": 0.6
+     },
+     "ring_db": -60,
+     "soft_from": {
+      "2": "4",
+      "3": "4"
+     }
+    }
+   ]
+  },
+  {
+   "name": "Concert Harp",
+   "program": 46,
+   "layers": [
+    {
+     "dir": "Chordophones/Composite Chordophones/Concert Harp",
+     "pattern": "KSHarp_(?P<note>[A-G]#?\\d)_(?P<dyn>mf|f)1\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "mf",
+      "f"
+     ],
+     "velocity": {
+      "mf": [
+       1,
+       84
+      ],
+      "f": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      24,
+      103
+     ],
+     "fmin": 30,
+     "fmax": 4000,
+     "level": "peak",
+     "max_seconds": 30,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.5
+     },
+     "ring_db": -60,
+     "close_hiss": {}
+    }
+   ]
+  },
+  {
+   "name": "Marimba",
+   "program": 12,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Marimba",
+     "pattern": "Marimba_hit_Outrigger_(?P<note>[A-G]#?\\d)_(?P<dyn>soft|med|loud)_01\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "soft",
+      "med",
+      "loud"
+     ],
+     "velocity": {
+      "soft": [
+       1,
+       60
+      ],
+      "med": [
+       61,
+       95
+      ],
+      "loud": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      36,
+      96
+     ],
+     "fmin": 60,
+     "fmax": 2500,
+     "level": "peak",
+     "max_seconds": 6,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "layer_levels_db": {
+      "soft": -8,
+      "med": -4,
+      "loud": 0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Vibraphone",
+   "program": 11,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Vibraphone/Soft Mallets",
+     "pattern": "Vibes_soft_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       84
+      ],
+      "v2": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      53,
+      89
+     ],
+     "fmin": 100,
+     "fmax": 2500,
+     "level": "peak",
+     "max_seconds": 10,
+     "envelope": {
+      "attack": 0.001,
+      "release": 3.0
+     },
+     "layer_levels_db": {
+      "v1": -6,
+      "v2": 0
+     },
+     "close_hiss": {}
+    }
+   ]
+  },
+  {
+   "name": "Xylophone",
+   "program": 13,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets",
+     "pattern": "Xylo_Medium_(?P<note>[A-G]#?\\d)_(?P<dyn>pp|ff)_01_far\\.wav",
+     "octave_offset": 12,
+     "dynamics": [
+      "pp",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       84
+      ],
+      "ff": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      65,
+      108
+     ],
+     "fmin": 300,
+     "fmax": 5000,
+     "level": "peak",
+     "max_seconds": 3,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "layer_levels_db": {
+      "pp": -6,
+      "ff": 0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Tubular Bells",
+   "program": 14,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Tubular Bells 2",
+     "pattern": "TB_hit_(?P<note>[A-G]#?\\d)_(?P<dyn>v\\d)_1\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "v2",
+      "v4"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       84
+      ],
+      "v4": [
+       85,
+       127
+      ]
+     },
+     "keys": [
+      60,
+      77
+     ],
+     "fmin": 100,
+     "fmax": 3000,
+     "level": "peak",
+     "max_seconds": 30,
+     "envelope": {
+      "attack": 0.001,
+      "release": 6.0
+     },
+     "pitch_check": false,
+     "layer_levels_db": {
+      "v2": -6,
+      "v4": 0
+     },
+     "ring_db": -60,
+     "close_hiss": {}
+    }
+   ]
+  },
+  {
+   "name": "Timpani",
+   "program": 47,
+   "layers": [
+    {
+     "dir": "Membranophones/Struck Membranophones/Timpani 2/Hit",
+     "pattern": "Timpani(?P<id>\\d[A-J])_hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_main\\.wav",
+     "pitches": {
+      "1C": 39.95,
+      "7E": 41.27,
+      "1D": 41.8,
+      "7C": 42.99,
+      "2B": 45.33,
+      "3A": 46.12,
+      "6G": 47.07,
+      "3B": 48.05,
+      "6E": 48.98,
+      "3C": 49.98,
+      "6C": 51.31,
+      "6B": 51.97,
+      "6A": 53.06,
+      "8E": 54.28,
+      "8B": 55.33,
+      "8C": 56.26,
+      "8D": 57.28
+     },
+     "pitch_check": false,
+     "max_correction_cents": 50,
+     "dynamics": [
+      "v2",
+      "v3",
+      "v5"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       60
+      ],
+      "v3": [
+       61,
+       95
+      ],
+      "v5": [
+       96,
+       127
+      ]
+     },
+     "keys": [
+      38,
+      59
+     ],
+     "level": "peak",
+     "max_seconds": 12,
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "layer_levels_db": {
+      "v2": -9,
+      "v3": -4.5,
+      "v5": 0
+     },
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Orchestra Kit",
+   "bank": 128,
+   "program": 48,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "concert bass drum",
+     "dir": "Membranophones/Struck Membranophones/Bass Drum 1",
+     "pattern": "BDrumNew_hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 35,
+     "keys": [
+      35,
+      35
+     ],
+     "dynamics": [
+      "v2",
+      "v3",
+      "v5",
+      "v7"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       40
+      ],
+      "v3": [
+       41,
+       75
+      ],
+      "v5": [
+       76,
+       105
+      ],
+      "v7": [
+       106,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 6,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "concert bass drum",
+     "dir": "Membranophones/Struck Membranophones/Bass Drum 1",
+     "pattern": "BDrumNew_hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 36,
+     "keys": [
+      36,
+      36
+     ],
+     "dynamics": [
+      "v2",
+      "v3",
+      "v5",
+      "v7"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       40
+      ],
+      "v3": [
+       41,
+       75
+      ],
+      "v5": [
+       76,
+       105
+      ],
+      "v7": [
+       106,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 6,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "snare, snares on",
+     "dir": "Membranophones/Struck Membranophones/Snare Drum, Modern 1",
+     "pattern": "Snare2_HitSN_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 38,
+     "keys": [
+      38,
+      38
+     ],
+     "dynamics": [
+      "v3",
+      "v5",
+      "v6",
+      "v7",
+      "v9"
+     ],
+     "velocity": {
+      "v3": [
+       1,
+       30
+      ],
+      "v5": [
+       31,
+       60
+      ],
+      "v6": [
+       61,
+       85
+      ],
+      "v7": [
+       86,
+       108
+      ],
+      "v9": [
+       109,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 3,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "snare roll",
+     "dir": "Membranophones/Struck Membranophones/Snare Drum, Modern 1",
+     "pattern": "Snare2_rollSN_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 40,
+     "keys": [
+      40,
+      40
+     ],
+     "dynamics": [
+      "v2",
+      "v4",
+      "v5"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       50
+      ],
+      "v4": [
+       51,
+       90
+      ],
+      "v5": [
+       91,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 10,
+     "envelope": {
+      "release": 0.35
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "clash cymbals",
+     "dir": "Idiophones/Struck Idiophones/Clash Cymbals 1",
+     "pattern": "cymbal_crash1_(?P<dyn>pp|mp|mf|ff)(?P<rr>\\d)\\.wav",
+     "root": 49,
+     "keys": [
+      49,
+      49
+     ],
+     "dynamics": [
+      "pp",
+      "mp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       45
+      ],
+      "mp": [
+       46,
+       75
+      ],
+      "mf": [
+       76,
+       105
+      ],
+      "ff": [
+       106,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 30,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "ring_db": -60
+    },
+    {
+     "name": "suspended cymbal, stick",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_hit_stick_(?P<dyn>pp|mp|f)1\\.wav",
+     "root": 51,
+     "keys": [
+      51,
+      51
+     ],
+     "dynamics": [
+      "pp",
+      "mp",
+      "f"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mp": [
+       51,
+       90
+      ],
+      "f": [
+       91,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 30,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 1.9953,
+     "ring_db": -60
+    },
+    {
+     "name": "gong",
+     "dir": "Idiophones/Struck Idiophones/Gong 1",
+     "pattern": "gong_(?P<dyn>p|mf|f|fff)\\.wav",
+     "root": 52,
+     "keys": [
+      52,
+      52
+     ],
+     "dynamics": [
+      "p",
+      "mf",
+      "f",
+      "fff"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       45
+      ],
+      "mf": [
+       46,
+       75
+      ],
+      "f": [
+       76,
+       105
+      ],
+      "fff": [
+       106,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 30,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "ring_db": -60
+    },
+    {
+     "name": "suspended cymbal, bell",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_hit_bell_(?P<dyn>pp|mf|fff)1\\.wav",
+     "root": 53,
+     "keys": [
+      53,
+      53
+     ],
+     "dynamics": [
+      "pp",
+      "mf",
+      "fff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       50
+      ],
+      "mf": [
+       51,
+       95
+      ],
+      "fff": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 30,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "ring_db": -60
+    },
+    {
+     "name": "tambourine",
+     "dir": "Idiophones/Struck Idiophones/Tambourine 1",
+     "pattern": "Tamb1_Hit_(?P<dyn>v\\d)_rr1_Mid\\.wav",
+     "root": 54,
+     "keys": [
+      54,
+      54
+     ],
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       80
+      ],
+      "v2": [
+       81,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 3,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 1.9953
+    },
+    {
+     "name": "suspended cymbal, soft mallet",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_hit_(?P<dyn>pp|mp|f|fff)1\\.wav",
+     "root": 55,
+     "keys": [
+      55,
+      55
+     ],
+     "dynamics": [
+      "pp",
+      "mp",
+      "f",
+      "fff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       40
+      ],
+      "mp": [
+       41,
+       75
+      ],
+      "f": [
+       76,
+       105
+      ],
+      "fff": [
+       106,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 30,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "ring_db": -60
+    },
+    {
+     "name": "clash cymbals, choked",
+     "dir": "Idiophones/Struck Idiophones/Clash Cymbals 1",
+     "pattern": "cymbal_crash1_short(?P<rr>\\d)\\.wav",
+     "root": 57,
+     "keys": [
+      57,
+      57
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 4,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended cymbal roll",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_roll_(?P<dyn>mp|f|ff)\\d_nloop\\.wav",
+     "root": 59,
+     "keys": [
+      59,
+      59
+     ],
+     "dynamics": [
+      "mp",
+      "f",
+      "ff"
+     ],
+     "velocity": {
+      "mp": [
+       1,
+       60
+      ],
+      "f": [
+       61,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 14,
+     "envelope": {
+      "release": 0.5
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "triangle, muted",
+     "dir": "Idiophones/Struck Idiophones/Triangles",
+     "pattern": "Triangle1_HitM_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 80,
+     "keys": [
+      80,
+      80
+     ],
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       80
+      ],
+      "v2": [
+       81,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 3,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    },
+    {
+     "name": "triangle",
+     "dir": "Idiophones/Struck Idiophones/Triangles",
+     "pattern": "Triangle1_Hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 81,
+     "keys": [
+      81,
+      81
+     ],
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       80
+      ],
+      "v2": [
+       81,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 6,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    },
+    {
+     "name": "sleigh bells",
+     "dir": "Idiophones/Struck Idiophones/Sleigh Bells",
+     "pattern": "Sleighbells_Hit_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 83,
+     "keys": [
+      83,
+      83
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 4,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    },
+    {
+     "name": "mark tree, fast ascending",
+     "dir": "Idiophones/Struck Idiophones/Mark Trees/Legacy",
+     "pattern": "windchimes_fastAsc1\\.wav",
+     "root": 84,
+     "keys": [
+      84,
+      84
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 10,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    },
+    {
+     "name": "suspended cymbal swell, 1.5 s",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_cresc_1\\.5s\\.wav",
+     "root": 27,
+     "keys": [
+      27,
+      27
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 14,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended cymbal swell, 2 s",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_cresc_2s\\.wav",
+     "root": 28,
+     "keys": [
+      28,
+      28
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 14,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended cymbal swell, 4 s",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_cresc_4s\\.wav",
+     "root": 29,
+     "keys": [
+      29,
+      29
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 14,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "suspended cymbal swell, 7.5 s",
+     "dir": "Idiophones/Struck Idiophones/Suspended Cymbal 1",
+     "pattern": "susCymb1_cresc_7\\.5s\\.wav",
+     "root": 30,
+     "keys": [
+      30,
+      30
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 14,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "mark tree, ascending",
+     "dir": "Idiophones/Struck Idiophones/Mark Trees/Legacy",
+     "pattern": "windchimes_asc1\\.wav",
+     "root": 85,
+     "keys": [
+      85,
+      85
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 10,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    },
+    {
+     "name": "mark tree, descending",
+     "dir": "Idiophones/Struck Idiophones/Mark Trees/Legacy",
+     "pattern": "windchimes_desc1\\.wav",
+     "root": 86,
+     "keys": [
+      86,
+      86
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "max_seconds": 10,
+     "envelope": {
+      "release": 100
+     },
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0,
+     "gain": 3.1623
+    }
+   ]
+  }
+ ]
+}

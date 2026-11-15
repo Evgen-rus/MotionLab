@@ -1,0 +1,1914 @@
+{
+ "name": "VCSL World (music-production build)",
+ "comment": "Built from the Versilian Community Sample Library (VCSL) by Versilian Studios, CC0 1.0. Source: https://github.com/sgossner/VCSL at c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e. Folk harp (0:46), strumstick (0:25), dan tranh (0:107, vibrato 1:107, tremolo 2:107), psaltery plucked (0:15) and bowed (1:15), kalimbas and mbira (0:108 Tanzania, 1:108 Kenya, 2:108 Nyamaropa), balafon (0:12, soft mallets 1:12), hand chimes (0:14), wine glasses (0:92) and a world percussion kit on bank 128 program 25 (frame drums, claps, cajon, darbuka, cowbells, bongos, congas, agogo, cabasa, shakers, guiro, claves, slit drum, brake drum, anvil, finger cymbals, bell tree, ratchet, ocean drum; keys in references/soundbanks.md). Changes: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither. Build b2: on the folk harp, each half-octave band of a take from 1 kHz up is taken out once it has come down to the recording's hiss, never in the first 0.06 s of a note (close_hiss): a plucked string's upper partials die first, and what those bands held afterwards was hiss, heard under a soft passage played alone. Every other preset is bit for bit that of b1. Build b3 (b2 was not released): a band is not closed while a narrow component that its filter would take from is heard in the hiss, a partial that dies slowly or one that the reading against the top band missed; the band closes after the last quarter second that holds one, and stays as recorded where one lasts into the later part of the take. Build b4 (b3 was not released): every quarter second of a take is read for such a component against its own floor, to the end of the take; b3 read the later part as one average and every window against the later part's floor, which hid a short tone late in a take and, under a fade of the whole recording, took hiss for tones. Build b5 (b4 was not released): each channel is read for such a component on its own, up to the take's last sample; b4 read the two channels' average, under which a tone in one channel went unseen, and stopped up to 85 ms before the end of the take. Build b6 (b5 was not released): each frame is set against its own level before a window's frames are averaged; in b5 a window over a recording's own fade-out was ruled by its loudest frame, whose chance peaks passed for a tone and kept the band as recorded. A frame's level is also no lower than the floor a stored sample carries, 16 bits under the take's peak: what is left where a take has faded to nothing held bands as a tone would. Build b7 (b6 was not released): a window's floor in that reading is held no lower than the stored sample's floor in the window's own units; b6 held it at the level the frames were set against, which in a half octave crowded with a low note's partials is itself partials, and took those for hiss.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VCSL)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Folk Harp",
+   "program": 46,
+   "layers": [
+    {
+     "dir": "Chordophones/Composite Chordophones/Folk Harp",
+     "pattern": "EWHarp_Normal_(?P<note>[A-G]#?-?\\d)_v(?P<dyn>\\d)_RR(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "2": [
+       1,
+       84
+      ],
+      "3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 2.0
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "2": -6,
+      "3": 0
+     },
+     "max_seconds": 20,
+     "ring_db": -60,
+     "close_hiss": {}
+    }
+   ]
+  },
+  {
+   "name": "Strumstick",
+   "program": 25,
+   "layers": [
+    {
+     "dir": "Chordophones/Composite Chordophones/Strumstick/Finger",
+     "pattern": "Strumstick_Finger_Str\\d_Main_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "1",
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       60
+      ],
+      "2": [
+       61,
+       95
+      ],
+      "3": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "1": -9,
+      "2": -4.5,
+      "3": 0
+     },
+     "max_seconds": 12,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Dan Tranh",
+   "program": 107,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Dan Tranh/Normal",
+     "pattern": "(?P<note>[A-G]#?-?\\d)_(?P<dyn>mf|f|ff)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "mf",
+      "f",
+      "ff"
+     ],
+     "velocity": {
+      "mf": [
+       1,
+       60
+      ],
+      "f": [
+       61,
+       95
+      ],
+      "ff": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "mf": -6,
+      "f": -3,
+      "ff": 0
+     },
+     "max_seconds": 15,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Dan Tranh Vibrato",
+   "program": 107,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Dan Tranh/Vibrato",
+     "pattern": "(?P<note>[A-G]#?-?\\d)_vib_(?P<dyn>mf|ff)_(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "mf": [
+       1,
+       84
+      ],
+      "ff": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "mf": -6,
+      "ff": 0
+     },
+     "max_seconds": 15,
+     "ring_db": -60
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Dan Tranh Tremolo",
+   "program": 107,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Dan Tranh/Tremolo",
+     "pattern": "(?P<note>[A-G]#?-?\\d)_Trem_(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.5
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "noise_db": 8,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Psaltery Plucked",
+   "program": 15,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Psaltery, Bowed and Plucked/Pluck",
+     "pattern": "BowedPsaltery_(?P<note>[A-G]#?-?\\d)_Main_Pluck_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "max_seconds": 12,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Psaltery Bowed",
+   "program": 15,
+   "layers": [
+    {
+     "dir": "Chordophones/Zithers/Psaltery, Bowed and Plucked/LongBow",
+     "pattern": "BowedPsaltery_(?P<note>[A-G]#?-?\\d)_Main_LongBow_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.08,
+      "release": 0.5
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Kalimba",
+   "program": 108,
+   "layers": [
+    {
+     "dir": "Idiophones/Plucked Idiophones/Kalimba, Tanzania",
+     "pattern": "MBira3_pluck_Main_(?P<note>[A-G]#?-?\\d)_k\\d+(alt)?_50_100_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "max_seconds": 10,
+     "ring_db": -60,
+     "max_correction_cents": 60
+    }
+   ]
+  },
+  {
+   "name": "Kalimba Kenya",
+   "program": 108,
+   "layers": [
+    {
+     "dir": "Idiophones/Plucked Idiophones/Kalimba, Kenya",
+     "pattern": "Mbira6_Normal_MainSpirit_(?P<note>[A-G]#?-?\\d)_k\\d+_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "3"
+     ],
+     "velocity": {
+      "3": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "max_seconds": 10,
+     "ring_db": -60,
+     "max_correction_cents": 60
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Mbira Nyamaropa",
+   "program": 108,
+   "layers": [
+    {
+     "dir": "Idiophones/Plucked Idiophones/Mbira dzaVadzimu Nyamaropa, Zimbabwe, Low B",
+     "pattern": "MBira4_pluck_Main_(?P<note>[A-G]#?-?\\d)_\\d+_50_100_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.5
+     },
+     "match_notes": true,
+     "max_seconds": 10,
+     "ring_db": -60,
+     "max_correction_cents": 60
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Balafon",
+   "program": 12,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Balafon/Traditional Mallet",
+     "pattern": "EthnicXylo_tradM_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "1",
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       60
+      ],
+      "2": [
+       61,
+       95
+      ],
+      "3": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "1": -8,
+      "2": -4,
+      "3": 0
+     },
+     "max_seconds": 6,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Balafon Soft",
+   "program": 12,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Balafon/Soft Mallet",
+     "pattern": "EthnicXylo_softM_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "1",
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       60
+      ],
+      "2": [
+       61,
+       95
+      ],
+      "3": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "1": -8,
+      "2": -4,
+      "3": 0
+     },
+     "max_seconds": 6,
+     "ring_db": -60
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Hand Chimes",
+   "program": 14,
+   "layers": [
+    {
+     "dir": "Idiophones/Struck Idiophones/Hand Chimes",
+     "pattern": "sus_(?P<note>[A-G]#?-?\\d)_r(?P<rr>\\d+)_main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "peak",
+     "envelope": {
+      "attack": 0.001,
+      "release": 3.0
+     },
+     "match_notes": true,
+     "max_seconds": 20,
+     "ring_db": -60
+    }
+   ]
+  },
+  {
+   "name": "Glass Harp",
+   "program": 92,
+   "layers": [
+    {
+     "dir": "Idiophones/Friction Idiophones/Wine Glasses/Sustains/Slow",
+     "pattern": "glass\\d_(?P<note>[A-G]#?-?\\d)_Slow_(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.2,
+      "release": 1.0
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      1.0,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "name": "World Percussion",
+   "bank": 128,
+   "program": 25,
+   "level_reference": "preset",
+   "layers": [
+    {
+     "name": "frame drum, large",
+     "dir": "Membranophones/Struck Membranophones/Frame Drum",
+     "pattern": "HDrumL_Hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 35,
+     "keys": [
+      35,
+      35
+     ],
+     "dynamics": [
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       63
+      ],
+      "v3": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 4,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "frame drum, large, muted",
+     "dir": "Membranophones/Struck Membranophones/Frame Drum",
+     "pattern": "HDrumL_HitMuted_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 36,
+     "keys": [
+      36,
+      36
+     ],
+     "dynamics": [
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       63
+      ],
+      "v3": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "frame drum, small",
+     "dir": "Membranophones/Struck Membranophones/Frame Drum",
+     "pattern": "HDrumS_Hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 37,
+     "keys": [
+      37,
+      37
+     ],
+     "dynamics": [
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       63
+      ],
+      "v3": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 4,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "frame drum, small, muted",
+     "dir": "Membranophones/Struck Membranophones/Frame Drum",
+     "pattern": "HDrumS_HitMuted_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 38,
+     "keys": [
+      38,
+      38
+     ],
+     "dynamics": [
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       63
+      ],
+      "v3": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "hand claps",
+     "dir": "Idiophones/Struck Idiophones/Claps",
+     "pattern": "Clap_rr(?P<rr>\\d)\\.wav",
+     "root": 39,
+     "keys": [
+      39,
+      39
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60
+    },
+    {
+     "name": "cajon, bass",
+     "dir": "Idiophones/Struck Idiophones/Cajon",
+     "pattern": "Cajon_hit1_(?P<dyn>mp|f|fff)_rr(?P<rr>\\d)\\.wav",
+     "root": 41,
+     "keys": [
+      41,
+      41
+     ],
+     "dynamics": [
+      "mp",
+      "f",
+      "fff"
+     ],
+     "velocity": {
+      "mp": [
+       1,
+       42
+      ],
+      "f": [
+       43,
+       85
+      ],
+      "fff": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "cajon, slap",
+     "dir": "Idiophones/Struck Idiophones/Cajon",
+     "pattern": "Cajon_hit2_(?P<dyn>pp|mp|f)_rr(?P<rr>\\d)\\.wav",
+     "root": 42,
+     "keys": [
+      42,
+      42
+     ],
+     "dynamics": [
+      "pp",
+      "mp",
+      "f"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       42
+      ],
+      "mp": [
+       43,
+       85
+      ],
+      "f": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "cajon, tone",
+     "dir": "Idiophones/Struck Idiophones/Cajon",
+     "pattern": "Cajon_hit3_(?P<dyn>p|mp|f)_rr(?P<rr>\\d)\\.wav",
+     "root": 43,
+     "keys": [
+      43,
+      43
+     ],
+     "dynamics": [
+      "p",
+      "mp",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       42
+      ],
+      "mp": [
+       43,
+       85
+      ],
+      "f": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "darbuka, stroke 1",
+     "dir": "Membranophones/Struck Membranophones/Darbuka",
+     "pattern": "Darbuka_1_hit_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "root": 44,
+     "keys": [
+      44,
+      44
+     ],
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       63
+      ],
+      "2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "darbuka, stroke 2",
+     "dir": "Membranophones/Struck Membranophones/Darbuka",
+     "pattern": "Darbuka_2_hit_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "root": 45,
+     "keys": [
+      45,
+      45
+     ],
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       63
+      ],
+      "2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "darbuka, stroke 3",
+     "dir": "Membranophones/Struck Membranophones/Darbuka",
+     "pattern": "Darbuka_3_hit_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "root": 46,
+     "keys": [
+      46,
+      46
+     ],
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       63
+      ],
+      "2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "darbuka, stroke 4",
+     "dir": "Membranophones/Struck Membranophones/Darbuka",
+     "pattern": "Darbuka_4_hit_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "root": 47,
+     "keys": [
+      47,
+      47
+     ],
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       63
+      ],
+      "2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "darbuka, stroke 5",
+     "dir": "Membranophones/Struck Membranophones/Darbuka",
+     "pattern": "Darbuka_5_hit_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "root": 48,
+     "keys": [
+      48,
+      48
+     ],
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       63
+      ],
+      "2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "cowbell",
+     "dir": "Idiophones/Struck Idiophones/Cowbells",
+     "pattern": "Cowbell1_Hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 56,
+     "keys": [
+      56,
+      56
+     ],
+     "dynamics": [
+      "v2",
+      "v3",
+      "v4"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       42
+      ],
+      "v3": [
+       43,
+       85
+      ],
+      "v4": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "cowbell, muted",
+     "dir": "Idiophones/Struck Idiophones/Cowbells",
+     "pattern": "Cowbell1_Muted_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 57,
+     "keys": [
+      57,
+      57
+     ],
+     "dynamics": [
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       63
+      ],
+      "v3": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "bongo, high",
+     "dir": "Membranophones/Struck Membranophones/Bongos",
+     "pattern": "BongoH_Hit1_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 60,
+     "keys": [
+      60,
+      60
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "bongo, low",
+     "dir": "Membranophones/Struck Membranophones/Bongos",
+     "pattern": "BongoL_Hit1_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 61,
+     "keys": [
+      61,
+      61
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "quinto, muted",
+     "dir": "Membranophones/Struck Membranophones/Conga",
+     "pattern": "Quinto_HitFM1_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 62,
+     "keys": [
+      62,
+      62
+     ],
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       63
+      ],
+      "v2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "quinto, open",
+     "dir": "Membranophones/Struck Membranophones/Conga",
+     "pattern": "Quinto_HitN_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 63,
+     "keys": [
+      63,
+      63
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "conga, open",
+     "dir": "Membranophones/Struck Membranophones/Conga",
+     "pattern": "Conga_HitN_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 64,
+     "keys": [
+      64,
+      64
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "tumba, open",
+     "dir": "Membranophones/Struck Membranophones/Conga",
+     "pattern": "Tumba_HitN_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 65,
+     "keys": [
+      65,
+      65
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3",
+      "v4"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       32
+      ],
+      "v2": [
+       33,
+       63
+      ],
+      "v3": [
+       64,
+       95
+      ],
+      "v4": [
+       96,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "tumba, muted",
+     "dir": "Membranophones/Struck Membranophones/Conga",
+     "pattern": "Tumba_HitFM_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 66,
+     "keys": [
+      66,
+      66
+     ],
+     "dynamics": [
+      "v2",
+      "v3",
+      "v4"
+     ],
+     "velocity": {
+      "v2": [
+       1,
+       42
+      ],
+      "v3": [
+       43,
+       85
+      ],
+      "v4": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "agogo, high",
+     "dir": "Idiophones/Struck Idiophones/Agogo Bells",
+     "pattern": "Agogo_High_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 67,
+     "keys": [
+      67,
+      67
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "agogo, low",
+     "dir": "Idiophones/Struck Idiophones/Agogo Bells",
+     "pattern": "Agogo_Low_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 68,
+     "keys": [
+      68,
+      68
+     ],
+     "dynamics": [
+      "v1",
+      "v2"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       63
+      ],
+      "v2": [
+       64,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "cabasa",
+     "dir": "Idiophones/Struck Idiophones/Cabasa",
+     "pattern": "Cabasa1_Hit_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 69,
+     "keys": [
+      69,
+      69
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60
+    },
+    {
+     "name": "shaker, large",
+     "dir": "Idiophones/Struck Idiophones/Shaker, Large",
+     "pattern": "LShaker_Hit_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 70,
+     "keys": [
+      70,
+      70
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60
+    },
+    {
+     "name": "shaker, small",
+     "dir": "Idiophones/Struck Idiophones/Shaker, Small",
+     "pattern": "Mid_Shaker_Slap_rr(?P<rr>\\d)\\.wav",
+     "root": 71,
+     "keys": [
+      71,
+      71
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60
+    },
+    {
+     "name": "shaker roll",
+     "dir": "Idiophones/Struck Idiophones/Shaker, Small",
+     "pattern": "Mid_Shaker_Roll_Fast_rr(?P<rr>\\d)\\.wav",
+     "root": 72,
+     "keys": [
+      72,
+      72
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 0.3
+     },
+     "max_seconds": 4,
+     "ring_db": -60
+    },
+    {
+     "name": "guiro, short",
+     "dir": "Idiophones/Struck Idiophones/Guiro",
+     "pattern": "Guiro_Hit_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 73,
+     "keys": [
+      73,
+      73
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60
+    },
+    {
+     "name": "guiro, long",
+     "dir": "Idiophones/Struck Idiophones/Guiro",
+     "pattern": "Guiro_Slow_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 74,
+     "keys": [
+      74,
+      74
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 4,
+     "ring_db": -60
+    },
+    {
+     "name": "claves",
+     "dir": "Idiophones/Struck Idiophones/Claves",
+     "pattern": "Claves1_Hit_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 75,
+     "keys": [
+      75,
+      75
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 2,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "slit drum, high",
+     "dir": "Idiophones/Struck Idiophones/Slit Drum",
+     "pattern": "LogDrumHi_MedM_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 76,
+     "keys": [
+      76,
+      76
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "slit drum, low",
+     "dir": "Idiophones/Struck Idiophones/Slit Drum",
+     "pattern": "LogDrumLo_MedM_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Sum\\.wav",
+     "root": 77,
+     "keys": [
+      77,
+      77
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 3,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "brake drum",
+     "dir": "Idiophones/Struck Idiophones/Brake Drum",
+     "pattern": "BrakeDrum1_Hammer_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 78,
+     "keys": [
+      78,
+      78
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 4,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "anvil",
+     "dir": "Idiophones/Struck Idiophones/Anvil",
+     "pattern": "Anvil_Hit1_(?P<dyn>v\\d)_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 79,
+     "keys": [
+      79,
+      79
+     ],
+     "dynamics": [
+      "v1",
+      "v2",
+      "v3"
+     ],
+     "velocity": {
+      "v1": [
+       1,
+       42
+      ],
+      "v2": [
+       43,
+       85
+      ],
+      "v3": [
+       86,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 5,
+     "ring_db": -60,
+     "velocity_attenuation_cb": 60,
+     "velocity_filter_cents": 0
+    },
+    {
+     "name": "finger cymbals",
+     "dir": "Idiophones/Struck Idiophones/Finger Cymbals",
+     "pattern": "Fing_Cymb\\.wav",
+     "root": 80,
+     "keys": [
+      80,
+      80
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "bell tree",
+     "dir": "Idiophones/Struck Idiophones/Bell Tree/Stroke",
+     "pattern": "BellTree_Stroke_(?P<rr>\\d+)_Mid\\.wav",
+     "root": 81,
+     "keys": [
+      81,
+      81
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 100
+     },
+     "max_seconds": 8,
+     "ring_db": -60
+    },
+    {
+     "name": "ratchet",
+     "dir": "Idiophones/Struck Idiophones/Ratchet",
+     "pattern": "Ratchet1_Fast_rr(?P<rr>\\d)_Mid\\.wav",
+     "root": 82,
+     "keys": [
+      82,
+      82
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 0.2
+     },
+     "max_seconds": 4,
+     "ring_db": -60
+    },
+    {
+     "name": "ocean drum",
+     "dir": "Membranophones/Other Membranophones/Ocean Drum",
+     "pattern": "OceanDrum_Sus_(?P<rr>\\d)_Mid\\.wav",
+     "root": 84,
+     "keys": [
+      84,
+      84
+     ],
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "level": "peak",
+     "match_notes": false,
+     "pitch_check": false,
+     "rr_block": 1,
+     "envelope": {
+      "release": 0.5
+     },
+     "max_seconds": 12,
+     "ring_db": -60
+    }
+   ]
+  }
+ ]
+}

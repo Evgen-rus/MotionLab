@@ -1,0 +1,1141 @@
+{
+ "name": "VCSL Winds (music-production build)",
+ "comment": "Built from the Versilian Community Sample Library (VCSL) by Versilian Studios, CC0 1.0. Source: https://github.com/sgossner/VCSL at c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e. Baroque recorders (soprano, alto, tenor and bass on program 74, banks 0-11: sustain, vibrato where recorded, staccato), ocarina (0:79, vibrato 1:79), diatonic harmonica in C (0:22 at two dynamics, vibrato 1:22, hand vibrato 2:22), chromatic harmonica (0:23), tenor saxophone (0:66 at two dynamics, vibrato 1:66, staccato 2:66), saxello (0:64, vibrato 1:64, staccato 2:64) and a Renaissance organ (0:20 full, 1:20 8-foot, 2:20 4-foot; velocity sets no level). Sustained takes loop on their steady part. Changes: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither; the release samples are not used.",
+ "copyright": "Source samples CC0 1.0 (Versilian Studios VCSL)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Soprano Recorder",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Soprano Recorder/Sustain",
+     "pattern": "SopRecorder_Sus_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "name": "Soprano Recorder Staccato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Soprano Recorder/Staccato",
+     "pattern": "SopRecorder_Stac_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Alto Recorder",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/Sustain",
+     "pattern": "AltRecorder_Sus_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 3
+  },
+  {
+   "name": "Alto Recorder Vibrato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/SusVib",
+     "pattern": "AltRecorder_SusVib_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 4
+  },
+  {
+   "name": "Alto Recorder Staccato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/Staccato",
+     "pattern": "AltRecorder_Stac_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true
+    }
+   ],
+   "bank": 5
+  },
+  {
+   "name": "Tenor Recorder",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Tenor Recorder/Sustain",
+     "pattern": "TenRecorder_Sus_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 6
+  },
+  {
+   "name": "Tenor Recorder Vibrato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Tenor Recorder/SusVib",
+     "pattern": "TenRecorder_SusVib_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 7
+  },
+  {
+   "name": "Tenor Recorder Staccato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Tenor Recorder/Staccato",
+     "pattern": "TenRecorder_Stac_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true
+    }
+   ],
+   "bank": 8
+  },
+  {
+   "name": "Bass Recorder",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Bass Recorder/Sustain",
+     "pattern": "BassRecorder_Sus_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 9
+  },
+  {
+   "name": "Bass Recorder Vibrato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Bass Recorder/SusVib",
+     "pattern": "BassRecorder_SusVib_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 10
+  },
+  {
+   "name": "Bass Recorder Staccato",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Baroque Bass Recorder/Staccato",
+     "pattern": "BassRecorder_Stac_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)_Main\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true
+    }
+   ],
+   "bank": 11
+  },
+  {
+   "name": "Ocarina",
+   "program": 79,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Ocarina, Typical/Sustains/Sus",
+     "pattern": "StdOcarina_Sus_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "name": "Ocarina Vibrato",
+   "program": 79,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Ocarina, Typical/Sustains/SusVib",
+     "pattern": "StdOcarina_SusVib_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Harmonica",
+   "program": 22,
+   "layers": [
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Special20-C/Sustains/Soft",
+     "pattern": "Hohner\\-Special20_(?P<dyn>Soft)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "Soft",
+      "Normal"
+     ],
+     "velocity": {
+      "Soft": [
+       1,
+       84
+      ],
+      "Normal": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "Soft": -6,
+      "Normal": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    },
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Special20-C/Sustains/Normal",
+     "pattern": "Hohner\\-Special20_(?P<dyn>Normal)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "Soft",
+      "Normal"
+     ],
+     "velocity": {
+      "Soft": [
+       1,
+       84
+      ],
+      "Normal": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "Soft": -6,
+      "Normal": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Harmonica Vibrato",
+   "program": 22,
+   "layers": [
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Special20-C/Sustains/Vib",
+     "pattern": "Hohner-Special20_Vib_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Harmonica Hand Vibrato",
+   "program": 22,
+   "layers": [
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Special20-F/Sustains/HandVib",
+     "pattern": "Hohner-Special20-F_HandVib_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Chromatic Harmonica",
+   "program": 23,
+   "layers": [
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Super64/Sustains/Normal",
+     "pattern": "Hohner\\-Super64_(?P<dyn>Normal) ?_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "Normal",
+      "Accented"
+     ],
+     "velocity": {
+      "Normal": [
+       1,
+       95
+      ],
+      "Accented": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "Normal": -4,
+      "Accented": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    },
+    {
+     "dir": "Aerophones/Free Aerophones/Harmonica-Hohner-Super64/Sustains/Accented",
+     "pattern": "Hohner\\-Super64_(?P<dyn>Accented) ?_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "Normal",
+      "Accented"
+     ],
+     "velocity": {
+      "Normal": [
+       1,
+       95
+      ],
+      "Accented": [
+       96,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.15
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "Normal": -4,
+      "Accented": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Tenor Sax",
+   "program": 66,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Tenor Saxophone/Non-Vibrato",
+     "pattern": "BrettTenor_NV_Main_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "2": [
+       1,
+       84
+      ],
+      "3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.015,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "2": -6,
+      "3": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Tenor Sax Vibrato",
+   "program": 66,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato",
+     "pattern": "BrettTenor_Vib_Main_(?P<note>[A-G]#?-?\\d)_var(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.015,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Tenor Sax Staccato",
+   "program": 66,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Tenor Saxophone/Staccato",
+     "pattern": "BrettTenor_Staccato_Main_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       84
+      ],
+      "2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "1": -6,
+      "2": 0
+     }
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Saxello",
+   "program": 64,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Saxello/Non-Vibrato",
+     "pattern": "BrettSaxello_SusNV_MainSpirit_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "2": [
+       1,
+       84
+      ],
+      "3": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.015,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "layer_levels_db": {
+      "2": -6,
+      "3": 0
+     },
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Saxello Vibrato",
+   "program": 64,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Saxello/Vibrato",
+     "pattern": "BrettSaxello_SusVB_MainSpirit_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "2"
+     ],
+     "velocity": {
+      "2": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.015,
+      "release": 0.2
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Saxello Staccato",
+   "program": 64,
+   "layers": [
+    {
+     "dir": "Aerophones/Reed Aerophones/Saxello/Staccato",
+     "pattern": "BrettSaxello_Stcts_MainSpirit_(?P<note>[A-G]#?-?\\d)_vl(?P<dyn>\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "1",
+      "2"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       84
+      ],
+      "2": [
+       85,
+       127
+      ]
+     },
+     "keys": "auto",
+     "level": "rms",
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.12
+     },
+     "match_notes": true,
+     "layer_levels_db": {
+      "1": -6,
+      "2": 0
+     }
+    }
+   ],
+   "bank": 2
+  },
+  {
+   "name": "Renaissance Organ Full",
+   "program": 20,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Renaissance Organ/Full",
+     "pattern": "RenOrgan_Full_Room_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      1.0,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_curve": "linear"
+    }
+   ]
+  },
+  {
+   "name": "Renaissance Organ 8'",
+   "program": 20,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Renaissance Organ/8'",
+     "pattern": "RenOrgan_8foot_Room_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      1.0,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_curve": "linear"
+    }
+   ],
+   "bank": 1
+  },
+  {
+   "name": "Renaissance Organ 4'",
+   "program": 20,
+   "layers": [
+    {
+     "dir": "Aerophones/Edge-blown Aerophones/Renaissance Organ/4'",
+     "pattern": "RenOrgan_4foot_Room_(?P<note>[A-G]#?-?\\d)_rr(?P<rr>\\d)\\.wav",
+     "octave_offset": 0,
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": "auto",
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "match_notes": true,
+     "match_limit_db": 12,
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      1.0,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     },
+     "velocity_attenuation_cb": 0,
+     "velocity_curve": "linear"
+    }
+   ],
+   "bank": 2
+  }
+ ]
+}

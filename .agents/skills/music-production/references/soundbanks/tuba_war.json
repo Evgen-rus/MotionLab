@@ -1,0 +1,149 @@
+{
+ "name": "Karoryfer War Tuba (music-production build)",
+ "comment": "A tuba played by Jakub Lewicki, recorded by Karoryfer Samples (War Tuba), CC0 1.0, two microphones summed: sustained at four strengths with round robins (0:58, with dynamic layers and legato) and short (1:58). Source: https://github.com/sfzinstruments/karoryfer.war-tuba at 5b62dd6ef6b00281bb734769e44a63f5e013018a. Changes: pitch-checked against file names, small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples CC0-1.0",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "War Tuba",
+   "program": 58,
+   "layers": [
+    {
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_s_(?P<dyn>vl[1-4])_rr(?P<rr>\\d)_cnd\\.wav",
+     "dynamics": [
+      "vl1",
+      "vl2",
+      "vl3",
+      "vl4"
+     ],
+     "velocity": {
+      "vl1": [
+       1,
+       40
+      ],
+      "vl2": [
+       41,
+       75
+      ],
+      "vl3": [
+       76,
+       105
+      ],
+      "vl4": [
+       106,
+       127
+      ]
+     },
+     "keys": "auto",
+     "mics": [
+      {
+       "dir": "Samples",
+       "gain": 1.0
+      },
+      {
+       "dir": "Samples",
+       "gain": 1.0,
+       "name": [
+        "_cnd",
+        "_dyn"
+       ]
+      }
+     ],
+     "match_notes": "local",
+     "layer_levels_db": {
+      "vl1": -12,
+      "vl2": -8,
+      "vl3": -4,
+      "vl4": 0
+     },
+     "envelope": {
+      "attack": 0.01,
+      "release": 0.35
+     },
+     "fmin": 25,
+     "fmax": 800,
+     "loop": "found",
+     "loop_window": [
+      0.5,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true,
+      "min_loop": 0.5
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "War Tuba Short",
+   "bank": 1,
+   "program": 58,
+   "layers": [
+    {
+     "pattern": "(?P<note>[a-gA-G]b?-?\\d)_ss_(?P<dyn>vl[1-4])_rr(?P<rr>\\d)_cnd\\.wav",
+     "dynamics": [
+      "vl1",
+      "vl2",
+      "vl3",
+      "vl4"
+     ],
+     "velocity": {
+      "vl1": [
+       1,
+       40
+      ],
+      "vl2": [
+       41,
+       75
+      ],
+      "vl3": [
+       76,
+       105
+      ],
+      "vl4": [
+       106,
+       127
+      ]
+     },
+     "keys": "auto",
+     "mics": [
+      {
+       "dir": "Samples",
+       "gain": 1.0
+      },
+      {
+       "dir": "Samples",
+       "gain": 1.0,
+       "name": [
+        "_cnd",
+        "_dyn"
+       ]
+      }
+     ],
+     "match_notes": "local",
+     "layer_levels_db": {
+      "vl1": -12,
+      "vl2": -8,
+      "vl3": -4,
+      "vl4": 0
+     },
+     "envelope": {
+      "attack": 0.003,
+      "release": 0.2
+     },
+     "fmin": 25,
+     "fmax": 800
+    }
+   ]
+  }
+ ]
+}

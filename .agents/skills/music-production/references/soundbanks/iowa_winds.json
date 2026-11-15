@@ -1,0 +1,682 @@
+{
+ "name": "Iowa MIS Woodwinds (music-production build)",
+ "comment": "Recorded by the University of Iowa Electronic Music Studios (Musical Instrument Samples, https://theremin.music.uiowa.edu/MIS.html) in an anechoic chamber, 5 feet from the instrument; the site states that since 1997 the recordings \"may be downloaded and used for any projects, without restrictions.\" Bass clarinet (Christine Bellomy, 1998), E-flat clarinet, alto flute and bass flute, chromatic at pp, mf and ff, mono, 16-bit/44.1 kHz, without vibrato. Bass clarinet on program 70, E-flat clarinet on 71, alto flute on 73, bass flute on 74; sustain on bank 0, one preset per recorded dynamic on banks 16-18 and legato presets on banks 32-34. Each note loops on its steady part. Each source file, a chromatic run at one dynamic, is cut into one note per file and every note checked against the run its file is named for (soundbank.py split); then pitch-checked again, intonation offsets within a semitone corrected by fineTune, leading silence trimmed, levels matched per layer with set layer offsets, 16-bit TPDF dither. In build b2 the steady hiss and rumble of every take are reduced by up to 12 dB: a Wiener gain against the noise measured in the quiet frames of each dynamic's takes.",
+ "copyright": "Source recordings: University of Iowa Electronic Music Studios, free for any use without restrictions",
+ "target_rms": 0.08,
+ "split": {
+  "groups": [
+   {
+    "name": "BassClarinet",
+    "fmin": 30,
+    "fmax": 1200,
+    "files": [
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.pp.Db2C2.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Db2",
+       "C3"
+      ],
+      "renamed": "the name reads Db2C2; the run is Db2-C3"
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.pp.Db3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "Db3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.pp.C5Bb5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "Bb5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.mf.Db2Bb2.aiff",
+      "dyn": "mf",
+      "notes": [
+       "Db2",
+       "Bb2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.mf.B2Bb3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B2",
+       "Bb3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.mf.B3Bb4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B3",
+       "Bb4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.mf.B4Bb5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "B4",
+       "Bb5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.ff.Db2B2.aiff",
+      "dyn": "ff",
+      "notes": [
+       "Db2",
+       "B2"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassclarinet/BassClarinet.ff.C5Bb5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "Bb5"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "EbClarinet",
+    "fmin": 150,
+    "fmax": 2500,
+    "files": [
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.pp.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.pp.C5B5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.pp.C6Ab6.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C6",
+       "Ab6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.mf.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.mf.C6B6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "B6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.mf.C7.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C7"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.ff.G3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/Ebclarinet/EbClar.ff.C6A6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "A6"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "AltoFlute",
+    "fmin": 150,
+    "fmax": 2000,
+    "files": [
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.pp.G3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.pp.C5G5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "G5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.mf.C5B5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.mf.C6G6.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C6",
+       "G6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.mf.G3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.ff.C6G6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "G6"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/altoflute/AltoFlute.ff.G3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "G3",
+       "B3"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "BassFlute",
+    "fmin": 100,
+    "fmax": 1600,
+    "files": [
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.pp.C3B3.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C3",
+       "B3"
+      ],
+      "partial": true
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.pp.C4B4.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C4",
+       "B4"
+      ],
+      "partial": true
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.pp.C5E5.aiff",
+      "dyn": "pp",
+      "notes": [
+       "C5",
+       "E5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.mf.C3B3.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.mf.C4B4.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.mf.C5Bb5.aiff",
+      "dyn": "mf",
+      "notes": [
+       "C5",
+       "Bb5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.ff.C3B3.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C3",
+       "B3"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.ff.C4B4.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C4",
+       "B4"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.ff.C5B5.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C5",
+       "B5"
+      ]
+     },
+     {
+      "file": "sound files/MIS/Woodwinds/bassflute/BassFlute.ff.C6Db6.aiff",
+      "dyn": "ff",
+      "notes": [
+       "C6",
+       "Db6"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "presets": [
+  {
+   "name": "Bass Clarinet",
+   "program": 70,
+   "layers": [
+    {
+     "dir": "BassClarinet",
+     "pattern": "BassClarinet_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      37,
+      82
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Eb Clarinet",
+   "program": 71,
+   "layers": [
+    {
+     "dir": "EbClarinet",
+     "pattern": "EbClarinet_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      96
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Alto Flute",
+   "program": 73,
+   "layers": [
+    {
+     "dir": "AltoFlute",
+     "pattern": "AltoFlute_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      55,
+      91
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  },
+  {
+   "name": "Bass Flute",
+   "program": 74,
+   "layers": [
+    {
+     "dir": "BassFlute",
+     "pattern": "BassFlute_(?P<dyn>pp|mf|ff)_(?P<note>[A-G]#?-?\\d)\\.wav",
+     "dynamics": [
+      "pp",
+      "mf",
+      "ff"
+     ],
+     "velocity": {
+      "pp": [
+       1,
+       70
+      ],
+      "mf": [
+       71,
+       100
+      ],
+      "ff": [
+       101,
+       127
+      ]
+     },
+     "keys": [
+      48,
+      85
+     ],
+     "pitch_source": "split",
+     "max_correction_cents": 100,
+     "match_notes": true,
+     "match_limit_db": 12,
+     "envelope": {
+      "attack": 0.02,
+      "release": 0.3
+     },
+     "layer_levels_db": {
+      "pp": -9,
+      "mf": -4.5,
+      "ff": 0
+     },
+     "borrowed_level": "served",
+     "loop": "found",
+     "loop_window": [
+      0.6,
+      600.0
+     ],
+     "loop_repair": {
+      "sag_db": 1.5,
+      "crossfade": 0.15,
+      "period_search": true
+     },
+     "denoise": {
+      "reduce_db": 12,
+      "keep_partials_below": 300
+     }
+    }
+   ],
+   "dynamic_layers": {
+    "bank": 16
+   },
+   "legato": {
+    "bank": 32,
+    "attack": 0.01
+   }
+  }
+ ]
+}

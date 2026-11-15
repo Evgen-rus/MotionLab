@@ -37,3 +37,11 @@ Thumbs.db
 /.impeccable/config.local.json
 /.agents/skills/impeccable/scripts/bin/
 /.agents/skills/impeccable/scripts/**/*.exe
+
+# Local audio runtime and Python caches
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+/.agents/skills/music-production/runtime/

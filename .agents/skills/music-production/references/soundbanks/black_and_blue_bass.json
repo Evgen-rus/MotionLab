@@ -1,0 +1,133 @@
+{
+ "name": "Black And Blue Basses darkblack (music-production build)",
+ "comment": "Built from Black And Blue Basses by Karoryfer Samples, CC0 1.0. Source: https://github.com/sfzinstruments/karoryfer.black-and-blue-basses at 6e7d674cdb41be7a54dbccb15472401ad01099b9. The darkblack five-string bass played with the fingers: every note of the regular articulation in four dynamics and four round robins, the ghost notes (two dynamics, four round robins) on the lowest velocities of the same preset, and the staccato notes as a second preset. The library names notes an octave above standard pitch (its B1 is the low B string, B0); the regular notes are fine-tuned from their measured pitch, the short ghost and staccato notes are not.",
+ "copyright": "Source samples CC0 1.0 (Karoryfer Samples, Black And Blue Basses)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Bass darkblack",
+   "program": 33,
+   "layers": [
+    {
+     "dir": "Samples/darkblack/ghost",
+     "pattern": "darkblack_(?P<note>[a-g]b?\\d)_ghost_(?P<dyn>p|f)_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "p",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       1,
+       12
+      ],
+      "f": [
+       13,
+       24
+      ]
+     },
+     "keys": [
+      23,
+      64
+     ],
+     "fmin": 25,
+     "fmax": 700,
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.08
+     },
+     "max_seconds": 1.5,
+     "level": "peak",
+     "rr_block": 3,
+     "velocity_attenuation_cb": 0,
+     "layer_levels_db": {
+      "p": -4,
+      "f": 0
+     },
+     "gain": 0.035,
+     "octave_offset": -12,
+     "pitch_check": false
+    },
+    {
+     "dir": "Samples/darkblack/reg",
+     "pattern": "darkblack_(?P<note>[a-g]b?\\d)_(?P<dyn>p|mp|mf|f)_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "p",
+      "mp",
+      "mf",
+      "f"
+     ],
+     "velocity": {
+      "p": [
+       25,
+       55
+      ],
+      "mp": [
+       56,
+       80
+      ],
+      "mf": [
+       81,
+       104
+      ],
+      "f": [
+       105,
+       127
+      ]
+     },
+     "keys": [
+      23,
+      64
+     ],
+     "fmin": 25,
+     "fmax": 700,
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.25
+     },
+     "max_seconds": 5,
+     "layer_levels_db": {
+      "p": -6,
+      "mp": -4,
+      "mf": -2,
+      "f": 0
+     },
+     "octave_offset": -12
+    }
+   ]
+  },
+  {
+   "name": "Bass darkblack Staccato",
+   "bank": 1,
+   "program": 33,
+   "layers": [
+    {
+     "dir": "Samples/darkblack/stac",
+     "pattern": "darkblack_(?P<note>[a-g]b?\\d)_stac_rr(?P<rr>\\d)\\.wav",
+     "dynamics": [
+      "default"
+     ],
+     "velocity": {
+      "default": [
+       1,
+       127
+      ]
+     },
+     "keys": [
+      23,
+      64
+     ],
+     "fmin": 25,
+     "fmax": 700,
+     "envelope": {
+      "attack": 0.001,
+      "release": 0.1
+     },
+     "max_seconds": 2,
+     "level": "peak",
+     "octave_offset": -12,
+     "pitch_check": false
+    }
+   ]
+  }
+ ]
+}

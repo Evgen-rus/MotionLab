@@ -1,0 +1,137 @@
+{
+ "name": "Steel Drum (music-production build)",
+ "comment": "A chromatic C tenor steel drum by John Learman (Unlicense, a public-domain dedication), C4-B5 (0:114), mapped as the author's own SFZ maps it: the lower octave from his 2021 resampling at four strengths, the upper octave from the first set at three, and the hardest strokes from the first set across both octaves, each with round robins. Source: https://github.com/sfzinstruments/jlearman.SteelDrum at dc15a36ad69a43b0d240fcbd0cc78fbc61b2b47e. Changes: pitch-checked against file names (a reading an octave off taken as the named note), small intonation offsets as fineTune, leading silence trimmed, levels matched per layer, 16-bit TPDF dither.",
+ "copyright": "Source samples Unlicense (public-domain dedication)",
+ "target_rms": 0.08,
+ "presets": [
+  {
+   "name": "Steel Drum",
+   "program": 114,
+   "layers": [
+    {
+     "dir": "flac",
+     "level": "peak",
+     "match_notes": true,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "max_seconds": 6,
+     "ring_db": -60,
+     "fmin": 200,
+     "fmax": 2000,
+     "fold_octaves": true,
+     "pattern": "jsdb_\\d{3}_{1,2}(?P<note>[A-G]b?\\d)_(?P<dyn>1|2|3|3a)(?:-(?P<rr>\\d))?\\.flac",
+     "dynamics": [
+      "1",
+      "2",
+      "3",
+      "3a"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       36
+      ],
+      "2": [
+       37,
+       64
+      ],
+      "3": [
+       65,
+       88
+      ],
+      "3a": [
+       89,
+       110
+      ]
+     },
+     "keys": [
+      54,
+      71
+     ],
+     "layer_levels_db": {
+      "1": -12,
+      "2": -8,
+      "3": -4,
+      "3a": -2
+     }
+    },
+    {
+     "dir": "flac",
+     "level": "peak",
+     "match_notes": true,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "max_seconds": 6,
+     "ring_db": -60,
+     "fmin": 200,
+     "fmax": 2000,
+     "fold_octaves": true,
+     "pattern": "SteelDrum_0(?:7[2-9]|8[0-3])_{1,2}(?P<note>[A-G]b?\\d)_(?P<dyn>[1-3])(?:-(?P<rr>\\d))?\\.flac",
+     "dynamics": [
+      "1",
+      "2",
+      "3"
+     ],
+     "velocity": {
+      "1": [
+       1,
+       36
+      ],
+      "2": [
+       37,
+       64
+      ],
+      "3": [
+       65,
+       110
+      ]
+     },
+     "keys": [
+      72,
+      89
+     ],
+     "layer_levels_db": {
+      "1": -12,
+      "2": -8,
+      "3": -3
+     }
+    },
+    {
+     "dir": "flac",
+     "level": "peak",
+     "match_notes": true,
+     "envelope": {
+      "attack": 0.001,
+      "release": 1.0
+     },
+     "max_seconds": 6,
+     "ring_db": -60,
+     "fmin": 200,
+     "fmax": 2000,
+     "fold_octaves": true,
+     "pattern": "SteelDrum_\\d{3}_{1,2}(?P<note>[A-G]b?\\d)_(?P<dyn>4)(?:-(?P<rr>\\d))?\\.flac",
+     "dynamics": [
+      "4"
+     ],
+     "velocity": {
+      "4": [
+       111,
+       127
+      ]
+     },
+     "keys": [
+      54,
+      89
+     ],
+     "layer_levels_db": {
+      "4": 0
+     }
+    }
+   ]
+  }
+ ]
+}
