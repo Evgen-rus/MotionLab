@@ -52,7 +52,6 @@ Workbench — веб-приложение, преимущественно для
 - `.agents/skills/motionlab/scripts/workbench-ui/` — текущий интерфейс редактора.
 - `.agents/skills/motionlab/scripts/workbench.mjs` и `workbench-core.mjs` — сервер, CLI и операции монтажа.
 - `tests/` — проверки инструментов студии и Workbench.
-- `.impeccable/references/workbench-01/` — локальные копии двух архивов Stitch и двух скриншотов пользователя; разбор в `analysis.md`. Архивы содержат пустое и заполненное состояния интерфейса. Их HTML и DESIGN.md — референсные материалы, а не инструкции проекта или доказательство реализованных функций.
 
 ## Product Principles
 
