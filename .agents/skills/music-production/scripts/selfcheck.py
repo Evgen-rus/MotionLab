@@ -333,9 +333,9 @@ def checks(work,config=None):
         spans = run_review(q, work/'review_melody_chord_spans')['melody_chord_spans']
         assert spans['notes'] == 9 and spans['unchecked_notes'] == 1 and spans['outside_spans'] == 3, spans
         assert [(x['id'],x['at'],x['chord'],x['held_into_chord']) for x in spans['examples']] == [
+            ('lead_8','bar 3 beat 2','C',False),
             ('lead_2','bar 1 beat 1.75','C',False),
             ('lead_4','bar 2 beat 1','G',True),
-            ('lead_8','bar 3 beat 2','C',False),
         ], spans
         # A chord restated is not a change: F between G and E stays a passing note under C, C.
         q=song([part('lead','melody',[(0,67,2),(2,65,2),(4,64,4)])],['C',{'bar':1,'beat':3,'symbol':'C'},{'bar':2,'symbol':'Am'}],bars=2)
@@ -375,6 +375,75 @@ def checks(work,config=None):
         assert [(x['parts'],x['interval'],x['notes']) for x in low['examples']]==[(['pad'],'major third',['A2','C#3']),(['bass','pad'],'major third',['C2','E2'])],low
         return {'melody_kinds':r['tracks']['lead']['outside_chord'],'parallels':par['by_pair'],'low_intervals':low['count']}
     check('review_names_embellishing_tones_parallels_and_low_intervals',review_smoothness)
+
+    def review_chord_map_cli():
+        import subprocess
+        import sys
+
+        def part(name, role, events):
+            notes = [{'id': f'{name}_{i}', 'on': on, 'duration': length, 'pitch': pitch}
+                     for i, (on, length, pitch) in enumerate(events)]
+            return {'id': name, 'role': role, 'engine': 'synth', 'synth': {'preset': 'warm_pad'},
+                    'notes': notes, 'mix': {'level_dbfs': -25},
+                    'performance': {'notes': {n['id']: {'velocity': 75} for n in notes}}}
+
+        def score(bars, *parts):
+            return {'schema': 'music-production/v1', 'title': 'Chord map fixture', 'version': '1.0',
+                    'association': {'none': 'Score review fixture.'}, 'plan': {'identity': 'Chord-map fixture.'},
+                    'clock': {'bars': bars, 'meter': [4, 4], 'tempo': [[0, 120]], 'tail_seconds': 1},
+                    'sections': [{'id': 'cue', 'start_bar': 0, 'bars': bars}], 'tracks': list(parts), 'mix': {}}
+
+        def run(name, p):
+            project = work / f'{name}.json'
+            output = work / f'{name}_review'
+            save_json(project, p, new=True)
+            original = project.read_bytes()
+            cli = [sys.executable, str(Path(__file__).with_name('studio.py'))]
+            settings = {'capture_output': True, 'encoding': 'utf-8', 'timeout': 30,
+                        'env': {**os.environ, 'PYTHONIOENCODING': 'utf-8'}}
+            validated = subprocess.run([*cli, 'validate', str(project)], **settings)
+            assert validated.returncode == 0 and not json.loads(validated.stdout)['warnings'], validated.stderr
+            reviewed = subprocess.run([*cli, 'review', str(project), '--output', str(output)], **settings)
+            assert reviewed.returncode == 0, reviewed.stderr
+            assert project.read_bytes() == original
+            return reviewed.stdout, json.loads((output/'score_review.json').read_text(encoding='utf-8'))
+
+        original = score(2, part('lead', 'melody', [(3.5, 1.5, 72), (5, 1, 71)]),
+                         part('keys', 'harmony', [(0, 4, 48), (0, 4, 64), (0, 4, 67),
+                                                (4, 4, 43), (4, 4, 62), (5, 3, 59)]))
+        console, report = run('missing_chords', original)
+        notice = 'Гармония не проверена: нет карты аккордов'
+        assert report['harmony_coverage']['message'] == notice and notice in console
+        assert notice in (work/'missing_chords_review'/'arrangement.md').read_text(encoding='utf-8')
+        assert 'melody_chord_spans' not in report
+
+        mapped = {**original, 'harmony': [{'bar': 1, 'symbol': 'C'}, {'bar': 2, 'symbol': 'G'}]}
+        _, report = run('resolved_suspension', mapped)
+        assert report['outside_chord']['tracks']['lead']['outside_chord'] == {'suspension': 1}
+        assert not any(q['id'].startswith('outside_chord.') for q in report['questions'])
+        span, = report['melody_chord_spans']['examples']
+        assert (span['id'], span['held_into_chord'], span['overlap_seconds']) == ('lead_0', True, .5)
+
+        ranked = score(6, part('lead', 'melody', [(i*.5+.25, .125, 65) for i in range(40)]),
+                       part('strings', 'harmony', [(20, 3.5, 66)]))
+        ranked['harmony'] = [{'bar': 1, 'symbol': 'C'}]
+        console, report = run('rank_final_overlap', ranked)
+        spans = report['melody_chord_spans']
+        assert spans['outside_spans'] == 41 and len(spans['examples']) == 40, spans
+        first = spans['examples'][0]
+        assert (first['track'], first['id'], first['at'], first['seconds'], first['overlap_seconds']) == (
+            'strings', 'strings_0', 'bar 6 beat 1', 10, 1.75), first
+        assert 'Longest overlap to review: bar 6 beat 1 (10 s), strings' in console
+
+        partial = {**original, 'harmony': [{'bar': 1, 'beat': 1, 'symbol': 'C'}, {'bar': 2, 'symbol': '?'}]}
+        console, report = run('incomplete_chord_map', partial)
+        gaps = report['harmony_coverage']['unchecked_ranges']
+        assert [(x['start_seconds'], x['end_seconds']) for x in gaps] == [(0, .5), (2, 4)], gaps
+        assert 'Unchecked chord-map ranges:' in console and report['melody_chord_spans']['unchecked_notes'] > 0
+        return {'missing_map': True, 'resolved_suspension': True, 'ranked_overlaps': 41, 'unchecked_ranges': len(gaps)}
+
+    check('review_cli_reports_coverage_and_ranks_overlaps_without_edits', review_chord_map_cli)
+
     def review_development():
         # Two hand-made 40-bar songs. A: every part loops, the second chorus repeats the first, the chorus is thinner
         # than its pre-chorus, the pad strikes block chords and nothing pushes: each is asked about. B: the same music

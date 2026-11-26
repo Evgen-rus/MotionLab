@@ -85,12 +85,14 @@ foley generator. A synthetic choir is an instrument, not a human singer.
    unknown-field warnings and review the score before rendering. With a written
    chord map, inspect `melody_chord_spans` alongside the usual review questions.
    Check the actual notes against each chord they cross, especially at phrase
-   endings, chord changes and the final gesture. Keep intentional tension and
-   fix accidental clashes. Check pedal, release and effect tails at these joins
-   separately, using the audio when available.
+   endings, chord changes and the final gesture. Inspect the longest overlaps
+   first, keep intentional tension and fix accidental clashes. Disclose
+   missing or unchecked parts of the chord map.
 4. **Revise from the user's words.** Feedback like “it sounds off” or
    “негармонично” is enough to begin. Open the existing editable score, locate
    the suspect moments and try the smallest fix that addresses the cause.
+   If a defensible chord map can be recovered, write it in the new version's
+   `song.json` and repeat `validate → review`. `review` reads the written map.
    Keep the parts of the music the user likes and deliver one corrected WAV
    by default. Follow
    [arrangement.md](references/arrangement.md#repair-harmony-in-an-existing-track).
@@ -102,12 +104,16 @@ foley generator. A synthetic choir is an instrument, not a human singer.
    On an actual revision, preserve the previous version, change the relevant
    notes/settings and reuse the cache. `compare` and `round` are available for
    substantial revisions, not compulsory steps for every short cue.
-6. **Deliver audio.** Present the WAV for playback and as a clickable file, with a short
-   description of the intended cue and any unresolved limitation. Keep the
-   editable source locally. Do not claim to have heard the piece unless audio
-   perception actually occurred, and do not wait for user listening merely to
-   release a technically checked file. Applying it to an existing MotionLab
-   video follows that project's actual sound/storyboard approvals.
+6. **Listen to chord changes and the ending.** With audio perception
+   available, listen to the rendered joins and final decay separately from
+   the score review. Check what rings across the change, including pedal,
+   synth release, reverb and delay. A MIDI interval ends at key release. If
+   you did not listen, say so when delivering the WAV.
+7. **Deliver audio.** Present the WAV for playback and as a clickable file,
+   with a short description of the intended cue and any unresolved limitation.
+   Keep the editable source locally and release a technically checked file
+   for the user's listening. Applying it to an existing MotionLab video follows
+   that project's actual sound/storyboard approvals.
 
 ## Commands
 

@@ -25,15 +25,16 @@ Contents: [Write and check the foundation](#write-and-check-the-foundation) · [
    small intervals when useful. Use `musiclib.voicing.voice_lead` for nearby
    candidate voicings. Choose the final instruments by style and musical role.
 3. Use `review` with a timed chord map. In `score_review.json`,
-   `melody_chord_spans` counts notes and shows examples of
-   off-chord overlap, including short notes, octave doublings and notes that
-   start inside one chord and continue into another. It compares each MIDI
-   key's pitch class to each chord during the performed key interval. Check
-   the examples at the attack, through the transition and at the resolution.
+   `melody_chord_spans` counts off-chord overlaps in all pitched parts and
+   shows up to 40 examples, longest by elapsed time first. It compares each
+   MIDI key's pitch class to each chord during the performed key interval.
+   Inspect each example at the attack, transition and resolution. A long
+   overlap deserves attention and can be an intentional suspension or colour.
    Use `outside_chord` for the existing musical interpretation, `vertical`
    questions for simultaneous clashes and `notes.csv` for exact note IDs and
-   timing. The report needs a chord map. With partial coverage, it counts any
-   note that could not be checked for its entire duration.
+   timing. `harmony_coverage` identifies missing maps and ranges without
+   readable chords. With partial coverage, the note report also counts notes
+   that could not be checked for their entire duration.
 4. Judge non-chord notes by their function and the genre. A passing tone
    moves between two stable notes by step. A neighbour moves away by step and
    returns. A suspension starts as a chord tone, is held into the next chord

@@ -47,6 +47,16 @@ def _more(items, shown=EXAMPLES, count=None):
     total = max(len(items), count or 0)
     return f'; and {total - listed} more' if total > listed else ''
 
+def harmony_coverage_lines(coverage):
+    if coverage.get('message'):
+        return [coverage['message']]
+    ranges = coverage.get('unchecked_ranges')
+    if ranges:
+        shown = ', '.join(f'{x["from"]} to {x["to"]} ({x["start_seconds"]:g}–{x["end_seconds"]:g} s)'
+                          for x in ranges[:EXAMPLES])
+        return ['Unchecked chord-map ranges: ' + shown + _more(ranges) + '. See harmony_coverage in score_review.json.']
+    return []
+
 
 def review(r, folder, since=None, plan_changed=None):
     """The score at a glance (views.describe), how much of the plan the score holds (plan.describe), every review
@@ -64,12 +74,17 @@ def review(r, folder, since=None, plan_changed=None):
     if r.get('plan'):
         from .plan import describe as plan_line
         lines.append(plan_line(r['plan']))
+    lines.extend(harmony_coverage_lines(r.get('harmony_coverage', {})))
     spans = r.get('melody_chord_spans')
     if spans is not None:
-        lines.append(f'Melody against chords: {count(spans["notes"], "note")}, '
+        lines.append(f'Pitched notes against chords: {count(spans["notes"], "note")}, '
                      f'{count(spans["outside_spans"], "off-chord overlap")}, '
                      f'{spans["unchecked_notes"]} with incomplete chord coverage. '
                      'See melody_chord_spans in score_review.json.')
+        x = next(iter(spans.get('examples', [])), {})
+        if 'overlap_seconds' in x:
+            lines.append(f'Longest overlap to review: {x["at"]} ({x["seconds"]:g} s), '
+                         f'{x["track"]} {x["note"]} [{x["id"]}] on {x["chord"]}, {x["overlap_seconds"]:g} s.')
     if plan_changed:
         lines.append('The plan no longer says what it first said of: ' + ', '.join(plan_changed[:8])
                      + (f', and {len(plan_changed) - 8} more' if len(plan_changed) > 8 else '')

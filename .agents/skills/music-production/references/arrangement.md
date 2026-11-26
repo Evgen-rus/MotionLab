@@ -12,7 +12,13 @@ Contents: [Repair harmony in an existing track](#repair-harmony-in-an-existing-t
    after looking at the score. The agent works out the notes and chords.
 2. Inspect the melody, bass and sustained parts together. Start with chord
    changes, accents, long notes and the ending. Run `validate` and `review`.
-   Use the actual chord map, or reconstruct it from the score if it is missing.
+   If the chord map is missing, recover only changes supported by the score
+   and its bass. Save them in the new version's `song.json` and repeat
+   `validate → review`. If only part is clear, mark the ambiguous ranges
+   with `?` in the map so the previous chord does not carry through them. If
+   no chord can be supported, leave the map absent. Identify the unchecked
+   passages in the delivery. `review` reads the map without inferring chords
+   or writing to the score.
    For a suspected problem, identify the bar or time, parts and notes. Check
    what carries across the boundary by ear if available and from the score
    and stems as appropriate. A chord label alone cannot explain a clashing
@@ -27,9 +33,9 @@ Contents: [Repair harmony in an existing track](#repair-harmony-in-an-existing-t
    the part feels harsh, address the instrument or balance.
 4. Keep the preceding version and save the revised source separately. Check
    the affected passage and the nearby transitions, then render and inspect
-   the new WAV. Deliver one corrected WAV by default and explain the change in
-   plain language, for example “I cleared the lingering note so the last chord
-   can land.”
+   the new WAV. Follow the separate listening step for the joins and ending.
+   Deliver one corrected WAV by default and explain the change in plain
+   language, for example “I cleared the lingering note so the last chord can land.”
 
 ## Diagnose the "one finger" complaint
 

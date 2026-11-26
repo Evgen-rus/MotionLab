@@ -105,16 +105,29 @@ def vertical(p,clock,limit=40,sustain_beats=.75,overlap_beats=.5):
 def note_name(pitch):
     return f'{NAMES[pitch%12]}{pitch//12-1}'
 
-def melody_chord_spans(p, clock, melodies, limit=40):
-    """Compare each performed melodic key interval to every chord it overlaps."""
-    line = harmony.timeline(p, clock.beats_per_bar)
-    if not line or not melodies:
+def harmony_coverage(clock, line):
+    if not line:
+        return {
+            'status': 'missing_chord_map',
+            'message': 'Гармония не проверена: нет карты аккордов',
+        }
+    ends = [beat for beat, _ in line[1:]] + [clock.total_beats]
+    ranges = [
+        {'from': where(clock, start), 'to': where(clock, end),
+         'start_seconds': round(clock.seconds(start), 6), 'end_seconds': round(clock.seconds(end), 6)}
+        for (start, chord), end in zip(line, ends) if chord is None and start < end
+    ]
+    return {'status': 'incomplete_chord_map' if ranges else 'mapped', 'unchecked_ranges': ranges}
+
+
+def melody_chord_spans(clock, line, pitched_parts, limit=40):
+    """Compare performed key intervals to written chords and keep the longest overlaps."""
+    if not line or not pitched_parts:
         return None
-    if line[0][0] > 0:
-        line.insert(0, (0, None))
     boundaries = [beat for beat, _ in line] + [clock.total_beats]
-    result = {'notes': 0, 'unchecked_notes': 0, 'outside_spans': 0, 'examples': []}
-    for track, notes in melodies:
+    result = {'notes': 0, 'unchecked_notes': 0, 'outside_spans': 0}
+    kept = []
+    for track, notes in pitched_parts:
         for n in notes:
             result['notes'] += 1
             on, off = n['tick'] / TPQ, n['end_tick'] / TPQ
@@ -132,15 +145,21 @@ def melody_chord_spans(p, clock, melodies, limit=40):
                     continue
                 if n['pitch'] % 12 not in chord['pcs']:
                     result['outside_spans'] += 1
-                    if len(result['examples']) < limit:
-                        result['examples'].append({
+                    seconds = clock.seconds(start)
+                    duration = round(clock.seconds(end) - seconds, 6)
+                    rank = (duration, -start, -result['outside_spans'])
+                    if limit > 0 and (len(kept) < limit or rank > kept[0][0]):
+                        example = {
                             'track': track, 'id': n['id'], 'note': note_name(n['pitch']),
                             'chord': chord['symbol'], 'at': where(clock, start),
-                            'seconds': round(clock.seconds(start), 6),
+                            'seconds': round(seconds, 6), 'overlap_seconds': duration,
                             'overlap_beats': round(end - start, 6), 'held_into_chord': on < start,
-                        })
+                        }
+                        heapq.heappush(kept, (rank, example))
+                        if len(kept) > limit:
+                            heapq.heappop(kept)
             result['unchecked_notes'] += unchecked
-    result['examples'].sort(key=lambda example: example['seconds'])
+    result['examples'] = [example for _, example in sorted(kept, reverse=True)]
     return result
 
 STEP=2  # semitones: a half or a whole step; anything wider is a leap
@@ -657,12 +676,16 @@ def review(p,out,config=None):
     from . import styles
     lims=styles.limits(p);L=lambda c:lims[c]['params'];ask=lambda c:lims[c]['ask']
     summary['style']=styles.parse(p.get('style'));summary['limits']=styles.summary(lims)
+    chord_line = harmony.timeline(p, clock.beats_per_bar)
+    if chord_line and chord_line[0][0] > 0:
+        chord_line.insert(0, (0, None))
+    summary['harmony_coverage'] = harmony_coverage(clock, chord_line)
     csv_rows=[]
-    melodies=[]
+    pitched_parts=[]
     for t in p['tracks']:
         notes=sorted(t['notes'],key=lambda n:n['on']);actual=performed(t,clock)
-        if actual and t.get('role') in FOREGROUND and not unpitched(t):
-            melodies.append((t['id'], actual))
+        if chord_line and actual and not unpitched(t):
+            pitched_parts.append((t['id'], actual))
         a_by_id={n['id']:n for n in actual};vel=[t['performance']['notes'][n['id']]['velocity'] for n in notes]
         hist=Counter(round(n['duration'],3) for n in notes);interval=[];gaps=[]
         for a,b in zip(actual,actual[1:]):
@@ -691,7 +714,7 @@ def review(p,out,config=None):
             notes=[n for n in t['notes'] if lo<=n['on']<hi]
             if notes:tracks.append(t['id']);roles[t.get('role')]+=len(notes)
         summary['sections'].append({**s,'start_seconds':round(clock.seconds(lo),3),'end_seconds':round(clock.seconds(hi),3),'active_tracks':tracks,'onsets_by_role':dict(roles)})
-    spans=melody_chord_spans(p,clock,melodies)
+    spans=melody_chord_spans(clock,chord_line,pitched_parts)
     if spans is not None:
         summary['melody_chord_spans']=spans
     summary['vertical_minor_seconds_ninths']=v=vertical(p,clock,**L('vertical'))
@@ -830,6 +853,10 @@ def review(p,out,config=None):
     lines=[f'# {p["title"]}', '',p.get('brief',''),'', '| Section | Bars (1-based) | Time | Function |','|---|---:|---:|---|']
     for s in summary['sections']:
         lines.append(f'| {s["id"]} | {s["start_bar"]+1}–{s["start_bar"]+s["bars"]} | {s["start_seconds"]:.1f}–{s["end_seconds"]:.1f}s | {s.get("intent","")} |')
+    from .summary import harmony_coverage_lines
+    coverage_lines = harmony_coverage_lines(summary['harmony_coverage'])
+    if coverage_lines:
+        lines += ['', '## Chord map coverage', '', *coverage_lines]
     lines+=['','## Authored musical decisions','']+[f'- {x}' for x in p.get('decisions',[])]+['','## Review questions','']+['- '+x for x in summary['prompts']]
     lines+=['','Metrics do not establish whether a piece sounds good. Key gaps exclude pedal/release tails. Different durations and more tracks are not quality scores.']
     arrangement='\n'.join(lines)+'\n'
