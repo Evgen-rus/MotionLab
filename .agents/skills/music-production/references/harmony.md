@@ -7,7 +7,53 @@ Read this when choosing chords for a phrase, giving a return new harmony, changi
 - jazz voicings and substitutions in practice: [jazz-and-funk.md](jazz-and-funk.md);
 - the baroque rule of the octave and schemata: [baroque.md](baroque.md).
 
-Contents: [Function and the phrase](#function-and-the-phrase) · [Colour: tonicization and mixture](#colour-tonicization-and-mixture) · [Sequences](#sequences) · [Changing key](#changing-key) · [Reharmonizing a return](#reharmonizing-a-return) · [Developing a motive](#developing-a-motive) · [How much harmony chart songs use](#how-much-harmony-chart-songs-use) · [Sources](#sources)
+Contents: [Write and check the foundation](#write-and-check-the-foundation) · [Function and the phrase](#function-and-the-phrase) · [Colour: tonicization and mixture](#colour-tonicization-and-mixture) · [Sequences](#sequences) · [Changing key](#changing-key) · [Reharmonizing a return](#reharmonizing-a-return) · [Developing a motive](#developing-a-motive) · [How much harmony chart songs use](#how-much-harmony-chart-songs-use) · [Sources](#sources)
+
+## Write and check the foundation
+
+1. Decide what the phrase is moving toward and how it ends. For music led by
+   chords, write their actual changes in `harmony`, including changes within a
+   bar. Choose the bass note for each change, including inversions and pedals
+   where intended. Use the [schema](schema.md#harmony-for-review) for chord
+   symbols and beat positions. Match the amount of harmonic movement to the
+   style. A techno cue can develop over one harmony through bass rhythm and
+   changing texture. A drone can have a pitch centre and no chord changes.
+2. Write one main motif with a recognisable contour and rhythm. Decide where
+   it breathes, returns or changes. Try the melody, bass and accompanying
+   voices together with simple timbres before filling the arrangement. Hold
+   shared chord tones where they support the phrase and move other voices by
+   small intervals when useful. Use `musiclib.voicing.voice_lead` for nearby
+   candidate voicings. Choose the final instruments by style and musical role.
+3. Use `review` with a timed chord map. In `score_review.json`,
+   `melody_chord_spans` counts notes and shows examples of
+   off-chord overlap, including short notes, octave doublings and notes that
+   start inside one chord and continue into another. It compares each MIDI
+   key's pitch class to each chord during the performed key interval. Check
+   the examples at the attack, through the transition and at the resolution.
+   Use `outside_chord` for the existing musical interpretation, `vertical`
+   questions for simultaneous clashes and `notes.csv` for exact note IDs and
+   timing. The report needs a chord map. With partial coverage, it counts any
+   note that could not be checked for its entire duration.
+4. Judge non-chord notes by their function and the genre. A passing tone
+   moves between two stable notes by step. A neighbour moves away by step and
+   returns. A suspension starts as a chord tone, is held into the next chord
+   and resolves by step within it. Check that the destination is stable under
+   the harmony at its own time. An unresolved colour can be intentional in
+   the requested style. Where an extension is part of the harmony, write it
+   into the chord symbol and voice it so it supports the lead.
+5. Correct unwanted tension while the score is still simple. Try a change to
+   the chord, note, octave or release length. For a 4–3 suspension, for
+   example, let A over A/E continue briefly into E7, then step down to G♯.
+   Delay the G♯ in the accompaniment until the melody resolves. If a held
+   note from E7 unintentionally remains over the final A chord, release it
+   sooner or resolve it as part of the cadence. Inspect pedal, synth release,
+   pitch bends, reverb and delays in the affected passage. The chord report
+   covers nominal MIDI pitch from key-on to key-off.
+
+When the function of a note is unclear, return to the examples of passing
+tones, neighbours and suspensions in Open Music Theory. When the piece feels
+like a succession of ideas, use its phrase guide to work out what repeats,
+what changes and where the phrase arrives. [Embellishing tones](https://open-musictheory.github.io/vi/docs/voice-leading-and-model-composition/strict-four-voice-composition/embellishingTones/) · [The Phrase, Archetypes, and Unique Forms](https://viva.pressbooks.pub/openmusictheory/chapter/phrase-archetypes-unique-forms/)
 
 ## Function and the phrase
 

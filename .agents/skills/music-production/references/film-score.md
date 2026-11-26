@@ -74,11 +74,22 @@ Settle these from the request, deciding what it leaves open and saying so:
 
 Film composers work from a timing list of the events the music must meet. These are hit points such as a cut, a gesture or a line (Karlin and Wright 2004).
 
+- **Find the turns before writing the notes.** Start with the music's role
+  and reuse the important events from the brief or `job.json`. Mark the few
+  moments where the phrase should begin, change direction, arrive or end. A
+  short product cue may have only the reveal and the ending as sync points.
+  Plan the phrase that leads into each by working back from the arrival.
+  If a scene has a strict hit, place it on the tempo map. A softer event can
+  land within a small range if that lets the phrase finish naturally. For
+  audio without a picture, choose musical arrival points from the brief.
+  [Berklee Online, Film Scoring Concepts You Need to Know](https://online.berklee.edu/takenote/5-film-scoring-concepts-to-know-for-your-first-movie-score/)
 - **Hit points on the grid.** Convert each hit point to a beat with the tempo map. Choose the tempo, or nudge it by a few BPM between hits, so that the important hits fall on strong beats; do not move the hit. A hit can be a downbeat, an entry, an accent, a chord change or a stop.
 - **Catch some cuts, not all.** Music that marks every cut becomes mechanical, like "Mickey-Mousing". Mark the cuts that change the scene's meaning.
 - **Entering and leaving.**
   - Start under the scene softly (a pad, a held note) so the entry is felt, not heard.
   - End with a button on the cut, or ring out under the next scene's start.
+  - Give the final note or chord enough room to resolve and decay within the
+    requested duration. End a loop by composing the join back into its start.
 - **Under dialogue.** Keep the melody out of the voice's register and out of 1–4 kHz, where speech intelligibility mostly lies ([scene-music.md](scene-music.md)).
   - Keep the texture thin and sustained.
   - Bring in no new instrument under a line.

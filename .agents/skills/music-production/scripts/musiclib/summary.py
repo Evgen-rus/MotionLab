@@ -64,6 +64,12 @@ def review(r, folder, since=None, plan_changed=None):
     if r.get('plan'):
         from .plan import describe as plan_line
         lines.append(plan_line(r['plan']))
+    spans = r.get('melody_chord_spans')
+    if spans is not None:
+        lines.append(f'Melody against chords: {count(spans["notes"], "note")}, '
+                     f'{count(spans["outside_spans"], "off-chord overlap")}, '
+                     f'{spans["unchecked_notes"]} with incomplete chord coverage. '
+                     'See melody_chord_spans in score_review.json.')
     if plan_changed:
         lines.append('The plan no longer says what it first said of: ' + ', '.join(plan_changed[:8])
                      + (f', and {len(plan_changed) - 8} more' if len(plan_changed) > 8 else '')

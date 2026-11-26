@@ -62,25 +62,39 @@ foley generator. A synthetic choir is an instrument, not a human singer.
    music under speech, foreground music, a loop, or individual effects. Record
    these facts and important timed accents beside the composition; no separate
    intake ritual or mandatory checklist.
-2. **Plan and compose.** Read [schema.md](references/schema.md), the relevant
-   style guide, and the sound/mix guidance needed for this cue. Write a hook,
-   supporting harmony and a concise `plan` before filling the arrangement.
-   For speech, keep a less competing lead and leave gaps for important lines.
-   Include the ring-out/fade in the requested total duration. Match specified
-   hit points using the tempo map/sections rather than cutting off the ending.
-   For a normal applied brief, record
-   `"association": {"none": "Composed directly to the video brief and timing."}`.
-   Random words and a story are optional creative tools, not a required step.
-   Give one version for a specific direction; use short alternatives when the
-   user is choosing the direction or requests variants.
+2. **Plan the form, then write the musical foundation.** Read
+   [schema.md](references/schema.md) and the guidance for the requested style.
+   In the existing `plan`, give the theme a place to start, develop and arrive.
+   For picture, choose the few events that change the music's purpose and plan
+   the phrase and ending around them. Leave room for speech and for the
+   ending's decay in the requested duration. See
+   [film-score.md](references/film-score.md#scoring-to-picture).
+   For music with a lead and chords, write the timed `harmony` and bass first,
+   then one main melodic line. Check the foundation with simple timbres before
+   adding layers and effects. Adapt the foundation to the brief for drones,
+   percussion-based music, loops and effects. Follow
+   [harmony.md](references/harmony.md#write-and-check-the-foundation).
+   For an applied brief, `"association": {"none": "Composed directly to the brief and timing."}`
+   is sufficient. Give one version for a specific direction and use short
+   alternatives when the user is choosing a direction or requests variants.
 3. **Author and check.** Use a project JSON and, where useful, a small composition
    script. Keep stable note IDs, authored velocities/gates and phrase shaping;
    `musiclib.expression.apply(..., drift='time')` supports reproducible changes.
    Quantized electronic parts can intentionally stay on the grid. Use
    `mix.chain: "bus"` and `mix.rules: 2` for finished music. Validate without
-   unknown-field warnings and review the score before rendering. Resolve each
-   material review question with a correction or a specific musical decision.
-4. **Render once and inspect.** Make a full render with `render`, without
+   unknown-field warnings and review the score before rendering. With a written
+   chord map, inspect `melody_chord_spans` alongside the usual review questions.
+   Check the actual notes against each chord they cross, especially at phrase
+   endings, chord changes and the final gesture. Keep intentional tension and
+   fix accidental clashes. Check pedal, release and effect tails at these joins
+   separately, using the audio when available.
+4. **Revise from the user's words.** Feedback like “it sounds off” or
+   “негармонично” is enough to begin. Open the existing editable score, locate
+   the suspect moments and try the smallest fix that addresses the cause.
+   Keep the parts of the music the user likes and deliver one corrected WAV
+   by default. Follow
+   [arrangement.md](references/arrangement.md#repair-harmony-in-an-existing-track).
+5. **Render once and inspect.** Make a full render with `render`, without
    `--draft`. Inspect its checks and section levels; use `analyze` when balance,
    density or a transition needs investigation. Passing checks are technical
    evidence, not a listening judgement. If the result passes and needs no
@@ -88,7 +102,7 @@ foley generator. A synthetic choir is an instrument, not a human singer.
    On an actual revision, preserve the previous version, change the relevant
    notes/settings and reuse the cache. `compare` and `round` are available for
    substantial revisions, not compulsory steps for every short cue.
-5. **Deliver audio.** Present the WAV for playback and as a clickable file, with a short
+6. **Deliver audio.** Present the WAV for playback and as a clickable file, with a short
    description of the intended cue and any unresolved limitation. Keep the
    editable source locally. Do not claim to have heard the piece unless audio
    perception actually occurred, and do not wait for user listening merely to

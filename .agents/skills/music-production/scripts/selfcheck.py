@@ -322,6 +322,21 @@ def checks(work,config=None):
         prompts=run_review(q,work/'review_smoothness')['prompts']
         assert sum('melody note on strong positions sits outside the written chord and is not resolved by step' in x for x in prompts)==1,prompts
         assert sum('neither resolved by step nor held as a pedal' in x for x in prompts)==2,prompts
+        # The full span report sees short ornaments and a performed gate that extends into a new chord.
+        chord_map = [{'bar':1,'beat':.25,'symbol':'C'}, {'bar':2,'symbol':'G'}, {'bar':3,'symbol':'C'}]
+        lead_part = part('lead', 'melody', [
+            (0,60,.25), (.5,64,.25), (.75,65,.25), (1,64,.5),
+            (3.5,72,.5), (4.25,71,.65), (7.5,71,.5), (8,67,.5), (9,66,2),
+        ])
+        lead_part['performance']['notes']['lead_4']['gate'] = 1.5
+        q = song([lead_part], chord_map, bars=3)
+        spans = run_review(q, work/'review_melody_chord_spans')['melody_chord_spans']
+        assert spans['notes'] == 9 and spans['unchecked_notes'] == 1 and spans['outside_spans'] == 3, spans
+        assert [(x['id'],x['at'],x['chord'],x['held_into_chord']) for x in spans['examples']] == [
+            ('lead_2','bar 1 beat 1.75','C',False),
+            ('lead_4','bar 2 beat 1','G',True),
+            ('lead_8','bar 3 beat 2','C',False),
+        ], spans
         # A chord restated is not a change: F between G and E stays a passing note under C, C.
         q=song([part('lead','melody',[(0,67,2),(2,65,2),(4,64,4)])],['C',{'bar':1,'beat':3,'symbol':'C'},{'bar':2,'symbol':'Am'}],bars=2)
         assert outside_chord(q,Clock(q))['tracks']=={'lead':{'role':'melody','outside_chord':{'passing':1}}}

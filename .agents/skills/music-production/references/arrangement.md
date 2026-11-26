@@ -2,7 +2,34 @@
 
 Each piece of guidance below names its source. Findings marked "measured here" come from this skill's own test pieces and corpus analyses; they are observations, not general rules.
 
-Contents: [Diagnose the "one finger" complaint](#diagnose-the-one-finger-complaint) · [Form before surface detail](#form-before-surface-detail) · [Melody and harmony](#melody-and-harmony) · [Roles and playability](#roles-and-playability) · [Vertical hygiene across parts](#vertical-hygiene-across-parts) · [Describe the score: studio.py profile](#describe-the-score-studiopy-profile) · [Articulation and sampled instruments](#articulation-and-sampled-instruments) · [Applied evidence from the first corpus](#applied-evidence-from-the-first-corpus) · [Sources](#sources)
+Contents: [Repair harmony in an existing track](#repair-harmony-in-an-existing-track) · [Diagnose the "one finger" complaint](#diagnose-the-one-finger-complaint) · [Form before surface detail](#form-before-surface-detail) · [Melody and harmony](#melody-and-harmony) · [Roles and playability](#roles-and-playability) · [Vertical hygiene across parts](#vertical-hygiene-across-parts) · [Describe the score: studio.py profile](#describe-the-score-studiopy-profile) · [Articulation and sampled instruments](#articulation-and-sampled-instruments) · [Applied evidence from the first corpus](#applied-evidence-from-the-first-corpus) · [Sources](#sources)
+
+## Repair harmony in an existing track
+
+1. Reopen the score and the user's chosen version. “Негармонично,” “что-то
+   режет слух,” or “the ending feels off” is enough to start. Use any listening
+   cue the user gives. A timestamp may help choose between plausible spots
+   after looking at the score. The agent works out the notes and chords.
+2. Inspect the melody, bass and sustained parts together. Start with chord
+   changes, accents, long notes and the ending. Run `validate` and `review`.
+   Use the actual chord map, or reconstruct it from the score if it is missing.
+   For a suspected problem, identify the bar or time, parts and notes. Check
+   what carries across the boundary by ear if available and from the score
+   and stems as appropriate. A chord label alone cannot explain a clashing
+   voicing, a bass that implies a different chord, or an old note ringing
+   through a release, pedal or delay. Review the
+   [foundation procedure](harmony.md#write-and-check-the-foundation) when in doubt.
+3. Preserve the character the user chose. Keep tempo, groove, note timing and
+   the recognisable contour unless one of them is the cause or the user asks
+   for a change. Fix the smallest thing that explains the problem. Revoice
+   the accompaniment over the existing bass, move a pitch or octave, shorten a
+   note or tail, or write a clearer resolution. If the notes work together and
+   the part feels harsh, address the instrument or balance.
+4. Keep the preceding version and save the revised source separately. Check
+   the affected passage and the nearby transitions, then render and inspect
+   the new WAV. Deliver one corrected WAV by default and explain the change in
+   plain language, for example “I cleared the lingering note so the last chord
+   can land.”
 
 ## Diagnose the "one finger" complaint
 

@@ -8,7 +8,7 @@ import math
 from pathlib import Path
 import statistics
 from . import files, harmony
-from .model import Clock, performed, save_json, validate
+from .model import Clock, TPQ, performed, save_json, validate
 
 FOREGROUND = ('melody', 'countermelody')
 NAMES = ('C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B')
@@ -104,6 +104,44 @@ def vertical(p,clock,limit=40,sustain_beats=.75,overlap_beats=.5):
 
 def note_name(pitch):
     return f'{NAMES[pitch%12]}{pitch//12-1}'
+
+def melody_chord_spans(p, clock, melodies, limit=40):
+    """Compare each performed melodic key interval to every chord it overlaps."""
+    line = harmony.timeline(p, clock.beats_per_bar)
+    if not line or not melodies:
+        return None
+    if line[0][0] > 0:
+        line.insert(0, (0, None))
+    boundaries = [beat for beat, _ in line] + [clock.total_beats]
+    result = {'notes': 0, 'unchecked_notes': 0, 'outside_spans': 0, 'examples': []}
+    for track, notes in melodies:
+        for n in notes:
+            result['notes'] += 1
+            on, off = n['tick'] / TPQ, n['end_tick'] / TPQ
+            unchecked = off > clock.total_beats
+            first = bisect.bisect_right(boundaries, on) - 1
+            last = bisect.bisect_left(boundaries, min(off, clock.total_beats))
+            for index in range(first, last):
+                start = max(on, boundaries[index])
+                end = min(off, boundaries[index + 1])
+                if end <= start:
+                    continue
+                chord = line[index][1]
+                if chord is None:
+                    unchecked = True
+                    continue
+                if n['pitch'] % 12 not in chord['pcs']:
+                    result['outside_spans'] += 1
+                    if len(result['examples']) < limit:
+                        result['examples'].append({
+                            'track': track, 'id': n['id'], 'note': note_name(n['pitch']),
+                            'chord': chord['symbol'], 'at': where(clock, start),
+                            'seconds': round(clock.seconds(start), 6),
+                            'overlap_beats': round(end - start, 6), 'held_into_chord': on < start,
+                        })
+            result['unchecked_notes'] += unchecked
+    result['examples'].sort(key=lambda example: example['seconds'])
+    return result
 
 STEP=2  # semitones: a half or a whole step; anything wider is a leap
 MOTION={None:'a rest',0:'held or repeated',1:'step up',-1:'step down',2:'leap up',-2:'leap down'}
@@ -620,8 +658,11 @@ def review(p,out,config=None):
     lims=styles.limits(p);L=lambda c:lims[c]['params'];ask=lambda c:lims[c]['ask']
     summary['style']=styles.parse(p.get('style'));summary['limits']=styles.summary(lims)
     csv_rows=[]
+    melodies=[]
     for t in p['tracks']:
         notes=sorted(t['notes'],key=lambda n:n['on']);actual=performed(t,clock)
+        if actual and t.get('role') in FOREGROUND and not unpitched(t):
+            melodies.append((t['id'], actual))
         a_by_id={n['id']:n for n in actual};vel=[t['performance']['notes'][n['id']]['velocity'] for n in notes]
         hist=Counter(round(n['duration'],3) for n in notes);interval=[];gaps=[]
         for a,b in zip(actual,actual[1:]):
@@ -650,6 +691,9 @@ def review(p,out,config=None):
             notes=[n for n in t['notes'] if lo<=n['on']<hi]
             if notes:tracks.append(t['id']);roles[t.get('role')]+=len(notes)
         summary['sections'].append({**s,'start_seconds':round(clock.seconds(lo),3),'end_seconds':round(clock.seconds(hi),3),'active_tracks':tracks,'onsets_by_role':dict(roles)})
+    spans=melody_chord_spans(p,clock,melodies)
+    if spans is not None:
+        summary['melody_chord_spans']=spans
     summary['vertical_minor_seconds_ninths']=v=vertical(p,clock,**L('vertical'))
     if v['count'] and ask('vertical'):
         put('vertical',f'{v["count"]} sustained minor-second/ninth collisions ({v["foreground_count"]} touch the foreground); most between {next(iter(v["by_parts"]))}. Check whether each is a prepared tension or an accidental voicing.')
