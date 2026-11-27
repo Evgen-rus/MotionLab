@@ -118,7 +118,7 @@ Preview manifest JSON (scene paths relative to manifest file; absolute paths acc
 
 `node "<skill>/scripts/preview.mjs" --in <manifest.json> --out "projects/Пролёт по коридору/версии/01/превью-01"`
 
-Renders 1–3 actual stills per view, 1–3 views. Creates contact-sheet.png (A/B/C, preserving proportions), index.html gallery, preview.json and child вариант-1/ etc. with PNGs. Open gallery locally and embed PNGs in chat; inspect them first. No MP4 is rendered. For storyboard use a single selected source with times covering 2–3 meaningful phases. A time must be >=0 and less than scene duration. Preview approval metadata starts pending; the agent records the actual user's decision in job.json.
+Renders 1–3 actual stills per view, 1–3 views. Creates contact-sheet.png with the first frame of each view (A/B/C, preserving proportions), index.html with every frame, preview.json and child вариант-1/ etc. with PNGs. Open gallery locally and embed PNGs in chat; inspect them first. No MP4 is rendered. For storyboard use a single selected source with times covering 2–3 meaningful phases. A time must be >=0 and less than scene duration. Preview approval metadata starts pending; the agent records the actual user's decision in job.json.
 
 Single-scene stills are also available: `node "<skill>/scripts/render.mjs" --in <scene.html> --out "projects/Пролёт по коридору/версии/01/кадры-01" --stills 0.3,0.8,1.8`.
 

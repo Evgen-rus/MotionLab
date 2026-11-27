@@ -26,6 +26,8 @@ Contents: [The project](#the-project) · [The mix](#the-mix) · [Game loops](#ga
 
 `clock.tempo` is a step map of [beat, quarter-note BPM] points starting at beat 0. Optional `clock.rubato` shapes it as played: `{"final_ratio": 0.6, "final_beats": 4, "phrase_ratio": 0.94, "phrase_beats": 1, "q": 2}`. The last `final_beats` slow to `final_ratio` of the written tempo along Friberg and Sundberg's (1999) final-ritardando curve (q = 2 a steady braking force, 3 softer), and the last `phrase_beats` before each section boundary ease to `phrase_ratio` and come back at its downbeat. Optional `spans`, `[[from_beat, to_beat, ratio], ...]`, lay further slowings along the same curve, each easing to `ratio` at `to_beat` and back at it; `excerpt.py` writes them so that a passage keeps the piece's ritardandi, which may begin before its first beat or end after its last. MIDI export, audio and every measurement share the played map; the project keeps the written one.
 
+`clock.tail_seconds` accepts 1–15 seconds and defaults to 5. For a short cue, count this tail in the target duration when choosing the bars and tempo.
+
 `tracks` must contain 1–64 entries. Sections must cover the entire form without gaps. The fixed meter denominator may be 2, 4, 8 or 16. Tempo must begin at beat zero, be strictly increasing in time and stay within 30–300 quarter-note BPM. For 6/8 with dotted-quarter pulse 66, use quarter-note BPM 99. The bounds are 512 bars, 500,000 notes and 30 minutes; these are resource limits, not compositional targets.
 
 ## The mix

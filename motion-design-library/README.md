@@ -9,6 +9,8 @@
 | [3D](3d.md) | 30–36 |
 | [Camera & Post](camera.md) | 37–40 |
 
+Для объясняющих роликов доступны [дополнительные 2D-рецепты](explainers.md) по схемам, графикам, меткам событий и анимации кода.
+
 Названия сохранены из [Scenario Motion Design Library](https://github.com/scenario-labs/skills/blob/6e4a6f00939102bdccbf7d34a7fa8a3e2d22c8c6/skills/scenario-kinetic-music-video/references/motion_library.md). Снимок commit `6e4a6f00939102bdccbf7d34a7fa8a3e2d22c8c6` — [upstream/motion_library.md](upstream/motion_library.md), исходная [MIT-лицензия © 2026 Scenario Inc.](upstream/LICENSE). Русские алгоритмы — адаптация для MotionLab; числа исходника приведены отдельно. Остальные рекомендации upstream не являются правилами MotionLab.
 
 ## Как использовать
