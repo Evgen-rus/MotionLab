@@ -16,7 +16,11 @@ Audience is required: obtain an explicit user answer before designing, or reuse 
 
 Do not invent an offer, target-audience pain, product claim or CTA. For a non-marketing piece, use its actual communication goal instead of forcing a sales framework. Show actual visual/audio samples at their later selection stages. Save purpose/audience/content/format in job.brief, plus message, CTA, constraints and requested outputs; a blank or inferred audience is not ready for production. Bring all answers forward into final confirmation, including deliberately omitted sound or CTA.
 
+When the brief or references suggest 3D and its role is open, ask which shot should use depth and what it should reveal. Offer a concrete choice in the user's language, such as «Показать форму объекта в облёте или оставить этот кадр графическим?». If the user wants 3D and the object is unspecified, ask what to model and whether an existing model or visual reference is available. Reuse explicit answers and skip these questions for a clearly 2D brief.
+
 Show three actual previews for unresolved creative decisions, labelled A/B/C, each with a name and 1–2 plain sentences, and recommend one with a reason. Use preview.mjs for a contact-sheet.png; inspect it and embed the absolute image path in chat. Link the gallery and full-size individual PNGs. Accept combinations, three new choices or delegated selection. Do not make images for questions where they add nothing. Do not render full videos for choices.
+
+If 3D is in scope, show the relevant reference still alongside an actual Three.js preview of the proposed shot. If no reference was supplied, show the authored preview as the visual example. Compare 2D and 3D versions of the same beat in the existing design options when the choice is open. In the chosen storyboard, use two points of the orbit or reveal to show the change in perspective, light and reflections alongside readable 2D overlays. Record the agreed use of 3D and its reference in the existing brief and storyboard summary.
 
 Show three appropriate aspect ratios as honest frames with the intended copy inside; offer other ratios optionally. Telegram channel posts do not imply vertical Stories. HD vs Full HD is a size/clarity/speed decision, not a fake stylistic difference:
 
