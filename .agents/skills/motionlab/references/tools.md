@@ -80,6 +80,18 @@ Retain the original voice and a separate voice-only WAV positioned on the final 
 
 The read-only check decodes local inputs with FFmpeg (up to 120 seconds), rejects silent original/aligned voice, and checks correlation ≥0.5 with the final audio in each active one-second window. It rejects missing, heavily masked, misaligned or cut voice intervals with exit code 1; fix the mix instead of marking the video delivered. Keep final voice alignment/gain consistent; this numerical check does not verify words, that the aligned stem contains every original word, pronunciation, or aesthetic quality. Check those against the approved text and listen when possible; disclose unavailable listening. Record the command/result and limitations in existing job.audio metadata, without separate verification logs. No new API or graphics render is needed.
 
+For event-based mixing and measured speech bars see the optional project [sound cue examples](../../../../motion-design-library/commercial-shots.md#звук-по-меткам-сцены). Rebuild the mix and scene timing module from the same plan after moving an event.
+
+### Scene and export verification
+
+`node "<skill>/scripts/render.mjs" --in scene.html --out "projects/Название/проверка-01" --stills 1.3,5.2,1.3 --qa yes`
+
+Use an A → B → A order. The ordinary PNGs and `qa.json` record capture, identical repeated frames, annotated geometry and resource failures. Mark essential elements with `data-qa-safe` for a 4% short-edge margin, or set `data-qa-safe="24"` for 24 px. Mark boxes that should stay apart with the same `data-qa-disjoint` group. Use reading holds and samples on each side of a cut. Geometry evaluates annotated visible DOM; visually review contrast, reading time, 3D and pixels inside canvas. Exit 0 means passed, 1 means a known problem, and 2 means a missing or incomplete check.
+
+`node "<skill>/scripts/check-video.mjs" --in "projects/Название/готовое/ролик.mp4"`
+
+This decodes every frame of a short export and lists almost-black frames and large single-frame luminance jumps. Frame numbers start at one. Inspect each flagged frame and its neighbors in context. Contrast, color-only flashes, small defects and the intent of cuts need visual review. The command uses the same passed/problem/not-run exit codes as still QA. Continue to verify container details with ffprobe and voices with `check-audio.mjs`.
+
 ## Simple synthetic sketches
 
 Keep `synth_audio.py` for explicitly selected simple sketches and basic synthetic cues; use the music skill above for original compositions. The prepared local audio Python already supplies NumPy, so use `<audio-skill>/.venv/Scripts/python.exe` without pip or another environment. No SciPy or external API is needed. This sketch uses simple NumPy noise differentiation, oscillators and envelopes; synthetic timbres are approximations.

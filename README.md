@@ -9,6 +9,7 @@
 - [Музыка и эффекты](.agents/skills/music-production/SKILL.md) — оригинальная музыка, синтетические переходы и WAV.
 - [Установка аудио и инструментов](.agents/skills/music-production/references/setup.md) — подготовка отсутствующего окружения по закреплённым зависимостям. Существующее рабочее окружение сохраняй.
 - [Библиотека движения](motion-design-library/README.md) — необязательные рецепты приёмов для агента.
+- [Постановка продуктовых сцен](motion-design-library/commercial-shots.md) — исполняемые приёмы для интерфейса, 3D, склеек и речи.
 - [PRODUCT.md](PRODUCT.md) и [DESIGN.md](DESIGN.md) — продуктовый и визуальный контекст Workbench.
 - [Происхождение компонентов](.agents/skills/motionlab/NOTICE.md) и [лицензии аудио](.agents/skills/music-production/references/sources-and-rights.md) — условия использования зависимостей.
 
